@@ -47,7 +47,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
 		this.font = new me.BitmapFont("32x32_font", 32);
         this.font.set("left");
 		
-		// local copy of the global score
+
 		this.score = -1;
 
 		// make sure we use screen coordinates

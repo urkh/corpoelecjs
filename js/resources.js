@@ -34,6 +34,8 @@ game.resources = [
     {name:"background_e05", type:"image", src:"data/escena_05/img/background_e05.png"},
     {name:"escena_05", type:"tmx", src:"data/escena_05/escena_05.tmx"},
 
+    {name:"pila", type:"image", src:"data/escena_05/img/pila.png"},
+
 
 
     {name:"32x32_font", type:"image", src:"data/img/font/32x32_font.png"},
