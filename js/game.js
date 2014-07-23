@@ -35,23 +35,29 @@ var game = {
         //me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
+        //01
         me.pool.register("puerta_principal", game.PuertaPrincipal);
         me.pool.register("nube_01", game.Nube1);
         me.pool.register("nube_02", game.Nube2);
 
-
+        //02
         me.pool.register("tv_plano", game.TvPlano);
         me.pool.register("radio_r", game.RadioR);
         me.pool.register("bom_ahorrador", game.BomAhorrador);
 
-
+        //03
         me.pool.register("nevera", game.Nevera);
         me.pool.register("puerta_lavandero", game.PuertaLavandero);
       
+        //04
         me.pool.register("lavadora", game.Lavadora);
         me.pool.register("secadora", game.Secadora);
-
+        
+        //05
         me.pool.register("computadora", game.Computadora);
+        me.pool.register("lampara", game.Lampara);
+        me.pool.register("lampara2", game.Lampara2);
+        me.pool.register("bom_normal", game.BomNormal);
 
         me.state.transition("fade","#000000", 250);
 

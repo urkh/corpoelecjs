@@ -5,18 +5,19 @@ game.Computadora= me.ObjectEntity.extend({
         this.parent(x, y, settings);
         this.renderable.addAnimation("pc1_apagada", [0]);
         this.renderable.addAnimation("pc1_prendida", [1]);
-        this.renderable.setCurrentAnimation("pc1_apagada");
+        this.renderable.addAnimation("pc2_apagada", [4]);
+        this.renderable.addAnimation("pc2_prendida", [5]);
+        this.renderable.setCurrentAnimation("pc1_prendida");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
 
-
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("pc1_apagada")){
-            this.renderable.setCurrentAnimation("pc1_prendida");
+        if(this.renderable.isCurrentAnimation("pc1_prendida")){
+            this.renderable.setCurrentAnimation("pc2_prendida");
         }else{
-            this.renderable.setCurrentAnimation("pc1_apagada");
+            this.renderable.setCurrentAnimation("pc1_prendida");
         }
 
         game.data.score += 50;
@@ -35,4 +36,113 @@ game.Computadora= me.ObjectEntity.extend({
 
 });
 
+
+
+game.Lampara = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("lamp_apa", [13]);
+        this.renderable.addAnimation("lamp_pren", [12]);
+        this.renderable.setCurrentAnimation("lamp_apa");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+
+    onMouseDown : function() {
+
+        if(this.renderable.isCurrentAnimation("lamp_apa")){
+            this.renderable.setCurrentAnimation("lamp_pren");
+        }else{
+            this.renderable.setCurrentAnimation("lamp_apa");
+        }
+
+        game.data.score += 50;
+
+        console.log("lampara");
+        return false;
+    
+    },
+
+
+
+});
+
+
+
+
+game.Lampara2 = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("lampara2", [0]);
+        this.renderable.setCurrentAnimation("lampara2");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+
+    onMouseDown : function() {
+
+        game.data.score += 50;
+
+        console.log("lampara2");
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+
+
+});
+
+
+
+
+game.BomNormal = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("bom_apagado", [9]);
+        this.renderable.addAnimation("bom_prendido", [8]);
+        this.renderable.setCurrentAnimation("bom_apagado");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+
+    onMouseDown : function() {
+
+
+        if(this.renderable.isCurrentAnimation("bom_apagado")){
+            this.renderable.setCurrentAnimation("bom_prendido");
+        }else{
+            this.renderable.setCurrentAnimation("bom_apagado");
+        }
+
+        game.data.score += 50;
+
+        console.log("bombillo normal");
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+
+
+});
 

@@ -31,6 +31,7 @@ game.resources = [
 
 
     {name:"computadora", type:"image", src:"data/escena_05/img/computadora.png"},
+    {name:"accesorios", type:"image", src:"data/escena_05/img/accesorios.png"},
     {name:"background_e05", type:"image", src:"data/escena_05/img/background_e05.png"},
     {name:"escena_05", type:"tmx", src:"data/escena_05/escena_05.tmx"},
 
