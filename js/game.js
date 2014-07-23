@@ -59,6 +59,10 @@ var game = {
         me.pool.register("lampara2", game.Lampara2);
         me.pool.register("bom_normal", game.BomNormal);
 
+        //06
+        me.pool.register("calentador", game.Calentador);
+        me.pool.register("ducha", game.Ducha);
+
         me.state.transition("fade","#000000", 250);
 
 

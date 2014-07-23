@@ -31,9 +31,15 @@ game.resources = [
 
 
     {name:"computadora", type:"image", src:"data/escena_05/img/computadora.png"},
-    {name:"accesorios", type:"image", src:"data/escena_05/img/accesorios.png"},
+    {name:"accesorios_e05", type:"image", src:"data/escena_05/img/accesorios_e05.png"},
     {name:"background_e05", type:"image", src:"data/escena_05/img/background_e05.png"},
     {name:"escena_05", type:"tmx", src:"data/escena_05/escena_05.tmx"},
+
+
+    {name:"calentador", type:"image", src:"data/escena_06/img/calentador.png"},
+    {name:"accesorios_e06", type:"image", src:"data/escena_06/img/accesorios_e06.png"},
+    {name:"background_e06", type:"image", src:"data/escena_06/img/background_e06.png"},
+    {name:"escena_06", type:"tmx", src:"data/escena_06/escena_06.tmx"},
 
     {name:"pila", type:"image", src:"data/escena_05/img/pila.png"},
 
