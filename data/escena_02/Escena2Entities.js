@@ -117,11 +117,11 @@ game.RadioR = me.ObjectEntity.extend({
        
         if(this.renderable.isCurrentAnimation("radio_off")){
             game.data.score += 50;
-            me.audio.play("dream_t");
+            me.audio.play("cancion");
             this.renderable.setCurrentAnimation("radio_on");
         }else{
             game.data.score -= 50;
-            me.audio.pause("dream_t");
+            me.audio.pause("cancion");
             this.renderable.setCurrentAnimation("radio_off");
         }
 
@@ -154,7 +154,7 @@ game.PuertaCuarto = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.audio.stop("dream_t");
+        me.audio.stop("cancion");
         me.levelDirector.loadLevel("escena_05");
         return false;
     
@@ -191,7 +191,7 @@ game.EntrarCocina = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.audio.stop("dream_t");
+        me.audio.stop("cancion");
         me.levelDirector.loadLevel("escena_03");
         return false;
     
