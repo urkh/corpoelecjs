@@ -2,7 +2,7 @@ game.PlayScreen = me.ScreenObject.extend({
 
     onResetEvent: function(){
     
-        me.levelDirector.loadLevel("escena_06");
+        me.levelDirector.loadLevel("escena_01");
         //me.audio.playTrack("overworld");
 
         game.data.score = 0;

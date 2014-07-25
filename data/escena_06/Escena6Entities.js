@@ -18,8 +18,6 @@ game.Calentador = me.ObjectEntity.extend({
             this.renderable.setCurrentAnimation("cal_peq");
         }
 
-        game.data.score += 50;
-
         console.log("calentador");
         return false;
     
@@ -51,14 +49,46 @@ game.Ducha = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("ducha_corona")){
+            game.data.score -= 50;
             this.renderable.setCurrentAnimation("ducha_normal");
         }else{
             this.renderable.setCurrentAnimation("ducha_corona");
+            game.data.score += 50;
         }
 
-        game.data.score += 50;
+        
 
         console.log("ducha");
+        return false;
+    
+    },
+  
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+
+
+
+
+game.SalirBano = me.ObjectEntity.extend({
+
+    init: function(x,y,settings){
+
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("salir_bano", [3]);
+        this.renderable.setCurrentAnimation("salir_bano");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        
+    },
+
+    onMouseDown : function() {
+
+        me.levelDirector.loadLevel("escena_05");
         return false;
     
     },

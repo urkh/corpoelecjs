@@ -15,12 +15,14 @@ game.Computadora= me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("pc1_prendida")){
+            game.data.score += 50;
             this.renderable.setCurrentAnimation("pc2_prendida");
         }else{
+            game.data.score -= 50;
             this.renderable.setCurrentAnimation("pc1_prendida");
         }
 
-        game.data.score += 50;
+        
 
         console.log("computadora");
         return false;
@@ -132,6 +134,68 @@ game.BomNormal = me.ObjectEntity.extend({
         game.data.score += 50;
 
         console.log("bombillo normal");
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+
+
+});
+
+
+
+
+game.EntrarBano = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("entrar_bano", [0]);
+        this.renderable.setCurrentAnimation("entrar_bano");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+
+    onMouseDown : function() {
+
+        me.levelDirector.loadLevel("escena_06");
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+
+
+});
+
+game.SalirCuarto = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("salir_cuarto", [6]);
+        this.renderable.setCurrentAnimation("salir_cuarto");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+
+    onMouseDown : function() {
+
+        me.levelDirector.loadLevel("escena_02");
+
         return false;
     
     },

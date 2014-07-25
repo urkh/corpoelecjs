@@ -29,4 +29,13 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="salir_lavandero" width="32" height="20">
+  <object name="salir_lavandero" x="904" y="98" width="56" height="71">
+   <properties>
+    <property name="image" value="flechas"/>
+    <property name="spriteheight" value="64"/>
+    <property name="spritewidth" value="96"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

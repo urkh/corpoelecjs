@@ -1,4 +1,4 @@
-game.PuertaPrincipal = me.ObjectEntity.extend({
+game.Inicio = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
 
@@ -27,26 +27,3 @@ game.PuertaPrincipal = me.ObjectEntity.extend({
 });
 
 
-game.Nube1 = me.ObjectEntity.extend({
-
-    init: function(x,y,settings){
-
-        this.parent(x, y, settings);
-        this.type = me.game.ACTION_OBJECT;
-        
-    }
-
-
-});
-
-game.Nube2= me.ObjectEntity.extend({
-
-    init: function(x,y,settings){
-
-        this.parent(x, y, settings);
-        this.type = me.game.ACTION_OBJECT;
-        
-    }
-
-
-});

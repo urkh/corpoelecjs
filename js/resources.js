@@ -1,24 +1,23 @@
 game.resources = [
 
 
-    {name:"puerta_principal", type:"image", src:"data/escena_01/img/puerta_principal.png"},
-    {name:"nube_01", type:"image", src:"data/escena_01/img/nube_01.png"},
-    {name:"nube_02", type:"image", src:"data/escena_01/img/nube_02.png"},
+    {name:"inicio", type:"image", src:"data/escena_01/img/inicio.png"},
     {name:"background_e01", type:"image", src:"data/escena_01/img/background_e01.png"},
     {name:"escena_01", type:"tmx", src:"data/escena_01/escena_01.tmx"},
 
 
 
-    {name:"tv_plano", type:"image", src:"data/escena_02/img/tv_plano.png"},
-    {name:"radio_r", type:"image", src:"data/escena_02/img/radio.png"},
-    {name:"bom_ahorrador", type:"image", src:"data/escena_02/img/bom_ahorrador.png"},
+    {name:"televisor", type:"image", src:"data/escena_02/img/televisor.png"},
+    {name:"puerta_cuarto", type:"image", src:"data/escena_02/img/puerta_cuarto.png"},
+    {name:"mesa", type:"image", src:"data/escena_02/img/mesa.png"},
+    {name:"radio_r", type:"image", src:"data/escena_02/img/radio_r.png"},
+    {name:"bombillo_e2", type:"image", src:"data/escena_02/img/bombillo.png"},
     {name:"background_e02", type:"image", src:"data/escena_02/img/background_e02.png"},
     {name:"escena_02", type:"tmx", src:"data/escena_02/escena_02.tmx"},
 
 
 
     {name:"nevera", type:"image", src:"data/escena_03/img/nevera.png"},
-    {name:"puerta_lavandero", type:"image", src:"data/escena_03/img/puerta_lavandero.png"},
     {name:"background_e03", type:"image", src:"data/escena_03/img/background_e03.png"},
     {name:"escena_03", type:"tmx", src:"data/escena_03/escena_03.tmx"},
 
@@ -41,11 +40,13 @@ game.resources = [
     {name:"background_e06", type:"image", src:"data/escena_06/img/background_e06.png"},
     {name:"escena_06", type:"tmx", src:"data/escena_06/escena_06.tmx"},
 
-    {name:"pila", type:"image", src:"data/escena_05/img/pila.png"},
+    {name:"flechas", type:"image", src:"data/img/flechas.png"},
+    {name:"pila", type:"image", src:"data/img/pila.png"},
 
 
 
     {name:"32x32_font", type:"image", src:"data/img/font/32x32_font.png"},
+    {name: "dream_t", type:"audio", src:"data/sound/", channel:"2"},
 
 
 ];
