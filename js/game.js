@@ -71,6 +71,10 @@ var game = {
         me.state.transition("fade","#000000", 250);
 
 
+        me.input.bindKey(me.input.KEY.Z, "prender", true, false);
+        me.input.bindPointer(me.input.mouse.RIGHT, me.input.KEY.Z);
+
+
         me.state.change(me.state.PLAY);
     
     }

@@ -1,0 +1,96 @@
+consumos = {
+
+    "bom_ahorrador": {
+        "kw":35,
+        "bs":10
+
+    },
+
+    "bom_normal": {
+        "kw":35,
+        "bs":10
+
+    },
+
+    "tv1": {
+    	"kw": 10,
+    	"bs": 12
+
+    },
+
+    "tv2": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+    "tv3": {
+        "kw": 10,
+        "bs": 12
+    },
+
+    "radio_r": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+    "lavadora": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+    "secadora": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+    "nevera": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+    "microondas": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+    "pc1": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+     "pc2": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+
+    "calentador1": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+
+    "calentador2": {
+        "kw": 10,
+        "bs": 12
+
+    },
+
+
+    "ducha": {
+        "kw": 10,
+        "bs": 12
+
+    }
+
+
+}

@@ -193,6 +193,7 @@ game.EntrarCocina = me.ObjectEntity.extend({
         this.parent(x, y, settings);
 
         this.renderable.addAnimation("entrar_cocina",[6]);
+        this.renderable.setCurrentAnimation("entrar_cocina");
 
 
 

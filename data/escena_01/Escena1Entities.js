@@ -4,14 +4,15 @@ game.Inicio = me.ObjectEntity.extend({
 
         this.parent(x, y, settings);
 
-        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), true);
         
     },
 
 
+
 	onMouseDown : function() {
 
-		
+
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
@@ -28,7 +29,7 @@ game.Inicio = me.ObjectEntity.extend({
   
 
     update: function(dt){
-
+     
         return this.parent(dt);
         
     },
