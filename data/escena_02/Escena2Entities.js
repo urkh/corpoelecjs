@@ -12,11 +12,11 @@ game.Televisor = me.ObjectEntity.extend({
         this.renderable.addAnimation("tv3_on", [5]);
         this.renderable.setCurrentAnimation("tv1_off");
 
-
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
 
+   
 
     onMouseDown : function() {
 
@@ -155,7 +155,18 @@ game.PuertaCuarto = me.ObjectEntity.extend({
 
     onMouseDown : function() {
         me.audio.stop("cancion");
-        me.levelDirector.loadLevel("escena_05");
+
+        me.game.viewport.fadeIn("#000000", 450, 
+
+            (function (){
+
+                me.levelDirector.loadLevel("escena_05");
+
+            })
+
+        );
+
+        
         return false;
     
     },
@@ -182,17 +193,34 @@ game.EntrarCocina = me.ObjectEntity.extend({
         this.parent(x, y, settings);
 
         this.renderable.addAnimation("entrar_cocina",[6]);
-        this.renderable.setCurrentAnimation("entrar_cocina");
+
 
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+       // me.input.registerPointerEvent('pointermove', this, this.onMouseMove.bind(this), false);
         
     },
 
 
+/*
+    onMouseMove: function(){
+    
+        this.renderable.setCurrentAnimation("entrar_cocina");
+    },
+
+    */
+
     onMouseDown : function() {
         me.audio.stop("cancion");
-        me.levelDirector.loadLevel("escena_03");
+        me.game.viewport.fadeIn("#000000", 450, 
+
+            (function (){
+
+                me.levelDirector.loadLevel("escena_03");
+
+            })
+
+        );
         return false;
     
     },

@@ -11,7 +11,16 @@ game.EntrarLavandero= me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.levelDirector.loadLevel("escena_04");
+
+        me.game.viewport.fadeIn("#000000", 450, 
+
+            (function (){
+
+                me.levelDirector.loadLevel("escena_04");
+
+            })
+
+        );
         return false;
     
     },
@@ -38,7 +47,15 @@ game.SalirCocina = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.levelDirector.loadLevel("escena_02");
+        me.game.viewport.fadeIn("#000000", 450, 
+
+            (function (){
+
+                me.levelDirector.loadLevel("escena_02");
+
+            })
+
+        );        
         return false;
     
     },

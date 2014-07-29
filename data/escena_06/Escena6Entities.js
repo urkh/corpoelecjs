@@ -88,7 +88,15 @@ game.SalirBano = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        me.levelDirector.loadLevel("escena_05");
+        me.game.viewport.fadeIn("#000000", 450, 
+
+            (function (){
+
+                me.levelDirector.loadLevel("escena_05");
+
+            })
+
+        );
         return false;
     
     },
