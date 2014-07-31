@@ -84,7 +84,20 @@ game.Nevera = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        console.log("nevera");
+        if(!flags.nevera){
+                $('#tabla').DataTable().row.add([
+                    consumos.nevera.id,
+                    "Nevera",
+                    "<input type='number' value='1'>",
+                    "<input type='number' value='1'> H/s",
+                    "<input type='number' value="+consumos.nevera.kw+"> W",
+                    '--',
+                    "--"
+                ]).draw();
+
+                flags.nevera = true;
+
+        }
 
         return false;
     

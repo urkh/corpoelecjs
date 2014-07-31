@@ -13,8 +13,40 @@ game.Calentador = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("cal_peq")){
+
+            if(!flags.calentador1){
+                $('#tabla').DataTable().row.add([
+                    consumos.calentador1.id,
+                    "Calentador 1",
+                    "<input type='number' value='1'>",
+                    "<input type='number' value='1'> H/s",
+                    "<input type='number' value="+consumos.calentador1.kw+"> W",
+                    '--',
+                    "--"
+                ]).draw();
+
+                flags.calentador1 = true;
+
+            }
+
             this.renderable.setCurrentAnimation("cal_grande");
         }else{
+
+            if(!flags.calentador2){
+                $('#tabla').DataTable().row.add([
+                    consumos.calentador2.id,
+                    "Calentador 2",
+                    "<input type='number' value='1'>",
+                    "<input type='number' value='1'> H/s",
+                    "<input type='number' value="+consumos.calentador2.kw+"> W",
+                    '--',
+                    "--"
+                ]).draw();
+
+                flags.calentador2 = true;
+
+            }
+
             this.renderable.setCurrentAnimation("cal_peq");
         }
 
@@ -52,6 +84,22 @@ game.Ducha = me.ObjectEntity.extend({
             game.data.score -= 50;
             this.renderable.setCurrentAnimation("ducha_normal");
         }else{
+
+            if(!flags.ducha_corona){
+                $('#tabla').DataTable().row.add([
+                    consumos.ducha_corona.id,
+                    "Ducha Electrica",
+                    "<input type='number' value='1'>",
+                    "<input type='number' value='1'> H/s",
+                    "<input type='number' value="+consumos.ducha_corona.kw+"> W",
+                    '--',
+                    "--"
+                ]).draw();
+
+                flags.ducha_corona = true;
+
+            }
+
             this.renderable.setCurrentAnimation("ducha_corona");
             game.data.score += 50;
         }

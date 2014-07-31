@@ -15,16 +15,44 @@ game.Computadora= me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("pc1_prendida")){
-            game.data.score += 50;
+
+            if(!flags.pc2){
+                $('#tabla').DataTable().row.add([
+                    consumos.pc2.id,
+                    "PC2",
+                    "<input type='number' value='1'>",
+                    "<input type='number' value='1'> H/s",
+                    "<input type='number' value="+consumos.pc2.kw+"> W",
+                    '--',
+                    "--"
+                ]).draw();
+
+                flags.pc2 = true;
+
+            }
+
             this.renderable.setCurrentAnimation("pc2_prendida");
+
         }else{
-            game.data.score -= 50;
+
+            if(!flags.pc1){
+                $('#tabla').DataTable().row.add([
+                    consumos.pc1.id,
+                    "PC1",
+                    "<input type='number' value='1'>",
+                    "<input type='number' value='1'> H/s",
+                    "<input type='number' value="+consumos.pc1.kw+"> W",
+                    '--',
+                    "--"
+                ]).draw();
+
+                flags.pc1 = true;
+
+            }
+            
             this.renderable.setCurrentAnimation("pc1_prendida");
         }
 
-        
-
-        console.log("computadora");
         return false;
     
     },
@@ -61,9 +89,6 @@ game.Lampara = me.ObjectEntity.extend({
             this.renderable.setCurrentAnimation("lamp_apa");
         }
 
-        game.data.score += 50;
-
-        console.log("lampara");
         return false;
     
     },

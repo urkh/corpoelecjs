@@ -6,33 +6,49 @@
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="lib/dataTables/css/jquery.dataTables.min.css">
+		<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="lib/dataTables/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="js/tabla.js"></script>
+
+	
 	</head>
 	<body>
 		<div id="juego" align="center"></div>
 		<div id="tabla_consumos" align="center">
 			
-			<table id="tabla_detalles" border="1">
+			<table id="tabla" class="display" cellspacing="0" width="80%">
 				<thead>
-					<th>Cantidad</th>
-					<th>Factor Consumo</th>
-					<th>Frecuencia</th>
-					<th>Potencia (w)</th>
-					<th>H (Mensual)</th>
-					<th>Consumo / Mes</th>
+					<tr>
+						<th>ID</th>
+						<th>Electrodomestico</th>
+						<th>Cantidad</th>
+						<th>Frecuencia / Uso</th>
+						<th>Potencia (w)</th>
+						<th>H (Mensual)</th>
+						<th>Consumo / Mes</th>
+					</tr>
 				</thead>
-				<tbody>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+				<tbody align="center">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 				</tbody>
 				
-
 			</table>
 
+
 		</div>
+
+					<button id="eliminar">Eliminar</button>
+
+
 
 
 
@@ -58,6 +74,9 @@
 		<script type="text/javascript" src="js/title.js"></script>
 		<script type="text/javascript" src="js/play.js"></script>
 		<script type="text/javascript" src="js/consumos.json"></script>
+
+
+		
 
 
 

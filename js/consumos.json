@@ -1,96 +1,127 @@
 consumos = {
 
     "bom_ahorrador": {
-        "kw":35,
+        "id": "bom_ahorrador",
+        "kw":10,
         "bs":10
 
     },
 
     "bom_normal": {
-        "kw":35,
+        "id": "bom_normal",
+        "kw":100,
         "bs":10
 
     },
 
     "tv1": {
-    	"kw": 10,
+        "id":"tv1",
+    	"kw": 120,
     	"bs": 12
 
     },
 
     "tv2": {
-        "kw": 10,
+        "id":"tv2",
+        "kw": 150,
         "bs": 12
 
     },
 
     "tv3": {
-        "kw": 10,
+        "id":"tv3",
+        "kw": 180,
         "bs": 12
     },
 
     "radio_r": {
-        "kw": 10,
+        "id": "radio_r",
+        "kw": 80,
         "bs": 12
 
     },
 
     "lavadora": {
-        "kw": 10,
+        "id": "lavadora",
+        "kw": 230,
         "bs": 12
 
     },
 
     "secadora": {
-        "kw": 10,
+        "id": "secadora",
+        "kw": 400,
         "bs": 12
 
     },
 
     "nevera": {
-        "kw": 10,
+        "id": "nevera",
+        "kw": 580,
         "bs": 12
 
     },
 
     "microondas": {
-        "kw": 10,
+        "id": "microondas",
+        "kw": 300,
         "bs": 12
 
     },
 
     "pc1": {
-        "kw": 10,
+        "id": "pc1",
+        "kw": 90,
         "bs": 12
 
     },
 
      "pc2": {
-        "kw": 10,
+        "id": "pc2",
+        "kw": 140,
         "bs": 12
 
     },
 
 
     "calentador1": {
-        "kw": 10,
+        "id": "calentador1",
+        "kw": 300,
         "bs": 12
 
     },
 
 
     "calentador2": {
-        "kw": 10,
+        "id": "calentador2",
+        "kw": 250,
         "bs": 12
 
     },
 
 
-    "ducha": {
-        "kw": 10,
+    "ducha_corona": {
+        "id": "ducha",
+        "kw": 120,
         "bs": 12
 
     }
 
 
+}
+
+var flags = {
+    "tv1": false,
+    "tv2": false,
+    "tv3": false,
+    "bom_ahorrador": false,
+    "radior": false,
+    "secadora": false,
+    "lavadora": false,
+    "nevera":false,
+    "pc1": false,
+    "pc2": false,
+    "ducha_corona": false,
+    "calentador1": false,
+    "calentador2": false
 }

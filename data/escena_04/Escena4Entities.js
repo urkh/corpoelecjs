@@ -10,7 +10,21 @@ game.Lavadora= me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        console.log("lavadora");
+        if(!flags.lavadora){
+                $('#tabla').DataTable().row.add([
+                    consumos.lavadora.id,
+                    "Lavadora",
+                    "<input type='number' value='1'>",
+                    "<input type='number' value='1'> H/s",
+                    "<input type='number' value="+consumos.lavadora.kw+"> W",
+                    '--',
+                    "--"
+                ]).draw();
+
+                flags.lavadora = true;
+
+        }
+
         return false;
     
     },
@@ -37,7 +51,20 @@ game.Secadora = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        console.log("secadora");
+        if(!flags.secadora){
+            $('#tabla').DataTable().row.add([
+                consumos.secadora.id,
+                "Secadora",
+                "<input type='number' value='1'>",
+                "<input type='number' value='1'> H/s",
+                "<input type='number' value="+consumos.secadora.kw+"> W",
+                '--',
+                "--"
+            ]).draw();
+
+            flags.secadora = true;
+
+        }
 
         return false;
     
