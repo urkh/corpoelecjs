@@ -3,7 +3,7 @@ game.EntrarLavandero= me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("entrar_lavandero", [2]);
+        this.renderable.addAnimation("entrar_lavandero", [5]);
         this.renderable.setCurrentAnimation("entrar_lavandero");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
@@ -34,12 +34,64 @@ game.EntrarLavandero= me.ObjectEntity.extend({
 
 });
 
+
+game.Micro = me.ObjectEntity.extend({
+
+    init: function(x,y,settings){
+
+        this.parent(x, y, settings);
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        
+    },
+
+
+    onMouseDown : function() {
+
+        return false;
+    
+    },
+  
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+
+
+game.Licuadora = me.ObjectEntity.extend({
+
+    init: function(x,y,settings){
+
+        this.parent(x, y, settings);
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        
+    },
+
+
+    onMouseDown : function() {
+
+        return false;
+    
+    },
+  
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+
 game.SalirCocina = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("salir_cocina", [7]);
+        this.renderable.addAnimation("salir_cocina", [11]);
         this.renderable.setCurrentAnimation("salir_cocina");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         

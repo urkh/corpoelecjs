@@ -176,11 +176,52 @@ game.BomNormal = me.ObjectEntity.extend({
 
 
 
+game.Ac = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("ac_off", [0]);
+        this.renderable.addAnimation("ac_loop", [1, 2], 300);
+        
+        
+        this.renderable.setCurrentAnimation("ac_off");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+
+    onMouseDown : function() {
+
+
+        if(this.renderable.isCurrentAnimation("ac_off")){
+            this.renderable.setCurrentAnimation("ac_loop");
+        }else{
+            this.renderable.setCurrentAnimation("ac_off");
+        }
+
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+
+
+});
+
+
+
+
 game.EntrarBano = me.ObjectEntity.extend({
 
     init: function(x, y, settings){
         this.parent(x, y, settings);
-        this.renderable.addAnimation("entrar_bano", [0]);
+        this.renderable.addAnimation("entrar_bano", [1]);
         this.renderable.setCurrentAnimation("entrar_bano");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
 
@@ -217,7 +258,7 @@ game.SalirCuarto = me.ObjectEntity.extend({
 
     init: function(x, y, settings){
         this.parent(x, y, settings);
-        this.renderable.addAnimation("salir_cuarto", [6]);
+        this.renderable.addAnimation("salir_cuarto", [10]);
         this.renderable.setCurrentAnimation("salir_cuarto");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
 

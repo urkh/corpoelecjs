@@ -41,22 +41,28 @@ var game = {
         //02
         me.pool.register("entrar_cocina", game.EntrarCocina);
         me.pool.register("televisor", game.Televisor);
-        me.pool.register("puerta_cuarto", game.PuertaCuarto);
+        me.pool.register("entrar_cuarto1", game.EntrarCuarto1);
+        me.pool.register("entrar_cuarto2", game.EntrarCuarto2);
         me.pool.register("radio_r", game.RadioR);
         me.pool.register("bombillo_e2", game.BombilloE2);
 
         //03
         me.pool.register("nevera", game.Nevera);
+        me.pool.register("micro", game.Micro);
+        me.pool.register("licuadora", game.Licuadora);
         me.pool.register("entrar_lavandero", game.EntrarLavandero);
         me.pool.register("salir_cocina", game.SalirCocina);
       
         //04
         me.pool.register("lavadora", game.Lavadora);
-        me.pool.register("salir_lavandero", game.SalirLavandero);
+        me.pool.register("plancha", game.Plancha);
+        me.pool.register("calentador", game.Calentador);
         me.pool.register("secadora", game.Secadora);
-        
+        me.pool.register("salir_lavandero", game.SalirLavandero);
+
         //05
         me.pool.register("computadora", game.Computadora);
+        me.pool.register("ac", game.Ac);
         me.pool.register("lampara", game.Lampara);
         me.pool.register("lampara2", game.Lampara2);
         me.pool.register("bom_normal", game.BomNormal);
@@ -64,9 +70,13 @@ var game = {
         me.pool.register("entrar_bano", game.EntrarBano);
 
         //06
-        me.pool.register("calentador", game.Calentador);
         me.pool.register("ducha", game.Ducha);
         me.pool.register("salir_bano", game.SalirBano);
+
+        //07
+        me.pool.register("televisor_e07", game.TelevisorE7);
+        me.pool.register("consola", game.Consola);
+        me.pool.register("salir_cuarto2", game.SalirCuarto2);
 
         me.state.transition("fade","#000000", 250);
 

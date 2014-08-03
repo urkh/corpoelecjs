@@ -228,13 +228,13 @@ game.RadioR = me.ObjectEntity.extend({
 
 
 
-game.PuertaCuarto = me.ObjectEntity.extend({
+game.EntrarCuarto1 = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-
-
+        this.renderable.addAnimation("entrar_cuarto1", [2]);
+        this.renderable.setCurrentAnimation("entrar_cuarto1");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -268,6 +268,48 @@ game.PuertaCuarto = me.ObjectEntity.extend({
 });
 
 
+game.EntrarCuarto2 = me.ObjectEntity.extend({
+
+    init: function(x,y,settings){
+
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("entrar_cuarto2", [4]);
+        this.renderable.setCurrentAnimation("entrar_cuarto2");
+
+
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        
+    },
+
+
+    onMouseDown : function() {
+        me.audio.stop("cancion");
+
+        me.game.viewport.fadeIn("#000000", 450, 
+
+            (function (){
+
+                me.levelDirector.loadLevel("escena_07");
+
+            })
+
+        );
+
+        
+        return false;
+    
+    },
+  
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+
+
 
 
 
@@ -279,7 +321,7 @@ game.EntrarCocina = me.ObjectEntity.extend({
 
         this.parent(x, y, settings);
 
-        this.renderable.addAnimation("entrar_cocina",[6]);
+        this.renderable.addAnimation("entrar_cocina",[0]);
         this.renderable.setCurrentAnimation("entrar_cocina");
 
 
