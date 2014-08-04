@@ -57,6 +57,102 @@ game.Ducha = me.ObjectEntity.extend({
 
 
 
+game.BombillosE6 = me.ObjectEntity.extend({
+
+    init: function(x,y,settings){
+
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("bombillos_off", [0]);
+        this.renderable.addAnimation("bombillos_on", [1]);
+        this.renderable.setCurrentAnimation("bombillos_off");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        
+    },
+
+    onMouseDown : function() {
+
+        if(this.renderable.isCurrentAnimation("bombillos_off")){
+
+            this.renderable.setCurrentAnimation("bombillos_on");
+
+        }else{
+
+            this.renderable.setCurrentAnimation("bombillos_off");
+        } 
+
+
+        return false;
+    
+    },
+  
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+
+
+
+game.Afeitadora = me.ObjectEntity.extend({
+
+    init: function(x,y,settings){
+
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("afeitadora", [0]);
+        this.renderable.setCurrentAnimation("afeitadora");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        
+    },
+
+    onMouseDown : function() {
+
+        return false;
+    
+    },
+  
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+
+
+
+game.Secador = me.ObjectEntity.extend({
+
+    init: function(x,y,settings){
+
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("secador", [1]);
+        this.renderable.setCurrentAnimation("secador");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        
+    },
+
+    onMouseDown : function() {
+
+        return false;
+    
+    },
+  
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+
+
+
+
 game.SalirBano = me.ObjectEntity.extend({
 
     init: function(x,y,settings){

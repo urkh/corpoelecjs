@@ -71,10 +71,15 @@ var game = {
 
         //06
         me.pool.register("ducha", game.Ducha);
+        me.pool.register("afeitadora", game.Afeitadora);
+        me.pool.register("secador", game.Secador);
+        me.pool.register("bombillos_e06", game.BombillosE6);
         me.pool.register("salir_bano", game.SalirBano);
 
         //07
         me.pool.register("televisor_e07", game.TelevisorE7);
+        me.pool.register("bombillo_e07", game.BombilloE7);
+        me.pool.register("lampara_e07", game.LamparaE7);
         me.pool.register("consola", game.Consola);
         me.pool.register("salir_cuarto2", game.SalirCuarto2);
 
