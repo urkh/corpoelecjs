@@ -22,20 +22,7 @@ game.Televisor = me.ObjectEntity.extend({
 
         if(this.renderable.isCurrentAnimation("tv1_off")){
 
-            if(!flags.tv2){
-                $('#tabla').DataTable().row.add([
-                    consumos.tv2.id,
-                    "TV2",
-                    "<input type='number' value='1'>",
-                    "<input type='number' value='1'> H/s",
-                    "<input type='number' value="+consumos.tv2.kw+"> W",
-                    '--',
-                    "--"
-                ]).draw();
-
-                flags.tv2 = true;
-
-            }
+            tabla(consumos.tv2.id, "TV2", consumos.tv2.kw, flags.tv2);
 
             this.renderable.setCurrentAnimation("tv2_off");
 
