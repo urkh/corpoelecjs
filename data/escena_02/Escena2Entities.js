@@ -13,12 +13,16 @@ game.Televisor = me.ObjectEntity.extend({
         this.renderable.setCurrentAnimation("tv1_off");
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(90,370), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(260,370), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
-   
 
-    onMouseDown : function() {
+    cambiarS: function(){
+
+
+        me.audio.play("cambiar");
 
         if(this.renderable.isCurrentAnimation("tv1_off")){
 
@@ -63,7 +67,17 @@ game.Televisor = me.ObjectEntity.extend({
             }
 
             this.renderable.setCurrentAnimation("tv1_off");
+
         } 
+
+        
+    },
+
+
+
+   
+
+    onMouseDown : function() {
 
 
 
@@ -97,14 +111,17 @@ game.BombilloE2 = me.ObjectEntity.extend({
         this.renderable.addAnimation("bom_ahorrador_on", [3]);
         this.renderable.setCurrentAnimation("bom_ahorrador_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(230,210), 42, 42), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(300,210), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
 
+    cambiarS: function(){
 
-   onMouseDown : function() {
+        me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("bom_ahorrador_off")){
+        if(this.renderable.isCurrentAnimation("bom_ahorrador_on")){
 
             if(!flags.bom_ahorrador){
                 $('#tabla').DataTable().row.add([
@@ -120,13 +137,55 @@ game.BombilloE2 = me.ObjectEntity.extend({
                 flags.bom_ahorrador= true;
 
             }
-            game.data.score += 50;
-            this.renderable.setCurrentAnimation("bom_ahorrador_on");
+            
+            this.renderable.setCurrentAnimation("bom_normal_on");
 
-        }else{
-            game.data.score -= 50;
+        }
+
+        else if(this.renderable.isCurrentAnimation("bom_ahorrador_off")){
+            this.renderable.setCurrentAnimation("bom_normal_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("bom_normal_on")){
+            this.renderable.setCurrentAnimation("bom_ahorrador_on");
+        }
+
+        else{
             this.renderable.setCurrentAnimation("bom_ahorrador_off");
         }
+
+
+
+    },
+
+
+
+    onMouseDown : function() {
+
+        if(this.renderable.isCurrentAnimation("bom_ahorrador_on")){
+            me.audio.play("apagar");
+            //game.data.score += 50;
+            this.renderable.setCurrentAnimation("bom_ahorrador_off");
+
+        }
+
+        else if(this.renderable.isCurrentAnimation("bom_normal_on")){
+            me.audio.play("apagar");
+            //game.data.score -= 50;
+            this.renderable.setCurrentAnimation("bom_normal_off");
+        }
+        
+        else if (this.renderable.isCurrentAnimation("bom_normal_off")) {
+            me.audio.play("prender");
+            this.renderable.setCurrentAnimation("bom_normal_on");
+        }
+
+        else{
+            me.audio.play("prender");
+            this.renderable.setCurrentAnimation("bom_ahorrador_on");
+        }
+
+
 
         return false;
     
@@ -167,6 +226,8 @@ game.RadioR = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+
        
         if(this.renderable.isCurrentAnimation("radio_off")){
 
@@ -187,14 +248,16 @@ game.RadioR = me.ObjectEntity.extend({
             }
 
             game.data.score += 50;
-            me.audio.play("cancion");
+            me.audio.play("prender");
+           // me.audio.play("cancion");
             this.renderable.setCurrentAnimation("radio_on");
 
 
         }else{
 
             game.data.score -= 50;
-            me.audio.pause("cancion");
+            me.audio.play("apagar");
+            //me.audio.pause("cancion");
             this.renderable.setCurrentAnimation("radio_off");
 
         }
@@ -228,7 +291,7 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.audio.stop("cancion");
+        me.audio.play("dopen");
 
         me.game.viewport.fadeIn("#000000", 450, 
 
@@ -270,7 +333,7 @@ game.EntrarCuarto2 = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.audio.stop("cancion");
+        me.audio.play("dopen");
 
         me.game.viewport.fadeIn("#000000", 450, 
 
@@ -319,16 +382,9 @@ game.EntrarCocina = me.ObjectEntity.extend({
     },
 
 
-/*
-    onMouseMove: function(){
-    
-        this.renderable.setCurrentAnimation("entrar_cocina");
-    },
-
-    */
 
     onMouseDown : function() {
-        me.audio.stop("cancion");
+        me.audio.play("dopen");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){

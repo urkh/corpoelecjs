@@ -9,10 +9,13 @@ game.Ducha = me.ObjectEntity.extend({
         this.renderable.addAnimation("ducha_corona", [2]);
         this.renderable.setCurrentAnimation("ducha_corona");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(150,130), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(260,130), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
-    onMouseDown : function() {
+
+    cambiarS: function(){
 
         if(this.renderable.isCurrentAnimation("ducha_corona")){
             game.data.score -= 50;
@@ -38,9 +41,14 @@ game.Ducha = me.ObjectEntity.extend({
             game.data.score += 50;
         }
 
-        
 
-        console.log("ducha");
+    },
+
+    onMouseDown : function() {
+
+
+
+        
         return false;
     
     },
@@ -72,11 +80,11 @@ game.BombillosE6 = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("bombillos_off")){
-
+            me.audio.play("prender");
             this.renderable.setCurrentAnimation("bombillos_on");
 
         }else{
-
+            me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bombillos_off");
         } 
 
@@ -166,6 +174,7 @@ game.SalirBano = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+        me.audio.play("dclose");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){

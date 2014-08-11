@@ -37,7 +37,7 @@ var game = {
 
         //01
         me.pool.register("inicio", game.Inicio);
-        me.pool.register("txinput", game.TextInput);
+        me.pool.register("sinput", game.SelectInput);
 
         //02
         me.pool.register("entrar_cocina", game.EntrarCocina);

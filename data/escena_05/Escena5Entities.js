@@ -5,14 +5,18 @@ game.Computadora= me.ObjectEntity.extend({
         this.parent(x, y, settings);
         this.renderable.addAnimation("pc1_apagada", [0]);
         this.renderable.addAnimation("pc1_prendida", [1]);
-        this.renderable.addAnimation("pc2_apagada", [4]);
-        this.renderable.addAnimation("pc2_prendida", [5]);
+        this.renderable.addAnimation("pc2_apagada", [2]);
+        this.renderable.addAnimation("pc2_prendida", [3]);
         this.renderable.setCurrentAnimation("pc1_prendida");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(175,350), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(380,350), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
-    onMouseDown : function() {
+    cambiarS: function(){
+
+        me.audio.play("cambiar");
 
         if(this.renderable.isCurrentAnimation("pc1_prendida")){
 
@@ -33,7 +37,18 @@ game.Computadora= me.ObjectEntity.extend({
 
             this.renderable.setCurrentAnimation("pc2_prendida");
 
-        }else{
+        }
+        else if(this.renderable.isCurrentAnimation("pc1_apagada")){
+            this.renderable.setCurrentAnimation("pc2_apagada");
+
+        }
+
+        else if(this.renderable.isCurrentAnimation("pc2_prendida")){
+            this.renderable.setCurrentAnimation("pc1_prendida");
+        }
+
+
+        else{
 
             if(!flags.pc1){
                 $('#tabla').DataTable().row.add([
@@ -50,7 +65,34 @@ game.Computadora= me.ObjectEntity.extend({
 
             }
             
+            this.renderable.setCurrentAnimation("pc1_apagada");
+        }
+
+
+    },
+
+
+    onMouseDown : function() {
+
+        if(this.renderable.isCurrentAnimation("pc1_prendida")){
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("pc1_apagada");
+
+        }
+        else if(this.renderable.isCurrentAnimation("pc1_apagada")){
+            me.audio.play("prender");
             this.renderable.setCurrentAnimation("pc1_prendida");
+
+        }
+
+        else if(this.renderable.isCurrentAnimation("pc2_prendida")){
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("pc2_apagada");
+        }
+
+        else{
+            me.audio.play("prender");   
+            this.renderable.setCurrentAnimation("pc2_prendida");
         }
 
         return false;
@@ -84,8 +126,10 @@ game.Lampara = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("lamp_apa")){
+            me.audio.play("prender");
             this.renderable.setCurrentAnimation("lamp_pren");
         }else{
+            me.audio.play("apagar");
             this.renderable.setCurrentAnimation("lamp_apa");
         }
 
@@ -151,8 +195,10 @@ game.BomNormal = me.ObjectEntity.extend({
 
 
         if(this.renderable.isCurrentAnimation("bom_apagado")){
+            me.audio.play("prender");
             this.renderable.setCurrentAnimation("bom_prendido");
         }else{
+            me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bom_apagado");
         }
 
@@ -195,8 +241,10 @@ game.Ac = me.ObjectEntity.extend({
 
 
         if(this.renderable.isCurrentAnimation("ac_off")){
+            me.audio.play("prender");
             this.renderable.setCurrentAnimation("ac_loop");
         }else{
+            me.audio.play("apagar");
             this.renderable.setCurrentAnimation("ac_off");
         }
 
@@ -231,6 +279,7 @@ game.EntrarBano = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+        me.audio.play("dopen");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
@@ -268,6 +317,7 @@ game.SalirCuarto = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+        me.audio.play("dclose");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){

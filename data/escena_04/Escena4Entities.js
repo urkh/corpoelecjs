@@ -10,6 +10,10 @@ game.Lavadora= me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+
+
+        me.audio.play("lavadora");
+
         if(!flags.lavadora){
                 $('#tabla').DataTable().row.add([
                     consumos.lavadora.id,
@@ -50,6 +54,9 @@ game.Secadora = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+
+        me.audio.play("secadora");
 
         if(!flags.secadora){
             $('#tabla').DataTable().row.add([
@@ -118,10 +125,12 @@ game.Calentador = me.ObjectEntity.extend({
         this.renderable.addAnimation("cal_grande", [0]);
         this.renderable.setCurrentAnimation("cal_peq");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(860,210), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(990,210), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
-    onMouseDown : function() {
+    cambiarS: function(){
 
         if(this.renderable.isCurrentAnimation("cal_peq")){
 
@@ -161,6 +170,13 @@ game.Calentador = me.ObjectEntity.extend({
             this.renderable.setCurrentAnimation("cal_peq");
         }
 
+
+    },
+
+    onMouseDown : function() {
+
+
+
         return false;
     
     },
@@ -192,6 +208,8 @@ game.SalirLavandero= me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+        me.audio.play("dclose");
 
         me.game.viewport.fadeIn("#000000", 450, 
 

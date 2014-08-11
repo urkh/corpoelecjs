@@ -28,7 +28,7 @@
    <properties>
     <property name="image" value="computadora"/>
     <property name="spriteheight" value="96"/>
-    <property name="spritewidth" value="160"/>
+    <property name="spritewidth" value="224"/>
    </properties>
   </object>
  </objectgroup>

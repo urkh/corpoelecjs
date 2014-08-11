@@ -31,6 +31,25 @@ game.HUD.Container = me.ObjectContainer.extend({
 });
 
 
+
+/*
+game.HUD.Pila = me.renderable.extend({
+
+	init: function(x,y, settings){
+
+		this.addAnimation("pila_baja", [0]);
+       	this.addAnimation("pila_media", [1]);
+       	this.addAnimation("pila_alta", [2]);
+        this.setCurrentAnimation("pila_baja");
+
+
+	}
+
+
+
+});
+*/
+
 /** 
  * a basic HUD item to display score
  */
@@ -43,6 +62,9 @@ game.HUD.ScoreItem = me.Renderable.extend({
 		// call the parent constructor 
 		// (size does not matter here)
 		this.parent(new me.Vector2d(x, y), 10, 10); 
+
+
+
 
 		this.font = new me.BitmapFont("32x32_font", 32);
         this.font.set("left");
@@ -67,11 +89,9 @@ game.HUD.ScoreItem = me.Renderable.extend({
 		return false;
 	},
 
-	/**
-	 * draw the score
-	 */
+	
 	draw : function (context) {
-		// draw it baby !
+		
         this.font.draw(context, game.data.score, this.pos.x, this.pos.y)
 	}
 

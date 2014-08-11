@@ -37,7 +37,7 @@
    <properties>
     <property name="image" value="accesorios_e07"/>
     <property name="spriteheight" value="128"/>
-    <property name="spritewidth" value="128"/>
+    <property name="spritewidth" value="192"/>
    </properties>
   </object>
  </objectgroup>
@@ -55,7 +55,7 @@
    <properties>
     <property name="image" value="accesorios_e07"/>
     <property name="spriteheight" value="128"/>
-    <property name="spritewidth" value="128"/>
+    <property name="spritewidth" value="192"/>
    </properties>
   </object>
  </objectgroup>

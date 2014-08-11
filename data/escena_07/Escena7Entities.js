@@ -8,10 +8,13 @@ game.TelevisorE7 = me.ObjectEntity.extend({
         this.renderable.addAnimation("tve2_off", [1]);
         this.renderable.setCurrentAnimation("tve1_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(650,130), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(840,130), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
-    onMouseDown : function() {
+    cambiarS: function(){
+        me.audio.play("cambiar");
 
         if(this.renderable.isCurrentAnimation("tve1_off")){
 
@@ -21,6 +24,12 @@ game.TelevisorE7 = me.ObjectEntity.extend({
 
             this.renderable.setCurrentAnimation("tve1_off");
         } 
+
+    },
+
+    onMouseDown : function() {
+
+        
 
 
         return false;
@@ -55,12 +64,14 @@ game.Consola = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+
         if(this.renderable.isCurrentAnimation("consola_off")){
+            me.audio.play("prender");
 
             this.renderable.setCurrentAnimation("consola_on");
 
         }else{
-
+            me.audio.play("apagar");
             this.renderable.setCurrentAnimation("consola_off");
         } 
 
@@ -96,11 +107,11 @@ game.BombilloE7 = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("bombillo_off")){
-
+            me.audio.play("prender");
             this.renderable.setCurrentAnimation("bombillo_on");
 
         }else{
-
+            me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bombillo_off");
         } 
 
@@ -139,11 +150,11 @@ game.LamparaE7 = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("lampara_off")){
-
+            me.audio.play("prender");
             this.renderable.setCurrentAnimation("lampara_on");
 
         }else{
-
+            me.audio.play("apagar");
             this.renderable.setCurrentAnimation("lampara_off");
         } 
 
@@ -179,6 +190,7 @@ game.SalirCuarto2 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+        me.audio.play("dclose");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){

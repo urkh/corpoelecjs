@@ -12,6 +12,7 @@ game.EntrarLavandero= me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+        me.audio.play("dopen");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
@@ -46,6 +47,7 @@ game.Micro = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+        me.audio.play("microondas");
 
         return false;
     
@@ -72,6 +74,7 @@ game.Licuadora = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+        me.audio.play("licuadora");
 
         return false;
     
@@ -99,6 +102,8 @@ game.SalirCocina = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+        me.audio.play("dclose");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){

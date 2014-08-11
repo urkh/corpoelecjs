@@ -56,7 +56,16 @@ game.resources = [
 
 
     {name:"32x32_font", type:"image", src:"data/img/font/32x32_font.png"},
-    {name: "cancion", type:"audio", src:"data/sound/", channel:"2"},
+    {name: "background", type:"audio", src:"data/sound/", channel:"2"},
+    {name: "dopen", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "dclose", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "cambiar", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "prender", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "apagar", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "microondas", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "lavadora", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "secadora", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "licuadora", type:"audio", src:"data/sound/", channel:"1"},
 
 
 ];

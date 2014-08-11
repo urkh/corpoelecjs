@@ -1,3 +1,31 @@
+var estados = '<option value="am">Amazonas</option>\
+              <option>Anzo&aacute;tegui</option>\
+              <option>Apure</option>\
+              <option>Aragua</option>\
+              <option>Barinas</option>\
+              <option>Bolivar</option>\
+              <option>Carabobo</option>\
+              <option>Cojedes</option>\
+              <option>Delta Amacuro</option>\
+              <option>Distrito Capital</option>\
+              <option>Falc&oacute;n</option>\
+              <option>Guarico</option>\
+              <option>Lara</option>\
+              <option>M&eacute;rida</option>\
+              <option>Miranda</option>\
+              <option>Monagas</option>\
+              <option>Nueva Esparta</option>\
+              <option>Portuguesa</option>\
+              <option>Sucre</option>\
+              <option>T&aacute;chira</option>\
+              <option>Trujillo</option>\
+              <option value="va">Vargas</option>\
+              <option>Yaracuy</option>\
+              <option>Zulia</option>';
+
+var select_input = '<select id="select_estados" name="select_estados" style="position:absolute;width:20%;">'+estados+'</select>';
+
+
 game.Inicio = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
@@ -16,7 +44,7 @@ game.Inicio = me.ObjectEntity.extend({
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
-
+                me.audio.play("dopen");
                 me.levelDirector.loadLevel("escena_02");
 
             })
@@ -39,23 +67,12 @@ game.Inicio = me.ObjectEntity.extend({
 
 
 
-game.TextInput = me.Renderable.extend({
+game.SelectInput = me.Renderable.extend({
     init : function (x, y, type, length) {
-        this.$input = $('<input value="Some positioned text." type="text" style="position:absolute;left:100px;top:300px;width:600px;">').css({
+        this.$input = $(select_input).css({
             "left" : x,
             "top" : y
         });
-
-        switch (type) {
-        case "text":
-            this.$input
-                .attr("maxlength", length)
-                .attr("pattern", "[a-zA-Z0-9_\-]+");
-            break;
-        case "number":
-            this.$input.attr("max", length);
-            break;
-        }
 
         $(me.video.getWrapper()).append(this.$input);
     },

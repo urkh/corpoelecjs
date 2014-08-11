@@ -43,7 +43,7 @@
    <properties>
     <property name="image" value="calentador"/>
     <property name="spriteheight" value="160"/>
-    <property name="spritewidth" value="96"/>
+    <property name="spritewidth" value="128"/>
    </properties>
   </object>
  </objectgroup>
