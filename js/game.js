@@ -6,7 +6,7 @@ var game = {
 
     onload: function(){
         
-        if(!me.video.init("juego", 1024, 650, true, "auto")){
+        if(!me.video.init("juego", 1600, 1000, true, "auto")){
             
             alert("El navegador no soporta canvas html5");
             return;

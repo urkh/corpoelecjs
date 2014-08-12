@@ -114,8 +114,8 @@ game.Lampara = me.ObjectEntity.extend({
 
     init: function(x, y, settings){
         this.parent(x, y, settings);
-        this.renderable.addAnimation("lamp_apa", [13]);
-        this.renderable.addAnimation("lamp_pren", [12]);
+        this.renderable.addAnimation("lamp_apa", [0]);
+        this.renderable.addAnimation("lamp_pren", [1]);
         this.renderable.setCurrentAnimation("lamp_apa");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
 
@@ -144,46 +144,13 @@ game.Lampara = me.ObjectEntity.extend({
 
 
 
-game.Lampara2 = me.ObjectEntity.extend({
-
-    init: function(x, y, settings){
-        this.parent(x, y, settings);
-        this.renderable.addAnimation("lampara2", [0]);
-        this.renderable.setCurrentAnimation("lampara2");
-        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-
-
-    },
-
-
-    onMouseDown : function() {
-
-        game.data.score += 50;
-
-        console.log("lampara2");
-        return false;
-    
-    },
-
-    update: function(dt){
-
-        return this.parent(dt);
-        
-    },
-
-
-
-});
-
-
-
 
 game.BomNormal = me.ObjectEntity.extend({
 
     init: function(x, y, settings){
         this.parent(x, y, settings);
-        this.renderable.addAnimation("bom_apagado", [9]);
-        this.renderable.addAnimation("bom_prendido", [8]);
+        this.renderable.addAnimation("bom_apagado", [3]);
+        this.renderable.addAnimation("bom_prendido", [4]);
         this.renderable.setCurrentAnimation("bom_apagado");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
 

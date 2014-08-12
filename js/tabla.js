@@ -8,6 +8,7 @@ $(document).ready(function() {
 		bPaginate: false,
 		bSearchable: false,
 		bInfo: false,
+        "bJQueryUI": true,
 		"columnDefs": [
             {
                 "targets": [0],
