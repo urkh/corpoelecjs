@@ -13,7 +13,7 @@
   <object name="inicio" x="224" y="425" width="248" height="161">
    <properties>
     <property name="image" value="inicio"/>
-    <property name="spriteheight" value="313"/>
+    <property name="spriteheight" value="312"/>
     <property name="spritewidth" value="516"/>
    </properties>
   </object>

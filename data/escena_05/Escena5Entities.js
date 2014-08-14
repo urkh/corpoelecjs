@@ -9,8 +9,8 @@ game.Computadora= me.ObjectEntity.extend({
         this.renderable.addAnimation("pc2_prendida", [3]);
         this.renderable.setCurrentAnimation("pc1_prendida");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(175,350), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(380,350), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(270,550), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(600,550), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -232,49 +232,15 @@ game.Ac = me.ObjectEntity.extend({
 
 
 
-game.EntrarBano = me.ObjectEntity.extend({
-
-    init: function(x, y, settings){
-        this.parent(x, y, settings);
-        this.renderable.addAnimation("entrar_bano", [1]);
-        this.renderable.setCurrentAnimation("entrar_bano");
-        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-
-
-    },
-
-
-    onMouseDown : function() {
-
-        me.audio.play("dopen");
-        me.game.viewport.fadeIn("#000000", 450, 
-
-            (function (){
-
-                me.levelDirector.loadLevel("escena_06");
-
-            })
-
-        );
-        return false;
-    
-    },
-
-    update: function(dt){
-
-        return this.parent(dt);
-        
-    },
 
 
 
-});
 
 game.SalirCuarto = me.ObjectEntity.extend({
 
     init: function(x, y, settings){
         this.parent(x, y, settings);
-        this.renderable.addAnimation("salir_cuarto", [10]);
+        this.renderable.addAnimation("salir_cuarto", [6]);
         this.renderable.setCurrentAnimation("salir_cuarto");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
 

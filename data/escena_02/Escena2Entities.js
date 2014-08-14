@@ -13,8 +13,8 @@ game.Televisor = me.ObjectEntity.extend({
         this.renderable.setCurrentAnimation("tv1_off");
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(90,370), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(260,370), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(150,600), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(450,600), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -98,21 +98,20 @@ game.Televisor = me.ObjectEntity.extend({
 
 
 
-
 game.BombilloE2 = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
 
-        this.renderable.addAnimation("bom_normal_off", [0]);
-        this.renderable.addAnimation("bom_normal_on", [1]);
-        this.renderable.addAnimation("bom_ahorrador_off", [2]);
-        this.renderable.addAnimation("bom_ahorrador_on", [3]);
+        this.renderable.addAnimation("bom_normal_off", [2]);
+        this.renderable.addAnimation("bom_normal_on", [3]);
+        this.renderable.addAnimation("bom_ahorrador_off", [0]);
+        this.renderable.addAnimation("bom_ahorrador_on", [1]);
         this.renderable.setCurrentAnimation("bom_ahorrador_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(230,210), 42, 42), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(300,210), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(220,180), 42, 42), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(590,180), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -206,7 +205,6 @@ game.BombilloE2 = me.ObjectEntity.extend({
 
 
 
-
 game.RadioR = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
@@ -249,7 +247,7 @@ game.RadioR = me.ObjectEntity.extend({
 
             game.data.score += 50;
             me.audio.play("prender");
-           // me.audio.play("cancion");
+            me.audio.play("radio");
             this.renderable.setCurrentAnimation("radio_on");
 
 
@@ -257,7 +255,7 @@ game.RadioR = me.ObjectEntity.extend({
 
             game.data.score -= 50;
             me.audio.play("apagar");
-            //me.audio.pause("cancion");
+            me.audio.pause("radio");
             this.renderable.setCurrentAnimation("radio_off");
 
         }
@@ -278,6 +276,14 @@ game.RadioR = me.ObjectEntity.extend({
 
 
 
+
+
+
+
+
+
+
+
 game.EntrarCuarto1 = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
@@ -292,7 +298,7 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
         me.audio.play("dopen");
-
+        me.audio.stop("radio");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
@@ -323,7 +329,7 @@ game.EntrarCuarto2 = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("entrar_cuarto2", [4]);
+        this.renderable.addAnimation("entrar_cuarto2", [3]);
         this.renderable.setCurrentAnimation("entrar_cuarto2");
 
 
@@ -334,7 +340,7 @@ game.EntrarCuarto2 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
         me.audio.play("dopen");
-
+        me.audio.stop("radio");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
@@ -385,6 +391,7 @@ game.EntrarCocina = me.ObjectEntity.extend({
 
     onMouseDown : function() {
         me.audio.play("dopen");
+        me.audio.stop("radio");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
@@ -410,3 +417,39 @@ game.EntrarCocina = me.ObjectEntity.extend({
 
 
 
+game.EntrarBano = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("entrar_bano", [1]);
+        this.renderable.setCurrentAnimation("entrar_bano");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+
+    onMouseDown : function() {
+
+        me.audio.play("dopen");
+        me.audio.stop("radio");
+        me.game.viewport.fadeIn("#000000", 450, 
+
+            (function (){
+
+                me.levelDirector.loadLevel("escena_06");
+
+            })
+
+        );
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});

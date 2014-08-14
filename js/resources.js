@@ -9,19 +9,22 @@ game.resources = [
 
     {name:"televisor", type:"image", src:"data/escena_02/img/televisor.png"},
     {name:"radio_r", type:"image", src:"data/escena_02/img/radio_r.png"},
-    {name:"bombillo_e2", type:"image", src:"data/escena_02/img/bombillo.png"},
+    {name:"bombillo_e2", type:"image", src:"data/escena_02/img/bombillo_e2.png"},
     {name:"background_e02", type:"image", src:"data/escena_02/img/background_e02.png"},
     {name:"escena_02", type:"tmx", src:"data/escena_02/escena_02.tmx"},
 
 
 
     {name:"nevera", type:"image", src:"data/escena_03/img/nevera.png"},
+    {name:"bombillo_e3", type:"image", src:"data/escena_03/img/bombillo_e3.png"},
     {name:"micro", type:"image", src:"data/escena_03/img/micro.png"},
+    {name:"reloj", type:"image", src:"data/escena_03/img/reloj.png"},
     {name:"licuadora", type:"image", src:"data/escena_03/img/licuadora.png"},
     {name:"background_e03", type:"image", src:"data/escena_03/img/background_e03.png"},
     {name:"escena_03", type:"tmx", src:"data/escena_03/escena_03.tmx"},
 
 
+    {name:"bombillo_e4", type:"image", src:"data/escena_04/img/bombillo_e4.png"},
     {name:"lavadora", type:"image", src:"data/escena_04/img/lavadora.png"},
     {name:"secadora", type:"image", src:"data/escena_04/img/secadora.png"},
     {name:"calentador", type:"image", src:"data/escena_04/img/calentador.png"},
@@ -49,6 +52,7 @@ game.resources = [
     {name:"lamparas", type:"image", src:"data/escena_07/img/lamparas.png"},
     {name:"background_e07", type:"image", src:"data/escena_07/img/background_e07.png"},
     {name:"escena_07", type:"tmx", src:"data/escena_07/escena_07.tmx"},
+    {name:"ac_e7", type:"image", src:"data/escena_07/img/ac_e7.png"},
 
     {name:"flechas", type:"image", src:"data/img/flechas.png"},
     {name:"pila", type:"image", src:"data/img/pila.png"},
@@ -63,6 +67,7 @@ game.resources = [
     {name: "prender", type:"audio", src:"data/sound/", channel:"1"},
     {name: "apagar", type:"audio", src:"data/sound/", channel:"1"},
     {name: "microondas", type:"audio", src:"data/sound/", channel:"1"},
+    {name: "radio", type:"audio", src:"data/sound/", channel:"1"},
     {name: "lavadora", type:"audio", src:"data/sound/", channel:"1"},
     {name: "secadora", type:"audio", src:"data/sound/", channel:"1"},
     {name: "licuadora", type:"audio", src:"data/sound/", channel:"1"},

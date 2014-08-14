@@ -41,20 +41,24 @@ var game = {
 
         //02
         me.pool.register("entrar_cocina", game.EntrarCocina);
+        me.pool.register("bombillo_e2", game.BombilloE2);
         me.pool.register("televisor", game.Televisor);
         me.pool.register("entrar_cuarto1", game.EntrarCuarto1);
         me.pool.register("entrar_cuarto2", game.EntrarCuarto2);
         me.pool.register("radio_r", game.RadioR);
-        me.pool.register("bombillo_e2", game.BombilloE2);
+        
 
         //03
         me.pool.register("nevera", game.Nevera);
         me.pool.register("micro", game.Micro);
+        me.pool.register("reloj", game.Reloj);
+        me.pool.register("bombillo_e3", game.BombilloE3);
         me.pool.register("licuadora", game.Licuadora);
         me.pool.register("entrar_lavandero", game.EntrarLavandero);
         me.pool.register("salir_cocina", game.SalirCocina);
       
         //04
+        me.pool.register("bombillo_e4", game.BombilloE4);
         me.pool.register("lavadora", game.Lavadora);
         me.pool.register("plancha", game.Plancha);
         me.pool.register("calentador", game.Calentador);
@@ -78,9 +82,9 @@ var game = {
         me.pool.register("salir_bano", game.SalirBano);
 
         //07
+        me.pool.register("ac_e7", game.AcE7);
         me.pool.register("televisor_e07", game.TelevisorE7);
         me.pool.register("bombillo_e07", game.BombilloE7);
-        me.pool.register("lampara_e07", game.LamparaE7);
         me.pool.register("consola", game.Consola);
         me.pool.register("salir_cuarto2", game.SalirCuarto2);
 

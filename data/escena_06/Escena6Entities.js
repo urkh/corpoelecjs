@@ -9,13 +9,16 @@ game.Ducha = me.ObjectEntity.extend({
         this.renderable.addAnimation("ducha_corona", [2]);
         this.renderable.setCurrentAnimation("ducha_corona");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(150,130), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(260,130), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(330,220), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(470,220), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
 
     cambiarS: function(){
+
+
+        me.audio.play("cambiar");
 
         if(this.renderable.isCurrentAnimation("ducha_corona")){
             game.data.score -= 50;
@@ -166,7 +169,7 @@ game.SalirBano = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("salir_bano", [11]);
+        this.renderable.addAnimation("salir_bano", [8]);
         this.renderable.setCurrentAnimation("salir_bano");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
@@ -179,7 +182,7 @@ game.SalirBano = me.ObjectEntity.extend({
 
             (function (){
 
-                me.levelDirector.loadLevel("escena_05");
+                me.levelDirector.loadLevel("escena_02");
 
             })
 
