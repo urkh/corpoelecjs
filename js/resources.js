@@ -43,13 +43,13 @@ game.resources = [
 
     
     {name:"accesorios_e06", type:"image", src:"data/escena_06/img/accesorios_e06.png"},
-    {name:"bombillos_e06", type:"image", src:"data/escena_06/img/bombillos_e06.png"},
+    {name:"bombillo_e6", type:"image", src:"data/escena_06/img/bombillo_e6.png"},
     {name:"background_e06", type:"image", src:"data/escena_06/img/background_e06.png"},
     {name:"escena_06", type:"tmx", src:"data/escena_06/escena_06.tmx"},
 
 
     {name:"accesorios_e07", type:"image", src:"data/escena_07/img/accesorios_e07.png"},
-    {name:"lamparas", type:"image", src:"data/escena_07/img/lamparas.png"},
+    {name:"bombillo_e7", type:"image", src:"data/escena_07/img/bombillo_e7.png"},
     {name:"background_e07", type:"image", src:"data/escena_07/img/background_e07.png"},
     {name:"escena_07", type:"tmx", src:"data/escena_07/escena_07.tmx"},
     {name:"ac_e7", type:"image", src:"data/escena_07/img/ac_e7.png"},

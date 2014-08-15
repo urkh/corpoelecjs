@@ -44,7 +44,7 @@
   </object>
  </objectgroup>
  <objectgroup name="entrar_lavandero" width="50" height="31">
-  <object name="entrar_lavandero" x="185" y="380" width="80" height="63">
+  <object name="entrar_lavandero" x="167" y="363" width="105" height="105">
    <properties>
     <property name="image" value="flechas"/>
     <property name="spriteheight" value="160"/>
@@ -53,7 +53,7 @@
   </object>
  </objectgroup>
  <objectgroup name="salir_cocina" width="50" height="31">
-  <object name="salir_cocina" x="1484" y="100" width="84" height="74">
+  <object name="salir_cocina" x="1469" y="87" width="104" height="88">
    <properties>
     <property name="image" value="flechas"/>
     <property name="spriteheight" value="160"/>

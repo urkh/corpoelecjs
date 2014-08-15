@@ -44,7 +44,7 @@
   </object>
  </objectgroup>
  <objectgroup name="calentador" width="50" height="31">
-  <object name="calentador" x="1388" y="257" width="144" height="180">
+  <object name="calentador" x="1393" y="257" width="144" height="180">
    <properties>
     <property name="image" value="calentador"/>
     <property name="spriteheight" value="256"/>

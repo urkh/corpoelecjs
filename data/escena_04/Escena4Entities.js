@@ -4,7 +4,7 @@ game.Lavadora= me.ObjectEntity.extend({
 
         this.parent(x, y, settings);
         this.renderable.addAnimation("lav_off", [0]);
-        this.renderable.addAnimation("lav_on", [0,1,2], 100);
+        this.renderable.addAnimation("lav_on", [1,2], 100);
         this.renderable.setCurrentAnimation("lav_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
@@ -63,7 +63,7 @@ game.Secadora = me.ObjectEntity.extend({
         this.parent(x, y, settings);
 
         this.renderable.addAnimation("sec_off", [0]);
-        this.renderable.addAnimation("sec_on", [0,1,2], 100);
+        this.renderable.addAnimation("sec_on", [1,2], 100);
         this.renderable.setCurrentAnimation("sec_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
@@ -168,9 +168,11 @@ game.Calentador = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("cal_peq", [1]);
-        this.renderable.addAnimation("cal_grande", [0]);
-        this.renderable.setCurrentAnimation("cal_peq");
+        this.renderable.addAnimation("cal1_off", [0]);
+        this.renderable.addAnimation("cal1_on", [1]);
+        this.renderable.addAnimation("cal2_off", [2]);
+        this.renderable.addAnimation("cal2_on", [3]);
+        this.renderable.setCurrentAnimation("cal1_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1350,300), 32, 32), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1550,300), 32, 32), this.cambiarS.bind(this), false);
@@ -181,7 +183,7 @@ game.Calentador = me.ObjectEntity.extend({
 
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("cal_peq")){
+        if(this.renderable.isCurrentAnimation("cal1_off")){
 
             if(!flags.calentador1){
                 $('#tabla').DataTable().row.add([
@@ -198,8 +200,22 @@ game.Calentador = me.ObjectEntity.extend({
 
             }
 
-            this.renderable.setCurrentAnimation("cal_grande");
-        }else{
+            this.renderable.setCurrentAnimation("cal2_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("cal2_off")){
+            this.renderable.setCurrentAnimation("cal1_off");
+
+
+        }
+
+        else if(this.renderable.isCurrentAnimation("cal1_on")){
+            this.renderable.setCurrentAnimation("cal2_on");
+
+        }
+
+
+        else{
 
             if(!flags.calentador2){
                 $('#tabla').DataTable().row.add([
@@ -216,15 +232,34 @@ game.Calentador = me.ObjectEntity.extend({
 
             }
 
-            this.renderable.setCurrentAnimation("cal_peq");
+            this.renderable.setCurrentAnimation("cal1_on");
         }
 
 
     },
 
-    onMouseDown : function() {
 
+    onMouseDown: function() {
 
+        if(this.renderable.isCurrentAnimation("cal1_off")){
+            me.audio.play("prender");
+            this.renderable.setCurrentAnimation("cal1_on");
+        }
+
+        else if(this.renderable.isCurrentAnimation("cal2_off")){
+            me.audio.play("prender");
+            this.renderable.setCurrentAnimation("cal2_on");
+        }
+
+        else if(this.renderable.isCurrentAnimation("cal1_on")){
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("cal1_off");
+        }
+
+        else{
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("cal2_off");
+        }
 
         return false;
     

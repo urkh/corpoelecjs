@@ -1,4 +1,4 @@
-
+/*
 function tabla(id, dispositivo, consumo, flags){
 
 
@@ -11,4 +11,6 @@ function tabla(id, dispositivo, consumo, flags){
         $( $('#tabla').DataTable().column( colIdx ).nodes() ).addClass( 'highlight' );
     }
 
-}
+}*/
+
+

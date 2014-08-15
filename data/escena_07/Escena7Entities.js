@@ -4,9 +4,11 @@ game.TelevisorE7 = me.ObjectEntity.extend({
 
     	this.parent(x, y, settings);
 
-        this.renderable.addAnimation("tve1_off", [0]);
-        this.renderable.addAnimation("tve2_off", [1]);
-        this.renderable.setCurrentAnimation("tve1_off");
+        this.renderable.addAnimation("tv1_off", [0]);
+        this.renderable.addAnimation("tv1_on", [1]);
+        this.renderable.addAnimation("tv2_off", [2]);
+        this.renderable.addAnimation("tv2_on", [3]);
+        this.renderable.setCurrentAnimation("tv1_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1040,220), 32, 32), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1300,220), 32, 32), this.cambiarS.bind(this), false);
@@ -16,20 +18,49 @@ game.TelevisorE7 = me.ObjectEntity.extend({
     cambiarS: function(){
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("tve1_off")){
+        if(this.renderable.isCurrentAnimation("tv1_on")){
+            this.renderable.setCurrentAnimation("tv2_on");
 
-            this.renderable.setCurrentAnimation("tve2_off");
+        }
+        else if(this.renderable.isCurrentAnimation("tv1_off")){
+            this.renderable.setCurrentAnimation("tv2_off");
 
-        }else{
+        }
 
-            this.renderable.setCurrentAnimation("tve1_off");
-        } 
+        else if(this.renderable.isCurrentAnimation("tv2_on")){
+            this.renderable.setCurrentAnimation("tv1_on");
+        }
+
+
+        else{
+            
+            this.renderable.setCurrentAnimation("tv1_off");
+        }
 
     },
 
     onMouseDown : function() {
 
-        
+        if(this.renderable.isCurrentAnimation("tv1_on")){
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("tv1_off");
+
+        }
+        else if(this.renderable.isCurrentAnimation("tv1_off")){
+            me.audio.play("prender");
+            this.renderable.setCurrentAnimation("tv1_on");
+
+        }
+
+        else if(this.renderable.isCurrentAnimation("tv2_on")){
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("tv2_off");
+        }
+
+        else{
+            me.audio.play("prender");   
+            this.renderable.setCurrentAnimation("tv2_on");
+        }
 
 
         return false;
@@ -96,8 +127,8 @@ game.Consola = me.ObjectEntity.extend({
 
     	this.parent(x, y, settings);
 
-        this.renderable.addAnimation("consola_off", [2]);
-        this.renderable.addAnimation("consola_on", [3]);
+        this.renderable.addAnimation("consola_off", [4]);
+        this.renderable.addAnimation("consola_on", [5]);
         this.renderable.setCurrentAnimation("consola_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
@@ -138,25 +169,64 @@ game.BombilloE7 = me.ObjectEntity.extend({
 
     	this.parent(x, y, settings);
 
-        this.renderable.addAnimation("bombillo_off", [1]);
-        this.renderable.addAnimation("bombillo_on", [0]);
-        this.renderable.setCurrentAnimation("bombillo_off");
+        this.renderable.addAnimation("bombillo1_off", [0]);
+        this.renderable.addAnimation("bombillo1_on", [1]);
+        this.renderable.addAnimation("bombillo2_off", [2]);
+        this.renderable.addAnimation("bombillo2_on", [3]);
+        this.renderable.setCurrentAnimation("bombillo1_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(780,150), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(980,150), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
+    cambiarS: function(){
+
+        me.audio.play("cambiar");
+
+        if(this.renderable.isCurrentAnimation("bombillo1_off")){
+            this.renderable.setCurrentAnimation("bombillo2_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("bombillo2_off")){
+            this.renderable.setCurrentAnimation("bombillo1_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("bombillo1_on")){
+            this.renderable.setCurrentAnimation("bombillo2_on");
+        }
+
+        else{
+            this.renderable.setCurrentAnimation("bombillo1_on");
+        }
+
+
+    },
+
+
+
     onMouseDown : function() {
-
-        if(this.renderable.isCurrentAnimation("bombillo_off")){
+    
+        if(this.renderable.isCurrentAnimation("bombillo1_off")){
             me.audio.play("prender");
-            this.renderable.setCurrentAnimation("bombillo_on");
+            this.renderable.setCurrentAnimation("bombillo1_on");
+        }
 
-        }else{
+        else if(this.renderable.isCurrentAnimation("bombillo2_off")){
+            me.audio.play("prender");
+            this.renderable.setCurrentAnimation("bombillo2_on");
+        }
+
+        else if(this.renderable.isCurrentAnimation("bombillo1_on")){
             me.audio.play("apagar");
-            this.renderable.setCurrentAnimation("bombillo_off");
-        } 
+            this.renderable.setCurrentAnimation("bombillo1_off");
+        }
 
-
+        else{
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("bombillo2_off");
+        }
+        
         return false;
     
     },

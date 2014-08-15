@@ -1,5 +1,3 @@
-
-
 game.Ducha = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
@@ -21,36 +19,15 @@ game.Ducha = me.ObjectEntity.extend({
         me.audio.play("cambiar");
 
         if(this.renderable.isCurrentAnimation("ducha_corona")){
-            game.data.score -= 50;
             this.renderable.setCurrentAnimation("ducha_normal");
         }else{
-
-            if(!flags.ducha_corona){
-                $('#tabla').DataTable().row.add([
-                    consumos.ducha_corona.id,
-                    "Ducha Electrica",
-                    "<input type='number' value='1'>",
-                    "<input type='number' value='1'> H/s",
-                    "<input type='number' value="+consumos.ducha_corona.kw+"> W",
-                    '--',
-                    "--"
-                ]).draw();
-
-                flags.ducha_corona = true;
-
-            }
-
             this.renderable.setCurrentAnimation("ducha_corona");
-            game.data.score += 50;
         }
 
 
     },
 
     onMouseDown : function() {
-
-
-
         
         return false;
     
@@ -68,33 +45,75 @@ game.Ducha = me.ObjectEntity.extend({
 
 
 
-game.BombillosE6 = me.ObjectEntity.extend({
+game.BombilloE6 = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("bombillos_off", [0]);
-        this.renderable.addAnimation("bombillos_on", [1]);
-        this.renderable.setCurrentAnimation("bombillos_off");
+
+        this.renderable.addAnimation("bombillo1_off", [0]);
+        this.renderable.addAnimation("bombillo1_on", [1]);
+        this.renderable.addAnimation("bombillo2_off", [2]);
+        this.renderable.addAnimation("bombillo2_on", [3]);
+        this.renderable.setCurrentAnimation("bombillo1_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(730,60), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(980,60), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
+
+    cambiarS: function(){
+
+        me.audio.play("cambiar");
+
+        if(this.renderable.isCurrentAnimation("bombillo1_off")){
+            this.renderable.setCurrentAnimation("bombillo2_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("bombillo2_off")){
+            this.renderable.setCurrentAnimation("bombillo1_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("bombillo1_on")){
+            this.renderable.setCurrentAnimation("bombillo2_on");
+        }
+
+        else{
+            this.renderable.setCurrentAnimation("bombillo1_on");
+        }
+
+
+    },
+
+
+
     onMouseDown : function() {
-
-        if(this.renderable.isCurrentAnimation("bombillos_off")){
+    
+        if(this.renderable.isCurrentAnimation("bombillo1_off")){
             me.audio.play("prender");
-            this.renderable.setCurrentAnimation("bombillos_on");
+            this.renderable.setCurrentAnimation("bombillo1_on");
+        }
 
-        }else{
+        else if(this.renderable.isCurrentAnimation("bombillo2_off")){
+            me.audio.play("prender");
+            this.renderable.setCurrentAnimation("bombillo2_on");
+        }
+
+        else if(this.renderable.isCurrentAnimation("bombillo1_on")){
             me.audio.play("apagar");
-            this.renderable.setCurrentAnimation("bombillos_off");
-        } 
+            this.renderable.setCurrentAnimation("bombillo1_off");
+        }
 
-
+        else{
+            me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("bombillo2_off");
+        }
+        
         return false;
     
     },
+  
   
 
     update: function(dt){

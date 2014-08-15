@@ -70,7 +70,7 @@ var game = {
         me.pool.register("ac", game.Ac);
         me.pool.register("lampara", game.Lampara);
         me.pool.register("lampara2", game.Lampara2);
-        me.pool.register("bom_normal", game.BomNormal);
+        me.pool.register("bombillo_e5", game.BombilloE5);
         me.pool.register("salir_cuarto", game.SalirCuarto);
         me.pool.register("entrar_bano", game.EntrarBano);
 
@@ -78,13 +78,13 @@ var game = {
         me.pool.register("ducha", game.Ducha);
         me.pool.register("afeitadora", game.Afeitadora);
         me.pool.register("secador", game.Secador);
-        me.pool.register("bombillos_e06", game.BombillosE6);
+        me.pool.register("bombillo_e6", game.BombilloE6);
         me.pool.register("salir_bano", game.SalirBano);
 
         //07
         me.pool.register("ac_e7", game.AcE7);
         me.pool.register("televisor_e07", game.TelevisorE7);
-        me.pool.register("bombillo_e07", game.BombilloE7);
+        me.pool.register("bombillo_e7", game.BombilloE7);
         me.pool.register("consola", game.Consola);
         me.pool.register("salir_cuarto2", game.SalirCuarto2);
 
