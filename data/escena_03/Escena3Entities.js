@@ -55,6 +55,21 @@ game.Micro = me.ObjectEntity.extend({
         
 
         if(this.renderable.isCurrentAnimation("mic_off")){
+
+            if(!flags.microondas){
+                $('#tabla').DataTable().row.add([
+                    consumos.microondas.id,
+                    "Microondas",
+                    "<input type='number' id='microondas_cantidad' onchange='consumo("+'consumos.microondas.id'+")' value='0'>",
+                    "<input type='number' id='microondas_frecuencia' onchange='consumo("+'consumos.microondas.id'+")' value='0'> H/s",
+                    "<input type='number' id='microondas_potencia' onchange='consumo("+'consumos.microondas.id'+")' value="+consumos.microondas.kw+"> W",
+                    "<p id='microondas_total'></p>"
+                ]).draw();
+
+                flags.microondas = true;
+
+            }    
+
             me.audio.play("prender");
             me.audio.play("microondas");
             this.renderable.setCurrentAnimation("mic_on");
@@ -96,6 +111,22 @@ game.Licuadora = me.ObjectEntity.extend({
 
 
         if(this.renderable.isCurrentAnimation("lic_off")){
+
+            if(!flags.licuadora){
+                $('#tabla').DataTable().row.add([
+                    consumos.licuadora.id,
+                    "Licuadora",
+                    "<input type='number' id='licuadora_cantidad' onchange='consumo("+'consumos.licuadora.id'+")' value='0'>",
+                    "<input type='number' id='licuadora_frecuencia' onchange='consumo("+'consumos.licuadora.id'+")' value='0'> H/s",
+                    "<input type='number' id='licuadora_potencia' onchange='consumo("+'consumos.licuadora.id'+")' value="+consumos.licuadora.kw+"> W",
+                    "<p id='licuadora_total'></p>"
+                ]).draw();
+
+                flags.licuadora = true;
+
+            }    
+
+
             me.audio.play("prender");
             me.audio.play("licuadora");
             this.renderable.setCurrentAnimation("lic_on");
@@ -193,11 +224,11 @@ game.BombilloE3 = me.ObjectEntity.extend({
 
         this.parent(x, y, settings);
 
-        this.renderable.addAnimation("bom_normal_off", [0]);
-        this.renderable.addAnimation("bom_normal_on", [1]);
-        this.renderable.addAnimation("bom_ahorrador_off", [2]);
-        this.renderable.addAnimation("bom_ahorrador_on", [3]);
-        this.renderable.setCurrentAnimation("bom_ahorrador_off");
+        this.renderable.addAnimation("bom1_off", [0]);
+        this.renderable.addAnimation("bom1_on", [1]);
+        this.renderable.addAnimation("bom2_off", [2]);
+        this.renderable.addAnimation("bom2_on", [3]);
+        this.renderable.setCurrentAnimation("bom2_off");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(650,170), 42, 42), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1140,170), 32, 32), this.cambiarS.bind(this), false);
@@ -209,40 +240,51 @@ game.BombilloE3 = me.ObjectEntity.extend({
 
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("bom_ahorrador_on")){
+        if(this.renderable.isCurrentAnimation("bom1_on")){
+            this.renderable.setCurrentAnimation("bom2_on");
+        }
 
-            if(!flags.bom_ahorrador){
+        else if(this.renderable.isCurrentAnimation("bom1_off")){
+
+            if(!flags.bom2){
                 $('#tabla').DataTable().row.add([
-                    consumos.bom_ahorrador.id,
-                    "Bombillo Ahorrador",
-                    "<input type='number' value='1'>",
-                    "<input type='number' value='1'> H/s",
-                    "<input type='number' value="+consumos.bom_ahorrador.kw+"> W",
-                    '--',
-                    "--"
+                    consumos.bom2.id,
+                    "Bombillo Normal",
+                    "<input type='number' id='bom2_cantidad' onchange='consumo("+'consumos.bom2.id'+")' value='0'>",
+                    "<input type='number' id='bom2_frecuencia' onchange='consumo("+'consumos.bom2.id'+")' value='0'> H/s",
+                    "<input type='number' id='bom2_potencia' onchange='consumo("+'consumos.bom2.id'+")' value="+consumos.bom2.kw+"> W",
+                    "<p id='bom2_total'></p>"
                 ]).draw();
 
-                flags.bom_ahorrador= true;
+                flags.bom2= true;
 
             }
-            
-            this.renderable.setCurrentAnimation("bom_normal_on");
 
+            this.renderable.setCurrentAnimation("bom2_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom_ahorrador_off")){
-            this.renderable.setCurrentAnimation("bom_normal_off");
-        }
-
-        else if(this.renderable.isCurrentAnimation("bom_normal_on")){
-            this.renderable.setCurrentAnimation("bom_ahorrador_on");
+        else if(this.renderable.isCurrentAnimation("bom2_on")){
+            this.renderable.setCurrentAnimation("bom1_on");
         }
 
         else{
-            this.renderable.setCurrentAnimation("bom_ahorrador_off");
+
+            if(!flags.bom1){
+                $('#tabla').DataTable().row.add([
+                    consumos.bom1.id,
+                    "Bombillo Ahorrador",
+                    "<input type='number' id='bom1_cantidad' onchange='consumo("+'consumos.bom1.id'+")' value='0'>",
+                    "<input type='number' id='bom1_frecuencia' onchange='consumo("+'consumos.bom1.id'+")' value='0'> H/s",
+                    "<input type='number' id='bom1_potencia' onchange='consumo("+'consumos.bom1.id'+")' value="+consumos.bom1.kw+"> W",
+                    "<p id='bom1_total'></p>"
+                ]).draw();
+
+                flags.bom1= true;
+
+            }
+
+            this.renderable.setCurrentAnimation("bom1_off");
         }
-
-
 
     },
 
@@ -250,30 +292,26 @@ game.BombilloE3 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom_ahorrador_on")){
+        if(this.renderable.isCurrentAnimation("bom1_on")){
             me.audio.play("apagar");
-            //game.data.score += 50;
-            this.renderable.setCurrentAnimation("bom_ahorrador_off");
+            this.renderable.setCurrentAnimation("bom1_off");
 
         }
 
-        else if(this.renderable.isCurrentAnimation("bom_normal_on")){
+        else if(this.renderable.isCurrentAnimation("bom2_on")){
             me.audio.play("apagar");
-            //game.data.score -= 50;
-            this.renderable.setCurrentAnimation("bom_normal_off");
+            this.renderable.setCurrentAnimation("bom2_off");
         }
         
-        else if (this.renderable.isCurrentAnimation("bom_normal_off")) {
+        else if (this.renderable.isCurrentAnimation("bom2_off")) {
             me.audio.play("prender");
-            this.renderable.setCurrentAnimation("bom_normal_on");
+            this.renderable.setCurrentAnimation("bom2_on");
         }
 
         else{
             me.audio.play("prender");
-            this.renderable.setCurrentAnimation("bom_ahorrador_on");
+            this.renderable.setCurrentAnimation("bom1_on");
         }
-
-
 
         return false;
     
@@ -312,19 +350,18 @@ game.Nevera = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(!flags.nevera){
-                $('#tabla').DataTable().row.add([
-                    consumos.nevera.id,
-                    "Nevera",
-                    "<input type='number' value='1'>",
-                    "<input type='number' value='1'> H/s",
-                    "<input type='number' value="+consumos.nevera.kw+"> W",
-                    '--',
-                    "--"
-                ]).draw();
+            $('#tabla').DataTable().row.add([
+                consumos.nevera.id,
+                "Nevera",
+                "<input type='number' id='nevera_cantidad' onchange='consumo("+'consumos.nevera.id'+")' value='0'>",
+                "<input type='number' id='nevera_frecuencia' onchange='consumo("+'consumos.nevera.id'+")' value='0'> H/s",
+                "<input type='number' id='nevera_potencia' onchange='consumo("+'consumos.nevera.id'+")' value="+consumos.nevera.kw+"> W",
+                "<p id='nevera_total'></p>"
+            ]).draw();
 
-                flags.nevera = true;
+            flags.nevera = true;
 
-        }
+        }            
 
         return false;
     

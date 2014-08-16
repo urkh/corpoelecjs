@@ -55,7 +55,9 @@ game.resources = [
     {name:"ac_e7", type:"image", src:"data/escena_07/img/ac_e7.png"},
 
     {name:"flechas", type:"image", src:"data/img/flechas.png"},
-    {name:"pila", type:"image", src:"data/img/pila.png"},
+    {name:"pila1", type:"image", src:"data/img/pila1.png"},
+    {name:"pila2", type:"image", src:"data/img/pila2.png"},
+    {name:"pila3", type:"image", src:"data/img/pila3.png"},
 
 
 

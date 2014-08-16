@@ -21,20 +21,31 @@ $(document).ready(function() {
 
 
 
-    $('#tabla tbody').on('click', 'tr', function(){
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
-        }else{
-            $("#tabla").DataTable().$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    });
-
-
-    $("#eliminar").click(function(){
-        $("#tabla").DataTable().row('.selected').remove().draw(false);
-    });
 
 
 
-} );
+
+
+
+
+
+
+
+
+});
+
+function consumo(id){
+
+    var cantidad = parseInt($('#'+id+'_cantidad').val());
+    var frecuencia = parseInt($('#'+id+'_frecuencia').val());
+    var potencia = parseInt($('#'+id+'_potencia').val());
+
+    var total = frecuencia*potencia*cantidad;//cantidad+frecuencia+potencia;
+    game.data.score=total;
+
+    $('#'+id+'_total').text(total+" kw");
+
+
+
+
+}

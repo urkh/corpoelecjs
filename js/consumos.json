@@ -1,14 +1,14 @@
 consumos = {
 
-    "bom_ahorrador": {
-        "id": "bom_ahorrador",
+    "bom1": {
+        "id": "bom1",
         "kw":10,
         "bs":10
 
     },
 
-    "bom_normal": {
-        "id": "bom_normal",
+    "bom2": {
+        "id": "bom2",
         "kw":100,
         "bs":10
 
@@ -84,15 +84,15 @@ consumos = {
     },
 
 
-    "calentador1": {
-        "id": "calentador1",
+    "cal1": {
+        "id": "cal1",
         "kw": 300,
         "bs": 12
 
     },
 
 
-    "calentador2": {
+    "cal2": {
         "id": "calentador2",
         "kw": 250,
         "bs": 12
@@ -101,11 +101,73 @@ consumos = {
 
 
     "ducha_corona": {
-        "id": "ducha",
+        "id": "ducha_corona",
         "kw": 120,
         "bs": 12
 
-    }
+    },
+
+    "microondas": {
+        "id": "microondas",
+        "kw": 120,
+        "bs": 12
+
+    },
+
+    "licuadora": {
+        "id": "licuadora",
+        "kw": 120,
+        "bs": 12
+
+    },
+
+    "plancha":{
+        "id":"plancha",
+        "kw":100,
+        "bs":100
+    },
+
+    "ac1":{
+        "id":"ac1",
+        "kw":100,
+        "bs":100
+    },
+
+    "ac2":{
+        "id":"ac2",
+        "kw":100,
+        "bs":100
+    },
+
+    "lamp1":{
+        "id":"lamp1",
+        "kw":100,
+        "bs":100
+    },
+
+    "lamp2":{
+        "id":"lamp2",
+        "kw":100,
+        "bs":100
+    },
+
+    "consola":{
+        "id":"consola",
+        "kw":100,
+        "bs":100
+    },
+
+    "afeitadora":{
+        "id":"afeitadora",
+        "kw":100,
+        "bs":100
+    },
+
+    "secador":{
+        "id":"secador",
+        "kw":100,
+        "bs":100
+    }                                
 
 
 }
@@ -114,14 +176,26 @@ var flags = {
     "tv1": false,
     "tv2": false,
     "tv3": false,
-    "bom_ahorrador": false,
-    "radior": false,
+    "bom1": false,
+    "bom2": false,
+    "radio_r": false,
     "secadora": false,
     "lavadora": false,
     "nevera":false,
     "pc1": false,
     "pc2": false,
     "ducha_corona": false,
-    "calentador1": false,
-    "calentador2": false
+    "cal1": false,
+    "cal2": false,
+    "microondas": false,
+    "licuadora": false,
+    "plancha": false,
+    "ac1": false,
+    "ac2": false,
+    "lamp1": false,
+    "lamp2": false,
+    "consola": false,
+    "afeitadora": false,
+    "secador": false
+
 }
