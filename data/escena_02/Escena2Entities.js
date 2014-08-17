@@ -257,7 +257,6 @@ game.RadioR = me.ObjectEntity.extend({
 
         }else{
 
-            game.data.score -= 50;
             me.audio.play("apagar");
             me.audio.pause("radio");
             this.renderable.setCurrentAnimation("radio_off");

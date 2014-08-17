@@ -60,6 +60,9 @@ game.resources = [
     {name:"pila3", type:"image", src:"data/img/pila3.png"},
 
 
+    {name:"logo", type:"image", src:"data/img/logo.png"},
+
+
 
     {name:"32x32_font", type:"image", src:"data/img/font/32x32_font.png"},
     {name: "background", type:"audio", src:"data/sound/", channel:"2"},

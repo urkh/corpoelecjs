@@ -39,9 +39,9 @@ game.HUD.Pila = me.Renderable.extend({
 	init: function(x, y){
 
 		this.parent(new me.Vector2d(x,y), 10, 10);
-		this.pila1 = new me.SpriteObject(1, 1, me.loader.getImage("pila1"), 384, 128);	
-		this.pila2 = new me.SpriteObject(1, 1, me.loader.getImage("pila2"), 384, 128);	
-		this.pila3 = new me.SpriteObject(1, 1, me.loader.getImage("pila3"), 384, 128);	
+		this.pila1 = new me.SpriteObject(1, 10, me.loader.getImage("pila1"), 384, 128);	
+		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 384, 128);	
+		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 384, 128);	
 		
 
 		this.score2 = -1;

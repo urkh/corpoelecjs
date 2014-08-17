@@ -23,11 +23,35 @@ var game = {
         
         me.debug.renderHitBox = true;
 
+        me.loader.load(
+
+            {
+                name : "logo",
+                type : "image",
+                src  : "data/img/logo.png"
+            },
+
+            this.goToLoadingScreen.bind(this),
+            function() {
+                alert("No se han podido cargar algunos elementos!");
+            }
+        );
+
         me.audio.init("mp3,ogg");
+        //me.loader.onload = this.loaded.bind(this);
+        //me.loader.preload(game.resources);
+        //me.state.change(me.state.LOADING);
+    
+    },
+
+
+    goToLoadingScreen : function() {
+
+        me.state.set(me.state.LOADING, new game.CustomLoadingScreen());
         me.loader.onload = this.loaded.bind(this);
         me.loader.preload(game.resources);
         me.state.change(me.state.LOADING);
-    
+
     },
 
 
@@ -91,8 +115,8 @@ var game = {
         me.state.transition("fade","#000000", 250);
 
 
-        me.input.bindKey(me.input.KEY.Z, "prender", true, false);
-        me.input.bindPointer(me.input.mouse.RIGHT, me.input.KEY.Z);
+        //me.input.bindKey(me.input.KEY.Z, "prender", true, false);
+        //me.input.bindPointer(me.input.mouse.RIGHT, me.input.KEY.Z);
 
 
         me.state.change(me.state.PLAY);
