@@ -1,7 +1,8 @@
 var game = {
 
     data:{
-        score:0
+        score:0,
+        game_over: false
     },
 
     onload: function(){

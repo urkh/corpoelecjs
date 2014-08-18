@@ -58,6 +58,8 @@ game.resources = [
     {name:"pila1", type:"image", src:"data/img/pila1.png"},
     {name:"pila2", type:"image", src:"data/img/pila2.png"},
     {name:"pila3", type:"image", src:"data/img/pila3.png"},
+    {name:"pierde", type:"image", src:"data/img/pierde.png"},
+    {name:"gana", type:"image", src:"data/img/gana.png"},
 
 
     {name:"logo", type:"image", src:"data/img/logo.png"},
@@ -65,6 +67,7 @@ game.resources = [
 
 
     {name:"32x32_font", type:"image", src:"data/img/font/32x32_font.png"},
+    {name:"font", type:"image", src:"data/img/font/font.png"},
     {name: "background", type:"audio", src:"data/sound/", channel:"2"},
     {name: "dopen", type:"audio", src:"data/sound/", channel:"1"},
     {name: "dclose", type:"audio", src:"data/sound/", channel:"1"},

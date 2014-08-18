@@ -96,9 +96,7 @@ me.ProgressBar = me.Renderable.extend({
 });
 
 
-
-
-var BackgroundImageThatOnlyDrawsWhenAsked = me.SpriteObject.extend({
+var BackgroundImagen = me.SpriteObject.extend({
 
     init : function(image, x, y, w, h) {
         this.parent(x, y, image);
@@ -130,7 +128,7 @@ game.CustomLoadingScreen = me.ScreenObject.extend({
 
     "onResetEvent" : function() {
 
-        this.backgroundImage = new BackgroundImageThatOnlyDrawsWhenAsked(me.loader.getImage("logo"), 500, 500, me.game.viewport.width, me.game.viewport.height);
+        this.backgroundImage = new BackgroundImagen(me.loader.getImage("logo"), 500, 500, me.game.viewport.width, me.game.viewport.height);
         this.backgroundImage.forceDraw();
         me.game.world.addChild(this.backgroundImage, 1);
 

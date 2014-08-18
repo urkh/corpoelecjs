@@ -1,32 +1,17 @@
-
-
-/**
- * a HUD container and child items
- */
-
 game.HUD = game.HUD || {};
 
  
 game.HUD.Container = me.ObjectContainer.extend({
 
 	init: function() {
-		// call the constructor
-		this.parent();
-		
-		// persistent across level change
-		this.isPersistent = true;
-		
-		// non collidable
-		this.collidable = false;
-		
-		// make sure our object is always draw first
-		this.z = Infinity;
 
-		// give a name
+		this.parent();
+		this.isPersistent = true;
+		this.collidable = false;
+		this.z = Infinity;
 		this.name = "HUD";
 		
-		// add our child score object at the top left corner
-		this.addChild(new game.HUD.ScoreItem(190, 55));
+		this.addChild(new game.HUD.ScoreItem(160, 55));
 		this.addChild(new game.HUD.Pila(190,55));
 	}
 });
@@ -42,9 +27,9 @@ game.HUD.Pila = me.Renderable.extend({
 		this.pila1 = new me.SpriteObject(1, 10, me.loader.getImage("pila1"), 384, 128);	
 		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 384, 128);	
 		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 384, 128);	
+		this.pierde = new me.SpriteObject(1, 200, me.loader.getImage("pierde"), 1546, 517);
 		
-
-		this.score2 = -1;
+		//this.score = -1;
 		this.floating = true;
 
 	},
@@ -58,51 +43,45 @@ game.HUD.Pila = me.Renderable.extend({
 	
 	draw : function (context) {
 		
-		if(game.data.score >= 0 && game.data.score <= 100){
+		if(game.data.score >= 0 && game.data.score <= 999){
 			this.pila1.draw(context);
 		}
 
-	 	if(game.data.score >= 101 && game.data.score <= 200){
+	 	if(game.data.score >= 1000 && game.data.score <= 1999){
+	 		me.audio.play("alerta1");
         	this.pila2.draw(context);
     	}
 
-    	if(game.data.score >= 201){
+    	if(game.data.score >= 2000 && game.data.score <= 2999){
+    		me.audio.play("alerta2");
     		this.pila3.draw(context);
+    	}
+
+    	if(game.data.score >= 3000){
+    		me.audio.play("pierde");
+    		this.pierde.draw(context);
+    		game.data.game_over = true;
     	}
 	}
 
 
 });
 
-
-/** 
- * a basic HUD item to display score
- */
 game.HUD.ScoreItem = me.Renderable.extend({	
-	/** 
-	 * constructor
-	 */
+
 	init: function(x, y) {
 		
-		// call the parent constructor 
-		// (size does not matter here)
 		this.parent(new me.Vector2d(x, y), 10, 10); 
 		this.font = new me.BitmapFont("32x32_font", 32);
         this.font.set("left");
 
 		this.score = -1;
 
-
-		// make sure we use screen coordinates
 		this.floating = true;
 	},
 	
-	/**
-	 * update function
-	 */
 	update : function () {
-		// we don't do anything fancy here, so just
-		// return true if the score has been updated
+
 		if (this.score !== game.data.score) {	
 			this.score = game.data.score;
 			return true;
@@ -111,7 +90,13 @@ game.HUD.ScoreItem = me.Renderable.extend({
 	},
 
 	draw : function (context) {
-        this.font.draw(context, game.data.score, this.pos.x, this.pos.y);
+		if(game.data.game_over){
+        	me.game.world.removeChild(this);
+        }
+
+        else{
+        	this.font.draw(context, game.data.score, this.pos.x, this.pos.y);
+	    }
 	}
 
 });
