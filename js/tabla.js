@@ -47,5 +47,19 @@ function consumo(id){
 
 
 
+    if(game.data.score >= 1000 && game.data.score <= 1999){
+        me.audio.play("alerta");
+    }
+
+    if(game.data.score >= 2000 && game.data.score <= 2999){
+        me.audio.play("alerta");
+    }
+
+    if(game.data.score >= 3000){
+        me.audio.play("pierde");
+    }
+
+
+
 
 }
