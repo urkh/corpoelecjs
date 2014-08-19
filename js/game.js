@@ -29,7 +29,7 @@ var game = {
             {
                 name : "logo",
                 type : "image",
-                src  : "data/img/logo.png"
+                src  : "data/img/logo.min.png"
             },
 
             this.goToLoadingScreen.bind(this),

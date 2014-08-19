@@ -24,9 +24,9 @@ game.HUD.Pila = me.Renderable.extend({
 	init: function(x, y){
 
 		this.parent(new me.Vector2d(x,y), 10, 10);
-		this.pila1 = new me.SpriteObject(1, 10, me.loader.getImage("pila1"), 384, 128);	
-		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 384, 128);	
-		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 384, 128);	
+		this.pila1 = new me.SpriteObject(1, 10, me.loader.getImage("pila1"), 369, 112);	
+		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 369, 112);	
+		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 369, 112);	
 		this.pierde = new me.SpriteObject(1, 200, me.loader.getImage("pierde"), 1546, 517);
 		
 		//this.score = -1;
@@ -48,12 +48,12 @@ game.HUD.Pila = me.Renderable.extend({
 		}
 
 	 	if(game.data.score >= 1000 && game.data.score <= 1999){
-	 		me.audio.play("alerta1");
+	 		me.audio.play("alerta");
         	this.pila2.draw(context);
     	}
 
     	if(game.data.score >= 2000 && game.data.score <= 2999){
-    		me.audio.play("alerta2");
+    		me.audio.play("alerta");
     		this.pila3.draw(context);
     	}
 
