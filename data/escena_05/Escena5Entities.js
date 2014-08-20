@@ -29,9 +29,9 @@ game.Computadora= me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.pc2.id,
                     "PC2",
-                    "<input type='number' id='pc2_cantidad' onchange='consumo("+'consumos.pc2.id'+")' value='0'>",
-                    "<input type='number' id='pc2_frecuencia' onchange='consumo("+'consumos.pc2.id'+")' value='0'> H/s",
-                    "<input type='number' id='pc2_potencia' onchange='consumo("+'consumos.pc2.id'+")' value="+consumos.pc2.kw+"> W",
+                    "<input type='number' min='0'  id='pc2_cantidad' onchange='consumo("+'consumos.pc2.id'+")' value='0'>",
+                    "<input type='number' min='0' id='pc2_frecuencia' onchange='consumo("+'consumos.pc2.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='pc2_potencia' onchange='consumo("+'consumos.pc2.id'+")' value="+consumos.pc2.kw+"> W",
                     "<p id='pc2_total'></p>"
                 ]).draw();
 
@@ -54,9 +54,9 @@ game.Computadora= me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.pc1.id,
                     "PC1",
-                    "<input type='number' id='pc1_cantidad' onchange='consumo("+'consumos.pc1.id'+")' value='0'>",
-                    "<input type='number' id='pc1_frecuencia' onchange='consumo("+'consumos.pc1.id'+")' value='0'> H/s",
-                    "<input type='number' id='pc1_potencia' onchange='consumo("+'consumos.pc1.id'+")' value="+consumos.pc1.kw+"> W",
+                    "<input type='number' min='0' id='pc1_cantidad' onchange='consumo("+'consumos.pc1.id'+")' value='0'>",
+                    "<input type='number' min='0' id='pc1_frecuencia' onchange='consumo("+'consumos.pc1.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='pc1_potencia' onchange='consumo("+'consumos.pc1.id'+")' value="+consumos.pc1.kw+"> W",
                     "<p id='pc1_total'></p>"
                 ]).draw();
 
@@ -74,22 +74,30 @@ game.Computadora= me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("pc1_prendida")){
+            consumos.pc1.apagado=true;  
+            consumo(consumos.pc1.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("pc1_apagada");
 
         }
         else if(this.renderable.isCurrentAnimation("pc1_apagada")){
+            consumos.pc1.apagado=false;  
+            consumo(consumos.pc1.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("pc1_prendida");
 
         }
 
         else if(this.renderable.isCurrentAnimation("pc2_prendida")){
+            consumos.pc2.apagado=true;  
+            consumo(consumos.pc2.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("pc2_apagada");
         }
 
         else{
+            consumos.pc2.apagado=false;  
+            consumo(consumos.pc2.id);  
             me.audio.play("prender");   
             this.renderable.setCurrentAnimation("pc2_prendida");
         }
@@ -136,9 +144,9 @@ game.Lampara = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.lamp2.id,
                     "Lampara 2",
-                    "<input type='number' id='lamp2_cantidad' onchange='consumo("+'consumos.lamp2.id'+")' value='0'>",
-                    "<input type='number' id='lamp2_frecuencia' onchange='consumo("+'consumos.lamp2.id'+")' value='0'> H/s",
-                    "<input type='number' id='lamp2_potencia' onchange='consumo("+'consumos.lamp2.id'+")' value="+consumos.lamp2.kw+"> W",
+                    "<input type='number' min='0' id='lamp2_cantidad' onchange='consumo("+'consumos.lamp2.id'+")' value='0'>",
+                    "<input type='number' min='0' id='lamp2_frecuencia' onchange='consumo("+'consumos.lamp2.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='lamp2_potencia' onchange='consumo("+'consumos.lamp2.id'+")' value="+consumos.lamp2.kw+"> W",
                     "<p id='lamp2_total'></p>"
                 ]).draw();
 
@@ -156,9 +164,9 @@ game.Lampara = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.lamp1.id,
                     "Lampara 1",
-                    "<input type='number' id='lamp1_cantidad' onchange='consumo("+'consumos.lamp1.id'+")' value='0'>",
-                    "<input type='number' id='lamp1_frecuencia' onchange='consumo("+'consumos.lamp1.id'+")' value='0'> H/s",
-                    "<input type='number' id='lamp1_potencia' onchange='consumo("+'consumos.lamp1.id'+")' value="+consumos.lamp1.kw+"> W",
+                    "<input type='number' min='0'  id='lamp1_cantidad' onchange='consumo("+'consumos.lamp1.id'+")' value='0'>",
+                    "<input type='number' min='0' id='lamp1_frecuencia' onchange='consumo("+'consumos.lamp1.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='lamp1_potencia' onchange='consumo("+'consumos.lamp1.id'+")' value="+consumos.lamp1.kw+"> W",
                     "<p id='lamp1_total'></p>"
                 ]).draw();
 
@@ -185,21 +193,29 @@ game.Lampara = me.ObjectEntity.extend({
     onMouseDown : function() {
     
         if(this.renderable.isCurrentAnimation("lamp1_off")){
+            consumos.lamp1.apagado=false;  
+            consumo(consumos.lamp1.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("lamp1_on");
         }
 
         else if(this.renderable.isCurrentAnimation("lamp2_off")){
+            consumos.lamp2.apagado=false;  
+            consumo(consumos.lamp2.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("lamp2_on");
         }
 
         else if(this.renderable.isCurrentAnimation("lamp1_on")){
+            consumos.lamp1.apagado=true;  
+            consumo(consumos.lamp1.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("lamp1_off");
         }
 
         else{
+            consumos.lamp2.apagado=true;  
+            consumo(consumos.lamp2.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("lamp2_off");
         }
@@ -260,9 +276,9 @@ game.BombilloE5 = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.bom2.id,
                     "Bombillo Normal",
-                    "<input type='number' id='bom2_cantidad' onchange='consumo("+'consumos.bom2.id'+")' value='0'>",
-                    "<input type='number' id='bom2_frecuencia' onchange='consumo("+'consumos.bom2.id'+")' value='0'> H/s",
-                    "<input type='number' id='bom2_potencia' onchange='consumo("+'consumos.bom2.id'+")' value="+consumos.bom2.kw+"> W",
+                    "<input type='number' min='0' id='bom2_cantidad' onchange='consumo("+'consumos.bom2.id'+")' value='0'>",
+                    "<input type='number' min='0' id='bom2_frecuencia' onchange='consumo("+'consumos.bom2.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='bom2_potencia' onchange='consumo("+'consumos.bom2.id'+")' value="+consumos.bom2.kw+"> W",
                     "<p id='bom2_total'></p>"
                 ]).draw();
 
@@ -283,9 +299,9 @@ game.BombilloE5 = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.bom1.id,
                     "Bombillo Ahorrador",
-                    "<input type='number' id='bom1_cantidad' onchange='consumo("+'consumos.bom1.id'+")' value='0'>",
-                    "<input type='number' id='bom1_frecuencia' onchange='consumo("+'consumos.bom1.id'+")' value='0'> H/s",
-                    "<input type='number' id='bom1_potencia' onchange='consumo("+'consumos.bom1.id'+")' value="+consumos.bom1.kw+"> W",
+                    "<input type='number' min='0' id='bom1_cantidad' onchange='consumo("+'consumos.bom1.id'+")' value='0'>",
+                    "<input type='number' min='0' id='bom1_frecuencia' onchange='consumo("+'consumos.bom1.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='bom1_potencia' onchange='consumo("+'consumos.bom1.id'+")' value="+consumos.bom1.kw+"> W",
                     "<p id='bom1_total'></p>"
                 ]).draw();
 
@@ -303,22 +319,30 @@ game.BombilloE5 = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("bom1_on")){
+            consumos.bom1.apagado=true;  
+            consumo(consumos.bom1.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bom1_off");
 
         }
 
         else if(this.renderable.isCurrentAnimation("bom2_on")){
+            consumos.bom2.apagado=true;  
+            consumo(consumos.bom2.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bom2_off");
         }
         
         else if (this.renderable.isCurrentAnimation("bom2_off")) {
+            consumos.bom2.apagado=false;  
+            consumo(consumos.bom2.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("bom2_on");
         }
 
         else{
+            consumos.bom1.apagado=false;  
+            consumo(consumos.bom1.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("bom1_on");
         }
@@ -367,9 +391,9 @@ game.Ac = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.ac2.id,
                     "A/A 2",
-                    "<input type='number' id='ac2_cantidad' onchange='consumo("+'consumos.ac2.id'+")' value='0'>",
-                    "<input type='number' id='ac2_frecuencia' onchange='consumo("+'consumos.ac2.id'+")' value='0'> H/s",
-                    "<input type='number' id='ac2_potencia' onchange='consumo("+'consumos.ac2.id'+")' value="+consumos.ac2.kw+"> W",
+                    "<input type='number' min='0' id='ac2_cantidad' onchange='consumo("+'consumos.ac2.id'+")' value='0'>",
+                    "<input type='number' min='0' id='ac2_frecuencia' onchange='consumo("+'consumos.ac2.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='ac2_potencia' onchange='consumo("+'consumos.ac2.id'+")' value="+consumos.ac2.kw+"> W",
                     "<p id='ac2_total'></p>"
                 ]).draw();
 
@@ -387,9 +411,9 @@ game.Ac = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.ac1.id,
                     "A/A 1",
-                    "<input type='number' id='ac1_cantidad' onchange='consumo("+'consumos.ac1.id'+")' value='0'>",
-                    "<input type='number' id='ac1_frecuencia' onchange='consumo("+'consumos.ac1.id'+")' value='0'> H/s",
-                    "<input type='number' id='ac1_potencia' onchange='consumo("+'consumos.ac1.id'+")' value="+consumos.ac1.kw+"> W",
+                    "<input type='number' min='0' id='ac1_cantidad' onchange='consumo("+'consumos.ac1.id'+")' value='0'>",
+                    "<input type='number' min='0' id='ac1_frecuencia' onchange='consumo("+'consumos.ac1.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='ac1_potencia' onchange='consumo("+'consumos.ac1.id'+")' value="+consumos.ac1.kw+"> W",
                     "<p id='ac1_total'></p>"
                 ]).draw();
 
@@ -415,21 +439,29 @@ game.Ac = me.ObjectEntity.extend({
     onMouseDown : function() {
     
         if(this.renderable.isCurrentAnimation("ac1_off")){
+            consumos.ac1.apagado=false;  
+            consumo(consumos.ac1.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("ac1_loop");
         }
 
         else if(this.renderable.isCurrentAnimation("ac2_off")){
+            consumos.ac2.apagado=false;  
+            consumo(consumos.ac2.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("ac2_loop");
         }
 
         else if(this.renderable.isCurrentAnimation("ac1_loop")){
+            consumos.ac1.apagado=true;  
+            consumo(consumos.ac1.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("ac1_off");
         }
 
         else{
+            consumos.ac2.apagado=true;  
+            consumo(consumos.ac2.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("ac2_off");
         }

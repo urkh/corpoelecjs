@@ -43,7 +43,7 @@ game.HUD.Pila = me.Renderable.extend({
 	
 	draw : function (context) {
 		
-		if(game.data.score >= 0 && game.data.score <= 999){
+		if(game.data.score <= 999){
 			this.pila1.draw(context);
 		}
 

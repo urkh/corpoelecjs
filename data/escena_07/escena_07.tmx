@@ -50,7 +50,7 @@
   </object>
  </objectgroup>
  <objectgroup name="ac_e7" width="50" height="31">
-  <object name="ac_e7" x="119" y="533" width="113" height="97">
+  <object name="ac_e7" x="35" y="209" width="113" height="97">
    <properties>
     <property name="image" value="ac_e7"/>
     <property name="spriteheight" value="128"/>

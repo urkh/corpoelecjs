@@ -19,6 +19,8 @@ game.Ducha = me.ObjectEntity.extend({
         me.audio.play("cambiar");
 
         if(this.renderable.isCurrentAnimation("ducha_corona")){
+            consumos.ducha_corona.apagado=true;  
+            consumo(consumos.ducha_corona.id);  
             this.renderable.setCurrentAnimation("ducha_normal");
         }else{
 
@@ -26,15 +28,17 @@ game.Ducha = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.ducha_corona.id,
                     "Ducha Corona",
-                    "<input type='number' id='ducha_corona_cantidad' onchange='consumo("+'consumos.ducha_corona.id'+")' value='0'>",
-                    "<input type='number' id='ducha_corona_frecuencia' onchange='consumo("+'consumos.ducha_corona.id'+")' value='0'> H/s",
-                    "<input type='number' id='ducha_corona_potencia' onchange='consumo("+'consumos.ducha_corona.id'+")' value="+consumos.ducha_corona.kw+"> W",
+                    "<input type='number' min='0'  id='ducha_corona_cantidad' onchange='consumo("+'consumos.ducha_corona.id'+")' value='0'>",
+                    "<input type='number' min='0' id='ducha_corona_frecuencia' onchange='consumo("+'consumos.ducha_corona.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='ducha_corona_potencia' onchange='consumo("+'consumos.ducha_corona.id'+")' value="+consumos.ducha_corona.kw+"> W",
                     "<p id='ducha_corona_total'></p>"
                 ]).draw();
 
                 flags.ducha_corona = true;
 
             }
+            consumos.ducha_corona.apagado=false;  
+            consumo(consumos.ducha_corona.id);  
 
             this.renderable.setCurrentAnimation("ducha_corona");
         }
@@ -92,9 +96,9 @@ game.BombilloE6 = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.bom2.id,
                     "Bombillo Normal",
-                    "<input type='number' id='bom2_cantidad' onchange='consumo("+'consumos.bom2.id'+")' value='0'>",
-                    "<input type='number' id='bom2_frecuencia' onchange='consumo("+'consumos.bom2.id'+")' value='0'> H/s",
-                    "<input type='number' id='bom2_potencia' onchange='consumo("+'consumos.bom2.id'+")' value="+consumos.bom2.kw+"> W",
+                    "<input type='number' min='0' id='bom2_cantidad' onchange='consumo("+'consumos.bom2.id'+")' value='0'>",
+                    "<input type='number' min='0' id='bom2_frecuencia' onchange='consumo("+'consumos.bom2.id'+")' value='0'> H/s",
+                    "<input type='number' min='0' id='bom2_potencia' onchange='consumo("+'consumos.bom2.id'+")' value="+consumos.bom2.kw+"> W",
                     "<p id='bom2_total'></p>"
                 ]).draw();
 
@@ -115,9 +119,9 @@ game.BombilloE6 = me.ObjectEntity.extend({
                 $('#tabla').DataTable().row.add([
                     consumos.bom1.id,
                     "Bombillo Ahorrador",
-                    "<input type='number' id='bom1_cantidad' onchange='consumo("+'consumos.bom1.id'+")' value='0'>",
-                    "<input type='number' id='bom1_frecuencia' onchange='consumo("+'consumos.bom1.id'+")' value='0'> H/s",
-                    "<input type='number' id='bom1_potencia' onchange='consumo("+'consumos.bom1.id'+")' value="+consumos.bom1.kw+"> W",
+                    "<input type='number' min='0' id='bom1_cantidad' onchange='consumo("+'consumos.bom1.id'+")' value='0'>",
+                    "<input type='number' min='0'  id='bom1_frecuencia' onchange='consumo("+'consumos.bom1.id'+")' value='0'> H/s",
+                    "<input type='number' min='0'  id='bom1_potencia' onchange='consumo("+'consumos.bom1.id'+")' value="+consumos.bom1.kw+"> W",
                     "<p id='bom1_total'></p>"
                 ]).draw();
 
@@ -135,22 +139,30 @@ game.BombilloE6 = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("bom1_on")){
+            consumos.bom1.apagado=true;  
+            consumo(consumos.bom1.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bom1_off");
 
         }
 
         else if(this.renderable.isCurrentAnimation("bom2_on")){
+            consumos.bom2.apagado=true;  
+            consumo(consumos.bom2.id);  
             me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bom2_off");
         }
         
         else if (this.renderable.isCurrentAnimation("bom2_off")) {
+            consumos.bom2.apagado=false;  
+            consumo(consumos.bom2.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("bom2_on");
         }
 
         else{
+            consumos.bom1.apagado=false;  
+            consumo(consumos.bom1.id);  
             me.audio.play("prender");
             this.renderable.setCurrentAnimation("bom1_on");
         }
@@ -189,9 +201,9 @@ game.Afeitadora = me.ObjectEntity.extend({
             $('#tabla').DataTable().row.add([
                 consumos.afeitadora.id,
                 "Afeitadora",
-                "<input type='number' id='afeitadora_cantidad' onchange='consumo("+'consumos.afeitadora.id'+")' value='0'>",
-                "<input type='number' id='afeitadora_frecuencia' onchange='consumo("+'consumos.afeitadora.id'+")' value='0'> H/s",
-                "<input type='number' id='afeitadora_potencia' onchange='consumo("+'consumos.afeitadora.id'+")' value="+consumos.afeitadora.kw+"> W",
+                "<input type='number' min='0'  id='afeitadora_cantidad' onchange='consumo("+'consumos.afeitadora.id'+")' value='0'>",
+                "<input type='number' min='0'  id='afeitadora_frecuencia' onchange='consumo("+'consumos.afeitadora.id'+")' value='0'> H/s",
+                "<input type='number' min='0'  id='afeitadora_potencia' onchange='consumo("+'consumos.afeitadora.id'+")' value="+consumos.afeitadora.kw+"> W",
                 "<p id='afeitadora_total'></p>"
             ]).draw();
 
@@ -233,9 +245,9 @@ game.Secador = me.ObjectEntity.extend({
             $('#tabla').DataTable().row.add([
                 consumos.secador.id,
                 "Secador",
-                "<input type='number' id='secador_cantidad' onchange='consumo("+'consumos.secador.id'+")' value='0'>",
-                "<input type='number' id='secador_frecuencia' onchange='consumo("+'consumos.secador.id'+")' value='0'> H/s",
-                "<input type='number' id='secador_potencia' onchange='consumo("+'consumos.secador.id'+")' value="+consumos.secador.kw+"> W",
+                "<input type='number' min='0' id='secador_cantidad' onchange='consumo("+'consumos.secador.id'+")' value='0'>",
+                "<input type='number' min='0' id='secador_frecuencia' onchange='consumo("+'consumos.secador.id'+")' value='0'> H/s",
+                "<input type='number' min='0' id='secador_potencia' onchange='consumo("+'consumos.secador.id'+")' value="+consumos.secador.kw+"> W",
                 "<p id='secador_total'></p>"
             ]).draw();
 

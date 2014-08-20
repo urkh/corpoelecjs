@@ -3,83 +3,95 @@ consumos = {
     "bom1": {
         "id": "bom1",
         "kw":10,
-        "bs":10
+        "consumo":0,
+        "apagado":true
 
     },
 
     "bom2": {
         "id": "bom2",
         "kw":100,
-        "bs":10
+        "consumo":0,
+        "apagado":true
 
     },
 
     "tv1": {
         "id":"tv1",
     	"kw": 120,
-    	"bs": 12
+    	"consumo": 0,
+        "apagado":true
 
     },
 
     "tv2": {
         "id":"tv2",
         "kw": 150,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "tv3": {
         "id":"tv3",
         "kw": 180,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
     },
 
     "radio_r": {
         "id": "radio_r",
         "kw": 80,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "lavadora": {
         "id": "lavadora",
         "kw": 230,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "secadora": {
         "id": "secadora",
         "kw": 400,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "nevera": {
         "id": "nevera",
         "kw": 580,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "microondas": {
         "id": "microondas",
         "kw": 300,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "pc1": {
         "id": "pc1",
         "kw": 90,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
      "pc2": {
         "id": "pc2",
         "kw": 140,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
@@ -87,15 +99,17 @@ consumos = {
     "cal1": {
         "id": "cal1",
         "kw": 300,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
 
     "cal2": {
-        "id": "calentador2",
+        "id": "cal2",
         "kw": 250,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
@@ -103,70 +117,81 @@ consumos = {
     "ducha_corona": {
         "id": "ducha_corona",
         "kw": 120,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "microondas": {
         "id": "microondas",
         "kw": 120,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "licuadora": {
         "id": "licuadora",
         "kw": 120,
-        "bs": 12
+        "consumo": 0,
+        "apagado":true
 
     },
 
     "plancha":{
         "id":"plancha",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     },
 
     "ac1":{
         "id":"ac1",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     },
 
     "ac2":{
         "id":"ac2",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     },
 
     "lamp1":{
         "id":"lamp1",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     },
 
     "lamp2":{
         "id":"lamp2",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     },
 
     "consola":{
         "id":"consola",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     },
 
     "afeitadora":{
         "id":"afeitadora",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     },
 
     "secador":{
         "id":"secador",
         "kw":100,
-        "bs":100
+        "consumo":0,
+        "apagado":true
     }                                
 
 
