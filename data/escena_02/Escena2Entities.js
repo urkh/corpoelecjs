@@ -26,57 +26,37 @@ game.Televisor = me.ObjectEntity.extend({
 
         if(this.renderable.isCurrentAnimation("tv1_off")){
 
-             if(!flags.tv2){
-                $('#tabla').DataTable().row.add([
-                    consumos.tv2.id,
-                    "TV2",
-                    "<input type='number' id='tv2_cantidad' min='0' onchange='consumo("+'consumos.tv2.id'+")' value='0'>",
-                    "<input type='number' id='tv2_frecuencia' min='0' onchange='consumo("+'consumos.tv2.id'+")' value='0'> H/s",
-                    "<input type='number' id='tv2_potencia' min='0' onchange='consumo("+'consumos.tv2.id'+")' value="+consumos.tv2.kw+"> W",
-                    "<p id='tv2_total'></p>"
-                ]).draw();
-
-                flags.tv2 = true;
-
-            }
-
             this.renderable.setCurrentAnimation("tv2_off");
 
-        }else if(this.renderable.isCurrentAnimation("tv2_off")){
+        }
 
-            if(!flags.tv3){
-                $('#tabla').DataTable().row.add([
-                    consumos.tv3.id,
-                    "TV3",
-                    "<input type='number' id='tv3_cantidad' min='0' onchange='consumo("+'consumos.tv3.id'+")' value='0'>",
-                    "<input type='number' id='tv3_frecuencia' min='0' onchange='consumo("+'consumos.tv3.id'+")' value='0'> H/s",
-                    "<input type='number' id='tv3_potencia' min='0' onchange='consumo("+'consumos.tv3.id'+")' value="+consumos.tv3.kw+"> W",
-                    "<p id='tv3_total'></p>"
-                ]).draw();
-
-                flags.tv3 = true;
-
-            }
+        else if(this.renderable.isCurrentAnimation("tv2_off")){
 
             this.renderable.setCurrentAnimation("tv3_off");
 
-        }else{
+        }
 
-            if(!flags.tv1){
-                $('#tabla').DataTable().row.add([
-                    consumos.tv1.id,
-                    "TV1",
-                    "<input type='number' id='tv1_cantidad' min='0' onchange='consumo("+'consumos.tv1.id'+")' value='0'>",
-                    "<input type='number' id='tv1_frecuencia' min='0' onchange='consumo("+'consumos.tv1.id'+")' value='0'> H/s",
-                    "<input type='number' id='tv1_potencia' min='0' onchange='consumo("+'consumos.tv1.id'+")' value="+consumos.tv1.kw+"> W",
-                    "<p id='tv1_total'></p>"
-                ]).draw();
-
-                flags.tv1 = true;
-
-            }
+        else if(this.renderable.isCurrentAnimation("tv3_off")){
 
             this.renderable.setCurrentAnimation("tv1_off");
+
+        } 
+
+        else if(this.renderable.isCurrentAnimation("tv1_on")){
+
+            this.renderable.setCurrentAnimation("tv2_on");
+
+        }
+
+        else if(this.renderable.isCurrentAnimation("tv2_on")){
+
+            this.renderable.setCurrentAnimation("tv3_on");
+
+        }
+
+        else{
+
+            this.renderable.setCurrentAnimation("tv1_on");
 
         } 
 
@@ -85,6 +65,56 @@ game.Televisor = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+        if(this.renderable.isCurrentAnimation("tv1_on")){
+            agregar_tabla("tv1");
+            //consumos.tv1.apagado=true;  
+            //consumo(consumos.tv1.id);  
+            //me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("tv1_off");
+
+        }
+        else if(this.renderable.isCurrentAnimation("tv1_off")){
+            //consumos.tv1.apagado=false;
+            //consumo(consumos.tv1.id);
+            agregar_tabla("tv1");
+            //me.audio.play("prender");
+            this.renderable.setCurrentAnimation("tv1_on");
+
+        }
+
+        else if(this.renderable.isCurrentAnimation("tv2_on")){
+            agregar_tabla("tv2");
+            //consumos.tv2.apagado=true;  
+            //consumo(consumos.tv2.id);  
+            //me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("tv2_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("tv2_off")){
+            
+            //consumos.tv2.apagado=false;
+            //consumo(consumos.tv2.id);
+            agregar_tabla("tv2");
+            //me.audio.play("prender");   
+            this.renderable.setCurrentAnimation("tv2_on");
+        }
+
+        else if(this.renderable.isCurrentAnimation("tv3_on")){
+            agregar_tabla("tv3");
+            //consumos.tv3.apagado=true;  
+            //consumo(consumos.tv3.id);  
+            //me.audio.play("apagar");
+            this.renderable.setCurrentAnimation("tv3_off");
+        }
+
+        else {
+            //consumos.tv3.apagado=false;
+            //consumo(consumos.tv3.id);
+            agregar_tabla("tv3");
+            //me.audio.play("prender");   
+            this.renderable.setCurrentAnimation("tv3_on");
+        }
 
         return false;
     
@@ -128,21 +158,6 @@ game.BombilloE2 = me.ObjectEntity.extend({
         }
 
         else if(this.renderable.isCurrentAnimation("bom1_off")){
-
-            if(!flags.bom2){
-                $('#tabla').DataTable().row.add([
-                    consumos.bom2.id,
-                    "Bombillo Normal",
-                    "<input type='number' id='bom2_cantidad' min='0' onchange='consumo("+'consumos.bom2.id'+")' value='0'>",
-                    "<input type='number' id='bom2_frecuencia' min='0' onchange='consumo("+'consumos.bom2.id'+")' value='0'> H/s",
-                    "<input type='number' id='bom2_potencia' min='0' onchange='consumo("+'consumos.bom2.id'+")' value="+consumos.bom2.kw+"> W",
-                    "<p id='bom2_total'></p>"
-                ]).draw();
-
-                flags.bom2= true;
-
-            }
-
             this.renderable.setCurrentAnimation("bom2_off");
         }
 
@@ -151,21 +166,6 @@ game.BombilloE2 = me.ObjectEntity.extend({
         }
 
         else{
-
-            if(!flags.bom1){
-                $('#tabla').DataTable().row.add([
-                    consumos.bom1.id,
-                    "Bombillo Ahorrador",
-                    "<input type='number' id='bom1_cantidad' min='0' onchange='consumo("+'consumos.bom1.id'+")' value='0'>",
-                    "<input type='number' id='bom1_frecuencia' min='0' onchange='consumo("+'consumos.bom1.id'+")' value='0'> H/s",
-                    "<input type='number' id='bom1_potencia' min='0' onchange='consumo("+'consumos.bom1.id'+")' value="+consumos.bom1.kw+"> W",
-                    "<p id='bom1_total'></p>"
-                ]).draw();
-
-                flags.bom1= true;
-
-            }
-
             this.renderable.setCurrentAnimation("bom1_off");
         }
 
@@ -176,32 +176,35 @@ game.BombilloE2 = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("bom1_on")){
-
-            consumos.bom1.apagado=true;  
-            consumo(consumos.bom1.id);     
-            me.audio.play("apagar");
+            agregar_tabla("bom1");
+            //consumos.bom1.apagado=true;  
+            //consumo(consumos.bom1.id);     
+            //me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bom1_off");
 
         }
 
         else if(this.renderable.isCurrentAnimation("bom2_on")){
-            consumos.bom2.apagado=true;  
-            consumo(consumos.bom2.id);     
-            me.audio.play("apagar");
+           agregar_tabla("bom2");
+           // consumos.bom2.apagado=true;  
+           // consumo(consumos.bom2.id);     
+           // me.audio.play("apagar");
             this.renderable.setCurrentAnimation("bom2_off");
         }
         
         else if (this.renderable.isCurrentAnimation("bom2_off")) {
-            consumos.bom2.apagado=false;  
-            consumo(consumos.bom2.id);     
-            me.audio.play("prender");
+            agregar_tabla("bom2");
+            //consumos.bom2.apagado=false;  
+            //consumo(consumos.bom2.id);     
+            //me.audio.play("prender");
             this.renderable.setCurrentAnimation("bom2_on");
         }
 
         else{
-            consumos.bom1.apagado=false;  
-            consumo(consumos.bom1.id);     
-            me.audio.play("prender");
+            agregar_tabla("bom1");
+            //consumos.bom1.apagado=false;  
+            //consumo(consumos.bom1.id);     
+            //me.audio.play("prender");
             this.renderable.setCurrentAnimation("bom1_on");
         }
 
@@ -245,33 +248,19 @@ game.RadioR = me.ObjectEntity.extend({
        
         if(this.renderable.isCurrentAnimation("radio_off")){
 
-            if(!flags.radio_r){
-                $('#tabla').DataTable().row.add([
-                    consumos.radio_r.id,
-                    "Radio",
-                    "<input type='number' id='radio_r_cantidad' min='0' onchange='consumo("+'consumos.radio_r.id'+")' value='0'>",
-                    "<input type='number' id='radio_r_frecuencia' min='0' onchange='consumo("+'consumos.radio_r.id'+")' value='0'> H/s",
-                    "<input type='number' id='radio_r_potencia' min='0' onchange='consumo("+'consumos.radio_r.id'+")' value="+consumos.radio_r.kw+"> W",
-                    "<p id='radio_r_total'></p>"
-                ]).draw();
-
-                flags.radio_r = true;
-
-            }
-            consumos.radio_r.apagado=false;  
-            consumo(consumos.radio_r.id);          
-
-            me.audio.play("prender");
+            agregar_tabla("radio_r");
+            //consumos.radio_r.apagado=false;  
+            //consumo(consumos.radio_r.id);          
+            //me.audio.play("prender");
             me.audio.play("radio");
             this.renderable.setCurrentAnimation("radio_on");
 
 
         }else{
-
-            consumos.radio_r.apagado=true;  
-            consumo(consumos.radio_r.id);    
-
-            me.audio.play("apagar");
+            agregar_tabla("radio_r");
+            //consumos.radio_r.apagado=true;  
+            //consumo(consumos.radio_r.id);    
+            //me.audio.play("apagar");
             me.audio.pause("radio");
             this.renderable.setCurrentAnimation("radio_off");
 
@@ -316,7 +305,12 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
     onMouseDown : function() {
         me.audio.play("dopen");
         me.audio.stop("radio");
-        me.game.viewport.fadeIn("#000000", 450, 
+        //this.cambiar = new me.LevelEntity(1, 1, settings);
+        //this.cambiar.goTo("escena_05");
+        me.state.change(me.state.PLAY, "escena_05");
+       
+
+       /* me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
 
@@ -325,7 +319,7 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
             })
 
         );
-
+        */
         
         return false;
     

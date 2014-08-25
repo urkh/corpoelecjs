@@ -1,29 +1,30 @@
-var estados = '<option value="am">Amazonas</option>\
-              <option>Anzo&aacute;tegui</option>\
-              <option>Apure</option>\
-              <option>Aragua</option>\
-              <option>Barinas</option>\
-              <option>Bolivar</option>\
-              <option>Carabobo</option>\
-              <option>Cojedes</option>\
-              <option>Delta Amacuro</option>\
-              <option>Distrito Capital</option>\
-              <option>Falc&oacute;n</option>\
-              <option>Guarico</option>\
-              <option>Lara</option>\
-              <option>M&eacute;rida</option>\
-              <option>Miranda</option>\
-              <option>Monagas</option>\
-              <option>Nueva Esparta</option>\
-              <option>Portuguesa</option>\
-              <option>Sucre</option>\
-              <option>T&aacute;chira</option>\
-              <option>Trujillo</option>\
+var estados = '<option value="0">---</option>\
+              <option value="am">Amazonas</option>\
+              <option value="an">Anzo&aacute;tegui</option>\
+              <option value="ap">Apure</option>\
+              <option value="ar">Aragua</option>\
+              <option value="ba">Barinas</option>\
+              <option value="bo">Bolivar</option>\
+              <option value="ca">Carabobo</option>\
+              <option value="co">Cojedes</option>\
+              <option value="dm">Delta Amacuro</option>\
+              <option value="dc">Distrito Capital</option>\
+              <option value="fa">Falc&oacute;n</option>\
+              <option value="gu">Guarico</option>\
+              <option value="la">Lara</option>\
+              <option value="me">M&eacute;rida</option>\
+              <option value="mi">Miranda</option>\
+              <option value="mo">Monagas</option>\
+              <option value="ne">Nueva Esparta</option>\
+              <option value="po">Portuguesa</option>\
+              <option value="su">Sucre</option>\
+              <option value="ta">T&aacute;chira</option>\
+              <option value="tr">Trujillo</option>\
               <option value="va">Vargas</option>\
-              <option>Yaracuy</option>\
-              <option>Zulia</option>';
+              <option value="ya">Yaracuy</option>\
+              <option value="zu">Zulia</option>';
 
-var select_input = '<select id="select_estados" name="select_estados" style="position:absolute;width:20%;">'+estados+'</select>';
+var select_input = '<select id="select_estados" name="select_estados" >'+estados+'</select>';
 
 
 game.Inicio = me.ObjectEntity.extend({
@@ -40,7 +41,15 @@ game.Inicio = me.ObjectEntity.extend({
 
 	onMouseDown : function() {
 
-
+        var estado = $("#select_estados").val(); 
+        
+        for(var _estado in estados){
+            if(estados[_estado].id == estado){
+                game.data.conmax = estados[_estado].maximo;
+            }    
+        
+        }
+        
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){

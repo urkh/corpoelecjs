@@ -55,7 +55,7 @@ game.HUD.Pila = me.Renderable.extend({
     		this.pila3.draw(context);
     	}
 
-    	if(game.data.score >= 3000){
+    	if(game.data.score >= game.data.conmax){
     		this.pierde.draw(context);
     		game.data.game_over = true;
     	}

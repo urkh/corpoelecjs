@@ -26,6 +26,47 @@ $(document).ready(function() {
 
 });
 
+function agregar_tabla(id){
+
+    for(var cons in consumos){
+        if(consumos[cons].id==id){
+            if(!consumos[cons].flag){
+                $('#tabla').DataTable().row.add([
+                    consumos[cons].id,
+                    consumos[cons].id,
+                    "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(id)' value='1'>",
+                    "<input type='number' id='"+id+"_frecuencia' min='0' onchange='consumo(id)' value='1'> H/s",
+                    "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(id)' value="+consumos[cons].kw+"> W",
+                    "<p id='"+id+"_total'></p>"
+                ]).draw();
+
+                consumos[cons].flag = true;
+
+            }
+            
+            
+            if(consumos[cons].apagado){
+                consumos[cons].apagado = false;
+                consumo(consumos[cons].id);
+                me.audio.play("prender");
+                
+
+            }
+
+            if(!consumos[cons].apagado){
+                consumos[cons].apagado = true;
+                consumo(consumos[cons].id);
+                me.audio.play("apagar");
+                
+
+            }
+        }
+    }
+
+    return true;
+
+}
+
 function consumo(id){
 
     var cantidad = parseInt($('#'+id+'_cantidad').val());
@@ -59,16 +100,19 @@ function consumo(id){
     $('#'+id+'_total').text(total+" kw");
 
     if(game.data.score >= 1000 && game.data.score <= 1999){
-        me.audio.play("alerta");
+      //  me.audio.play("alerta");
     }
 
     if(game.data.score >= 2000 && game.data.score <= 2999){
-        me.audio.play("alerta");
+      //  me.audio.play("alerta");
     }
 
     if(game.data.score >= 3000){
-        me.audio.play("pierde");
+     //   me.audio.play("pierde");
     }
+
+
+    return true;
 
 
 

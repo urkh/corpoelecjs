@@ -4,7 +4,8 @@ consumos = {
         "id": "bom1",
         "kw":10,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -12,7 +13,8 @@ consumos = {
         "id": "bom2",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -20,7 +22,8 @@ consumos = {
         "id":"tv1",
     	"kw": 120,
     	"consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -28,7 +31,8 @@ consumos = {
         "id":"tv2",
         "kw": 150,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -36,14 +40,16 @@ consumos = {
         "id":"tv3",
         "kw": 180,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "radio_r": {
         "id": "radio_r",
         "kw": 80,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -51,7 +57,8 @@ consumos = {
         "id": "lavadora",
         "kw": 230,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -59,7 +66,8 @@ consumos = {
         "id": "secadora",
         "kw": 400,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -67,7 +75,8 @@ consumos = {
         "id": "nevera",
         "kw": 580,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+
 
     },
 
@@ -75,7 +84,8 @@ consumos = {
         "id": "microondas",
         "kw": 300,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -83,7 +93,8 @@ consumos = {
         "id": "pc1",
         "kw": 90,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -91,7 +102,8 @@ consumos = {
         "id": "pc2",
         "kw": 140,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -100,7 +112,8 @@ consumos = {
         "id": "cal1",
         "kw": 300,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -109,7 +122,8 @@ consumos = {
         "id": "cal2",
         "kw": 250,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -118,7 +132,8 @@ consumos = {
         "id": "ducha_corona",
         "kw": 120,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -126,7 +141,8 @@ consumos = {
         "id": "microondas",
         "kw": 120,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -134,7 +150,8 @@ consumos = {
         "id": "licuadora",
         "kw": 120,
         "consumo": 0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
 
     },
 
@@ -142,85 +159,166 @@ consumos = {
         "id":"plancha",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "ac1":{
         "id":"ac1",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "ac2":{
         "id":"ac2",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "lamp1":{
         "id":"lamp1",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "lamp2":{
         "id":"lamp2",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "consola":{
         "id":"consola",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "afeitadora":{
         "id":"afeitadora",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     },
 
     "secador":{
         "id":"secador",
         "kw":100,
         "consumo":0,
-        "apagado":true
+        "apagado":true,
+        "flag":false
     }                                
 
 
 }
 
-var flags = {
-    "tv1": false,
-    "tv2": false,
-    "tv3": false,
-    "bom1": false,
-    "bom2": false,
-    "radio_r": false,
-    "secadora": false,
-    "lavadora": false,
-    "nevera":false,
-    "pc1": false,
-    "pc2": false,
-    "ducha_corona": false,
-    "cal1": false,
-    "cal2": false,
-    "microondas": false,
-    "licuadora": false,
-    "plancha": false,
-    "ac1": false,
-    "ac2": false,
-    "lamp1": false,
-    "lamp2": false,
-    "consola": false,
-    "afeitadora": false,
-    "secador": false
+
+estados = {
+    "amazonas":{
+        "id":"am",
+        "maximo":3100,
+    },
+    "anzoategui":{
+        "id":"an",
+        "maximo":3101,
+    },
+    "apure":{
+        "id":"ap",
+        "maximo":3102,
+    },
+    "aragua":{
+        "id":"ar",
+        "maximo":3103,
+    },
+    "barinas":{
+        "id":"ba",
+        "maximo":3104,
+    },
+    "bolivar":{
+        "id":"bo",
+        "maximo":3105,
+    },
+    "carabobo":{
+        "id":"ca",
+        "maximo":3106,
+    },
+    "cojedes":{
+        "id":"co",
+        "maximo":3107,
+    },
+    "deltaamacuro":{    
+        "id":"dm",
+        "maximo":3108,
+    },
+    "distritocapital":{    
+        "id":"dc",
+        "maximo":3109,
+    },
+    "falcon":{
+        "id":"fa",
+        "maximo":3110,
+    },
+    "guarico":{
+        "id":"gu",
+        "maximo":3111,
+    },
+    "lara":{   
+        "id":"la",
+        "maximo":3112,
+    },
+    "merida":{ 
+        "id":"me",
+        "maximo":3113,
+    },
+    "miranda":{  
+        "id":"mi",
+        "maximo":3114,
+    },
+    "monagas":{
+        "id":"mo",
+        "maximo":3114,
+    },
+    "nuevaesparta":{
+        "id":"ne",
+        "maximo":3115,
+    },
+    "portuguesa":{
+        "id":"po",
+        "maximo":3116,
+    },
+    "sucre":{
+        "id":"su",
+        "maximo":3117,
+    },
+    "tachira":{
+        "id":"ta",
+        "maximo":3118,
+    },
+    "trujillo":{
+        "id":"tr",
+        "maximo":3119,
+    },
+    "vargas":{
+        "id":"va",
+        "maximo":3120,
+    },
+    "yaracui":{
+        "id":"ya",
+        "maximo":3121,
+    },
+    "zulia":{  
+        "id":"zu",
+        "maximo":3122
+    }
 
 }

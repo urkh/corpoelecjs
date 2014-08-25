@@ -2,7 +2,8 @@ var game = {
 
     data:{
         score:0,
-        game_over: false
+        game_over: false,
+        conmax:3000
     },
 
     onload: function(){
