@@ -217,7 +217,15 @@ consumos = {
         "consumo":0,
         "apagado":true,
         "flag":false
-    }                                
+    },
+
+    "cocina":{
+        "id":"cocina",
+        "kw":200,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    }                                    
 
 
 }
@@ -312,7 +320,7 @@ estados = {
         "id":"va",
         "maximo":3120,
     },
-    "yaracui":{
+    "yaracuy":{
         "id":"ya",
         "maximo":3121,
     },
@@ -322,3 +330,58 @@ estados = {
     }
 
 }
+
+
+
+states = {
+
+    "escena2":{
+        "televisor":"tv1_off",
+        "bombillo":"bom1_off",
+        "radio_r":"radio_r_off"
+    },
+
+    "escena3":{
+        "cocina":"cocina_off",
+        "nevera":"nevera_off",
+        "bombillo":"bom1_off",
+        "licuadora":"licuadora_off",
+        "microondas":"microondas_off",
+        "campana":"campana_off"
+    },
+
+    "escena4":{
+        "plancha":"plancha_off",
+        "lavadora":"lavadora_off",
+        "bombillo":"bom1_off",
+        "secadora":"secadora_off",
+        "calentador":"cal1_off"
+    },
+
+    "escena5":{
+        "computadora":"pc1_off",
+        "lampara":"lamp1_off",
+        "bombillo":"bom1_off",
+        "ac":"ac1_off"
+    },
+
+    "escena7":{
+        "televisor":"tv1_off",
+        "lampara":"lamp1_off",
+        "bombillo":"bom1_off",
+        "ac":"ac2_off"
+    },
+
+    "escena6":{
+        "ducha":"ducha_corona_off",
+        "afeitadora":"afeitadora_off",
+        "bombillo":"bom1_off",
+        "secador":"secador_off"
+    },
+
+
+}
+
+
+
+

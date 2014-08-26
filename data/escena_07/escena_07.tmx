@@ -40,21 +40,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="consola" width="50" height="31">
-  <object name="consola" x="1188" y="545" width="121" height="114">
-   <properties>
-    <property name="image" value="accesorios_e07"/>
-    <property name="spriteheight" value="192"/>
-    <property name="spritewidth" value="288"/>
-   </properties>
-  </object>
- </objectgroup>
  <objectgroup name="ac_e7" width="50" height="31">
-  <object name="ac_e7" x="35" y="209" width="113" height="97">
+  <object name="ac_e7" x="69" y="230" width="113" height="97">
    <properties>
     <property name="image" value="ac_e7"/>
-    <property name="spriteheight" value="128"/>
-    <property name="spritewidth" value="160"/>
+    <property name="spriteheight" value="192"/>
+    <property name="spritewidth" value="256"/>
    </properties>
   </object>
  </objectgroup>

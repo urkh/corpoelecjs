@@ -14,16 +14,16 @@
   </data>
  </layer>
  <objectgroup name="nevera" width="50" height="31">
-  <object name="nevera" x="455" y="361" width="163" height="487">
+  <object name="nevera" x="467" y="345" width="163" height="487">
    <properties>
     <property name="image" value="nevera"/>
-    <property name="spriteheight" value="575"/>
+    <property name="spriteheight" value="565"/>
     <property name="spritewidth" value="253"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="micro" width="50" height="31">
-  <object name="micro" x="686" y="548" width="142" height="85">
+  <object name="micro" x="690" y="522" width="142" height="85">
    <properties>
     <property name="image" value="micro"/>
     <property name="spriteheight" value="128"/>
@@ -32,7 +32,7 @@
   </object>
  </objectgroup>
  <objectgroup name="licuadora" width="50" height="31">
-  <object name="licuadora" x="1433" y="503" width="73" height="99">
+  <object name="licuadora" x="1419" y="481" width="73" height="99">
    <properties>
     <property name="image" value="licuadora"/>
     <property name="spriteheight" value="192"/>
@@ -73,6 +73,15 @@
     <property name="image" value="bombillo_e3"/>
     <property name="spriteheight" value="320"/>
     <property name="spritewidth" value="512"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="cocina" width="50" height="31">
+  <object name="cocina" x="1096" y="580" width="264" height="280">
+   <properties>
+    <property name="image" value="cocina"/>
+    <property name="spriteheight" value="352"/>
+    <property name="spritewidth" value="384"/>
    </properties>
   </object>
  </objectgroup>

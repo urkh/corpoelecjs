@@ -30,7 +30,7 @@ var game = {
             {
                 name : "logo",
                 type : "image",
-                src  : "data/img/logo.min.png"
+                src  : "data/img/logo.png"
             },
 
             this.goToLoadingScreen.bind(this),
@@ -78,6 +78,7 @@ var game = {
         me.pool.register("nevera", game.Nevera);
         me.pool.register("micro", game.Micro);
         me.pool.register("reloj", game.Reloj);
+        me.pool.register("cocina", game.Cocina);
         me.pool.register("bombillo_e3", game.BombilloE3);
         me.pool.register("licuadora", game.Licuadora);
         me.pool.register("entrar_lavandero", game.EntrarLavandero);
@@ -111,7 +112,7 @@ var game = {
         me.pool.register("ac_e7", game.AcE7);
         me.pool.register("televisor_e07", game.TelevisorE7);
         me.pool.register("bombillo_e7", game.BombilloE7);
-        me.pool.register("consola", game.Consola);
+        //me.pool.register("consola", game.Consola);
         me.pool.register("salir_cuarto2", game.SalirCuarto2);
 
         me.state.transition("fade","#000000", 250);

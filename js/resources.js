@@ -18,9 +18,10 @@ game.resources = [
     {name:"nevera", type:"image", src:"data/escena_03/img/nevera.min.png"},
     {name:"bombillo_e3", type:"image", src:"data/escena_03/img/bombillo_e3.min.png"},
     {name:"micro", type:"image", src:"data/escena_03/img/micro.min.png"},
+    {name:"cocina", type:"image", src:"data/escena_03/img/cocina.png"},
     {name:"reloj", type:"image", src:"data/escena_03/img/reloj.min.png"},
     {name:"licuadora", type:"image", src:"data/escena_03/img/licuadora.min.png"},
-    {name:"background_e03", type:"image", src:"data/escena_03/img/background_e03.min.png"},
+    {name:"background_e03", type:"image", src:"data/escena_03/img/background_e03.png"},
     {name:"escena_03", type:"tmx", src:"data/escena_03/escena_03.tmx"},
 
 
@@ -42,7 +43,7 @@ game.resources = [
 
 
     
-    {name:"accesorios_e06", type:"image", src:"data/escena_06/img/accesorios_e06.min.png"},
+    {name:"accesorios_e06", type:"image", src:"data/escena_06/img/accesorios_e06.png"},
     {name:"bombillo_e6", type:"image", src:"data/escena_06/img/bombillo_e6.min.png"},
     {name:"background_e06", type:"image", src:"data/escena_06/img/background_e06.min.png"},
     {name:"escena_06", type:"tmx", src:"data/escena_06/escena_06.tmx"},
@@ -61,7 +62,7 @@ game.resources = [
     {name:"pila3", type:"image", src:"data/img/pila3.min.png"},
     {name:"pierde", type:"image", src:"data/img/pierde.min.png"},
     {name:"gana", type:"image", src:"data/img/gana.min.png"},
-    {name:"logo", type:"image", src:"data/img/logo.min.png"},
+    {name:"logo", type:"image", src:"data/img/logo.png"},
 
 
 

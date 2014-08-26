@@ -8,8 +8,9 @@ $(document).ready(function() {
 		bPaginate: false,
 		bSearchable: false,
 		bInfo: false,
-        "bJQueryUI": true,
-		"columnDefs": [
+        aaSorting: [[ 0, "desc" ]],
+        bJQueryUI: true,
+		columnDefs: [
             {
                 "targets": [0],
                 "visible": false
@@ -43,19 +44,24 @@ function agregar_tabla(id){
                 consumos[cons].flag = true;
 
             }
+
+            consumo(id);
             
             
             if(consumos[cons].apagado){
                 consumos[cons].apagado = false;
                 consumo(consumos[cons].id);
                 me.audio.play("prender");
+                me.audio.play(id);
                 
 
             }
 
-            if(!consumos[cons].apagado){
+           // if(!consumos[cons].apagado){
+            else{
                 consumos[cons].apagado = true;
                 consumo(consumos[cons].id);
+                me.audio.stop(id);
                 me.audio.play("apagar");
                 
 
@@ -72,30 +78,32 @@ function consumo(id){
     var cantidad = parseInt($('#'+id+'_cantidad').val());
     var frecuencia = parseInt($('#'+id+'_frecuencia').val());
     var potencia = parseInt($('#'+id+'_potencia').val());
-
     var total = frecuencia*potencia*cantidad;
+    var consumo_total = 0;
 
     for(var cons in consumos) {
         if(!consumos[cons].apagado){
 
-            if(consumos[cons].id==id){
-                consumos[cons].consumo=total;
+            if(consumos[cons].id == id){
+                consumos[cons].consumo = total;
             }
 
         }
 
         else{
 
-            if(consumos[cons].id==id){
-                game.data.score=game.data.score-consumos[cons].consumo;
-                consumos[cons].consumo=0;
+            if(consumos[cons].id == id){
+                game.data.score = game.data.score-consumos[cons].consumo;
+                consumos[cons].consumo = 0;
             }
 
         }
-       
+
+        consumo_total+=consumos[cons].consumo;
     }
 
-    game.data.score=consumos.tv1.consumo+consumos.tv2.consumo+consumos.radio_r.consumo+consumos.bom1.consumo+consumos.bom2.consumo+consumos.licuadora.consumo+consumos.microondas.consumo+consumos.nevera.consumo+consumos.lavadora.consumo+consumos.secadora.consumo+consumos.plancha.consumo+consumos.cal1.consumo+consumos.cal2.consumo+consumos.pc1.consumo+consumos.pc2.consumo+consumos.lamp1.consumo+consumos.lamp2.consumo+consumos.ac1.consumo+consumos.ac2.consumo+consumos.consola.consumo;
+    game.data.score=consumo_total;
+
 
     $('#'+id+'_total').text(total+" kw");
 

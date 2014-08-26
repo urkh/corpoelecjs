@@ -3,9 +3,11 @@ game.Ducha = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("ducha_normal", [1]);
-        this.renderable.addAnimation("ducha_corona", [2]);
-        this.renderable.setCurrentAnimation("ducha_corona");
+        this.renderable.addAnimation("ducha_normal", [2]);
+        this.renderable.addAnimation("ducha_normal2", [2]);
+        this.renderable.addAnimation("ducha_corona_off", [4]);
+        this.renderable.addAnimation("ducha_corona_on", [5]);
+        this.renderable.setCurrentAnimation(states.escena6.ducha);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(330,220), 32, 32), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(470,220), 32, 32), this.cambiarS.bind(this), false);
@@ -18,35 +20,46 @@ game.Ducha = me.ObjectEntity.extend({
 
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("ducha_corona")){
-            consumos.ducha_corona.apagado=true;  
-            consumo(consumos.ducha_corona.id);  
+        if(this.renderable.isCurrentAnimation("ducha_corona_off")){
+            states.escena6.ducha = "ducha_normal";
             this.renderable.setCurrentAnimation("ducha_normal");
-        }else{
+        }
 
-             if(!flags.ducha_corona){
-                $('#tabla').DataTable().row.add([
-                    consumos.ducha_corona.id,
-                    "Ducha Corona",
-                    "<input type='number' min='0'  id='ducha_corona_cantidad' onchange='consumo("+'consumos.ducha_corona.id'+")' value='0'>",
-                    "<input type='number' min='0' id='ducha_corona_frecuencia' onchange='consumo("+'consumos.ducha_corona.id'+")' value='0'> H/s",
-                    "<input type='number' min='0' id='ducha_corona_potencia' onchange='consumo("+'consumos.ducha_corona.id'+")' value="+consumos.ducha_corona.kw+"> W",
-                    "<p id='ducha_corona_total'></p>"
-                ]).draw();
+        else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
+            states.escena6.ducha = "ducha_normal2";
+            this.renderable.setCurrentAnimation("ducha_normal2");
+        }
 
-                flags.ducha_corona = true;
+        else if(this.renderable.isCurrentAnimation("ducha_normal2")){
+            states.escena6.ducha = "ducha_corona_off";
+            this.renderable.setCurrentAnimation("ducha_corona_off");
+        }
 
-            }
-            consumos.ducha_corona.apagado=false;  
-            consumo(consumos.ducha_corona.id);  
-
-            this.renderable.setCurrentAnimation("ducha_corona");
+        else{
+            states.escena6.ducha = "ducha_corona_on";
+            this.renderable.setCurrentAnimation("ducha_corona_on");
         }
 
 
     },
 
     onMouseDown : function() {
+
+        if(this.renderable.isCurrentAnimation("ducha_corona_off")){
+            agregar_tabla("ducha_corona");
+            states.escena6.ducha = "ducha_corona_on";
+            this.renderable.setCurrentAnimation("ducha_corona_on");
+        }
+
+        else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
+            agregar_tabla("ducha_corona");
+            states.escena6.ducha = "ducha_corona_off";
+            this.renderable.setCurrentAnimation("ducha_corona_off");
+        }
+
+        else{
+            states.escena6.ducha = "ducha_normal";
+        }
         
         return false;
     
@@ -74,7 +87,7 @@ game.BombilloE6 = me.ObjectEntity.extend({
         this.renderable.addAnimation("bom1_on", [1]);
         this.renderable.addAnimation("bom2_off", [2]);
         this.renderable.addAnimation("bom2_on", [3]);
-        this.renderable.setCurrentAnimation("bom1_off");
+        this.renderable.setCurrentAnimation(states.escena6.bombillo);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(730,60), 32, 32), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(980,60), 32, 32), this.cambiarS.bind(this), false);
@@ -87,48 +100,22 @@ game.BombilloE6 = me.ObjectEntity.extend({
         me.audio.play("cambiar");
 
         if(this.renderable.isCurrentAnimation("bom1_on")){
+            states.escena6.bombillo = "bom2_on";
             this.renderable.setCurrentAnimation("bom2_on");
         }
 
         else if(this.renderable.isCurrentAnimation("bom1_off")){
-
-            if(!flags.bom2){
-                $('#tabla').DataTable().row.add([
-                    consumos.bom2.id,
-                    "Bombillo Normal",
-                    "<input type='number' min='0' id='bom2_cantidad' onchange='consumo("+'consumos.bom2.id'+")' value='0'>",
-                    "<input type='number' min='0' id='bom2_frecuencia' onchange='consumo("+'consumos.bom2.id'+")' value='0'> H/s",
-                    "<input type='number' min='0' id='bom2_potencia' onchange='consumo("+'consumos.bom2.id'+")' value="+consumos.bom2.kw+"> W",
-                    "<p id='bom2_total'></p>"
-                ]).draw();
-
-                flags.bom2= true;
-
-            }
-
+            states.escena6.bombillo = "bom2_off";
             this.renderable.setCurrentAnimation("bom2_off");
         }
 
         else if(this.renderable.isCurrentAnimation("bom2_on")){
+            states.escena6.bombillo = "bom1_on";
             this.renderable.setCurrentAnimation("bom1_on");
         }
 
         else{
-
-            if(!flags.bom1){
-                $('#tabla').DataTable().row.add([
-                    consumos.bom1.id,
-                    "Bombillo Ahorrador",
-                    "<input type='number' min='0' id='bom1_cantidad' onchange='consumo("+'consumos.bom1.id'+")' value='0'>",
-                    "<input type='number' min='0'  id='bom1_frecuencia' onchange='consumo("+'consumos.bom1.id'+")' value='0'> H/s",
-                    "<input type='number' min='0'  id='bom1_potencia' onchange='consumo("+'consumos.bom1.id'+")' value="+consumos.bom1.kw+"> W",
-                    "<p id='bom1_total'></p>"
-                ]).draw();
-
-                flags.bom1= true;
-
-            }
-
+            states.escena6.bombillo = "bom1_off";
             this.renderable.setCurrentAnimation("bom1_off");
         }
 
@@ -139,31 +126,26 @@ game.BombilloE6 = me.ObjectEntity.extend({
     onMouseDown : function() {
 
         if(this.renderable.isCurrentAnimation("bom1_on")){
-            consumos.bom1.apagado=true;  
-            consumo(consumos.bom1.id);  
-            me.audio.play("apagar");
+            agregar_tabla("bom1");
+            states.escena6.bombillo = "bom1_off";
             this.renderable.setCurrentAnimation("bom1_off");
-
         }
 
         else if(this.renderable.isCurrentAnimation("bom2_on")){
-            consumos.bom2.apagado=true;  
-            consumo(consumos.bom2.id);  
-            me.audio.play("apagar");
+            agregar_tabla("bom2");
+            states.escena6.bombillo = "bom2_off";
             this.renderable.setCurrentAnimation("bom2_off");
         }
         
         else if (this.renderable.isCurrentAnimation("bom2_off")) {
-            consumos.bom2.apagado=false;  
-            consumo(consumos.bom2.id);  
-            me.audio.play("prender");
+            agregar_tabla("bom2");
+            states.escena6.bombillo = "bom2_on";
             this.renderable.setCurrentAnimation("bom2_on");
         }
 
         else{
-            consumos.bom1.apagado=false;  
-            consumo(consumos.bom1.id);  
-            me.audio.play("prender");
+            agregar_tabla("bom1");
+            states.escena6.bombillo = "bom1_on";
             this.renderable.setCurrentAnimation("bom1_on");
         }
 
@@ -187,28 +169,25 @@ game.Afeitadora = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("afeitadora", [0]);
-        this.renderable.setCurrentAnimation("afeitadora");
+        this.renderable.addAnimation("afeitadora_off", [0]);
+        this.renderable.addAnimation("afeitadora_on", [1]);
+        this.renderable.setCurrentAnimation(states.escena6.afeitadora);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
 
     onMouseDown : function() {
 
-        me.audio.play("prender");
+        agregar_tabla("afeitadora");
 
-        if(!flags.afeitadora){
-            $('#tabla').DataTable().row.add([
-                consumos.afeitadora.id,
-                "Afeitadora",
-                "<input type='number' min='0'  id='afeitadora_cantidad' onchange='consumo("+'consumos.afeitadora.id'+")' value='0'>",
-                "<input type='number' min='0'  id='afeitadora_frecuencia' onchange='consumo("+'consumos.afeitadora.id'+")' value='0'> H/s",
-                "<input type='number' min='0'  id='afeitadora_potencia' onchange='consumo("+'consumos.afeitadora.id'+")' value="+consumos.afeitadora.kw+"> W",
-                "<p id='afeitadora_total'></p>"
-            ]).draw();
+        if(this.renderable.isCurrentAnimation("afeitadora_off")) {
+            states.escena6.afeitadora = "afeitadora_on";
+            this.renderable.setCurrentAnimation("afeitadora_on");
+        }
 
-            flags.afeitadora = true;
-
+        else{
+            states.escena6.afeitadora = "afeitadora_off";
+            this.renderable.setCurrentAnimation("afeitadora_off");
         }
 
         return false;
@@ -231,29 +210,26 @@ game.Secador = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("secador", [1]);
-        this.renderable.setCurrentAnimation("secador");
+        this.renderable.addAnimation("secador_off", [2]);
+        this.renderable.addAnimation("secador_on", [3]);
+        this.renderable.setCurrentAnimation(states.escena6.secador);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
 
     onMouseDown : function() {
+        
+        agregar_tabla("secador");
 
-        me.audio.play("prender");
+        if(this.renderable.isCurrentAnimation("secador_off")) {
+            states.escena6.secador = "secador_on";
+            this.renderable.setCurrentAnimation("secador_on");
+        }
 
-        if(!flags.secador){
-            $('#tabla').DataTable().row.add([
-                consumos.secador.id,
-                "Secador",
-                "<input type='number' min='0' id='secador_cantidad' onchange='consumo("+'consumos.secador.id'+")' value='0'>",
-                "<input type='number' min='0' id='secador_frecuencia' onchange='consumo("+'consumos.secador.id'+")' value='0'> H/s",
-                "<input type='number' min='0' id='secador_potencia' onchange='consumo("+'consumos.secador.id'+")' value="+consumos.secador.kw+"> W",
-                "<p id='secador_total'></p>"
-            ]).draw();
-
-            flags.secador = true;
-
-        }        
+        else{
+            states.escena6.secador = "secador_off";
+            this.renderable.setCurrentAnimation("secador_off");
+        }
 
         return false;
     
