@@ -9,12 +9,12 @@
   </data>
  </layer>
  <objectgroup name="sinput" width="50" height="31">
-  <object name="sinput" x="251" y="299" width="206" height="133"/>
-  <object name="inicio" x="224" y="425" width="248" height="161">
+  <object name="sinput" x="292" y="318" width="206" height="133"/>
+  <object name="inicio" x="432" y="561" width="158" height="75">
    <properties>
     <property name="image" value="inicio"/>
-    <property name="spriteheight" value="312"/>
-    <property name="spritewidth" value="516"/>
+    <property name="spriteheight" value="84"/>
+    <property name="spritewidth" value="238"/>
    </properties>
   </object>
  </objectgroup>

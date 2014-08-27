@@ -94,7 +94,7 @@ game.Lampara = me.ObjectEntity.extend({
         this.renderable.setCurrentAnimation(states.escena5.lampara);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(650,610), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(740,610), 52, 52), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(740,590), 64, 64), this.cambiarS.bind(this), false);
 
 
     },
@@ -182,10 +182,10 @@ game.BombilloE5 = me.ObjectEntity.extend({
 
         this.parent(x, y, settings);
 
-        this.renderable.addAnimation("bom1_off", [0]);
-        this.renderable.addAnimation("bom1_on", [1]);
-        this.renderable.addAnimation("bom2_off", [2]);
-        this.renderable.addAnimation("bom2_on", [3]);
+        this.renderable.addAnimation("bom1_cuarto1_off", [2]);
+        this.renderable.addAnimation("bom1_cuarto1_on", [3]);
+        this.renderable.addAnimation("bom2_cuarto1_off", [0]);
+        this.renderable.addAnimation("bom2_cuarto1_on", [1]);
         this.renderable.setCurrentAnimation(states.escena5.bombillo);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(560,200), 32, 32), this.cambiarS.bind(this), false);
@@ -198,24 +198,24 @@ game.BombilloE5 = me.ObjectEntity.extend({
 
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("bom1_on")){
-            states.escena5.bombillo = "bom2_on";
-            this.renderable.setCurrentAnimation("bom2_on");
+        if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
+            states.escena5.bombillo = "bom2_cuarto1_on";
+            this.renderable.setCurrentAnimation("bom2_cuarto1_on");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom1_off")){
-            states.escena5.bombillo = "bom2_off";
-            this.renderable.setCurrentAnimation("bom2_off");
+        else if(this.renderable.isCurrentAnimation("bom1_cuarto1_off")){
+            states.escena5.bombillo = "bom2_cuarto1_off";
+            this.renderable.setCurrentAnimation("bom2_cuarto1_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom2_on")){
-            states.escena5.bombillo = "bom1_on";
-            this.renderable.setCurrentAnimation("bom1_on");
+        else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
+            states.escena5.bombillo = "bom1_cuarto1_on";
+            this.renderable.setCurrentAnimation("bom1_cuarto1_on");
         }
 
         else{
-            states.escena5.bombillo = "bom1_off";
-            this.renderable.setCurrentAnimation("bom1_off");
+            states.escena5.bombillo = "bom1_cuarto1_off";
+            this.renderable.setCurrentAnimation("bom1_cuarto1_off");
         }
 
     },
@@ -224,28 +224,28 @@ game.BombilloE5 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom1_on")){
-            agregar_tabla("bom1");
-            states.escena5.bombillo = "bom1_off";
-            this.renderable.setCurrentAnimation("bom1_off");
+        if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
+            agregar_tabla("bom1_cuarto1");
+            states.escena5.bombillo = "bom1_cuarto1_off";
+            this.renderable.setCurrentAnimation("bom1_cuarto1_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom2_on")){
-            agregar_tabla("bom2");
-            states.escena5.bombillo = "bom2_off";
-            this.renderable.setCurrentAnimation("bom2_off");
+        else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
+            agregar_tabla("bom2_cuarto1");
+            states.escena5.bombillo = "bom2_cuarto1_off";
+            this.renderable.setCurrentAnimation("bom2_cuarto1_off");
         }
         
-        else if (this.renderable.isCurrentAnimation("bom2_off")) {
-            agregar_tabla("bom2");
-            states.escena5.bombillo = "bom2_on";
-            this.renderable.setCurrentAnimation("bom2_on");
+        else if (this.renderable.isCurrentAnimation("bom2_cuarto1_off")) {
+            agregar_tabla("bom2_cuarto1");
+            states.escena5.bombillo = "bom2_cuarto1_on";
+            this.renderable.setCurrentAnimation("bom2_cuarto1_on");
         }
 
         else{
-            agregar_tabla("bom1");
-            states.escena5.bombillo = "bom1_on";
-            this.renderable.setCurrentAnimation("bom1_on");
+            agregar_tabla("bom1_cuarto1");
+            states.escena5.bombillo = "bom1_cuarto1_on";
+            this.renderable.setCurrentAnimation("bom1_cuarto1_on");
         }
 
         return false;
@@ -270,10 +270,10 @@ game.Ac = me.ObjectEntity.extend({
 
     init: function(x, y, settings){
         this.parent(x, y, settings);
-        this.renderable.addAnimation("ac1_off", [0]);
-        this.renderable.addAnimation("ac1_loop", [1, 2], 300);
-        this.renderable.addAnimation("ac2_off", [3]);
-        this.renderable.addAnimation("ac2_loop", [4, 5], 300);
+        this.renderable.addAnimation("ac1_cuarto1_off", [0]);
+        this.renderable.addAnimation("ac1_cuarto1_loop", [1, 2], 300);
+        this.renderable.addAnimation("ac2_cuarto1_off", [3]);
+        this.renderable.addAnimation("ac2_cuarto1_loop", [4, 5], 300);
         this.renderable.setCurrentAnimation(states.escena5.ac);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(800,90), 32, 32), this.cambiarS.bind(this), false);
@@ -287,24 +287,24 @@ game.Ac = me.ObjectEntity.extend({
 
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("ac1_off")){
-            states.escena5.ac = "ac2_off";
-            this.renderable.setCurrentAnimation("ac2_off");
+        if(this.renderable.isCurrentAnimation("ac1_cuarto1_off")){
+            states.escena5.ac = "ac2_cuarto1_off";
+            this.renderable.setCurrentAnimation("ac2_cuarto1_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("ac2_off")){
-            states.escena5.ac = "ac1_off";
-            this.renderable.setCurrentAnimation("ac1_off");
+        else if(this.renderable.isCurrentAnimation("ac2_cuarto1_off")){
+            states.escena5.ac = "ac1_cuarto1_off";
+            this.renderable.setCurrentAnimation("ac1_cuarto1_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("ac1_loop")){
-            states.escena5.ac = "ac2_loop";
-            this.renderable.setCurrentAnimation("ac2_loop");
+        else if(this.renderable.isCurrentAnimation("ac1_cuarto1_loop")){
+            states.escena5.ac = "ac2_cuarto1_loop";
+            this.renderable.setCurrentAnimation("ac2_cuarto1_loop");
         }
 
         else{
-            states.escena5.ac = "ac1_loop";
-            this.renderable.setCurrentAnimation("ac1_loop");
+            states.escena5.ac = "ac1_cuarto1_loop";
+            this.renderable.setCurrentAnimation("ac1_cuarto1_loop");
         }
 
 
@@ -314,28 +314,28 @@ game.Ac = me.ObjectEntity.extend({
 
     onMouseDown : function() {
     
-        if(this.renderable.isCurrentAnimation("ac1_off")){
-            agregar_tabla("ac1");
-            states.escena5.ac = "ac1_loop";
-            this.renderable.setCurrentAnimation("ac1_loop");
+        if(this.renderable.isCurrentAnimation("ac1_cuarto1_off")){
+            agregar_tabla("ac1_cuarto1");
+            states.escena5.ac = "ac1_cuarto1_loop";
+            this.renderable.setCurrentAnimation("ac1_cuarto1_loop");
         }
 
-        else if(this.renderable.isCurrentAnimation("ac2_off")){
-            agregar_tabla("ac2");
-            states.escena5.ac = "ac2_loop";
-            this.renderable.setCurrentAnimation("ac2_loop");
+        else if(this.renderable.isCurrentAnimation("ac2_cuarto1_off")){
+            agregar_tabla("ac2_cuarto1");
+            states.escena5.ac = "ac2_cuarto1_loop";
+            this.renderable.setCurrentAnimation("ac2_cuarto1_loop");
         }
 
-        else if(this.renderable.isCurrentAnimation("ac1_loop")){
-            agregar_tabla("ac1");
-            states.escena5.ac = "ac1_off";
-            this.renderable.setCurrentAnimation("ac1_off");
+        else if(this.renderable.isCurrentAnimation("ac1_cuarto1_loop")){
+            agregar_tabla("ac1_cuarto1");
+            states.escena5.ac = "ac1_cuarto1_off";
+            this.renderable.setCurrentAnimation("ac1_cuarto1_off");
         }
 
         else{
-            agregar_tabla("ac2");
-            states.escena5.ac = "ac2_off";
-            this.renderable.setCurrentAnimation("ac2_off");
+            agregar_tabla("ac2_cuarto1");
+            states.escena5.ac = "ac2_cuarto1_off";
+            this.renderable.setCurrentAnimation("ac2_cuarto1_off");
         }
         
         return false;
@@ -373,7 +373,7 @@ game.SalirCuarto = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        me.audio.play("dclose");
+        me.audio.play("dopen");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){

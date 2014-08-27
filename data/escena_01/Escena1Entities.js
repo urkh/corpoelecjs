@@ -24,7 +24,7 @@ var estados = '<option value="0">---</option>\
               <option value="ya">Yaracuy</option>\
               <option value="zu">Zulia</option>';
 
-var select_input = '<select id="select_estados" name="select_estados" >'+estados+'</select>';
+var select_input = '<select id="select_estados" name="select_estados" style="position:absolute;width:20%;" >'+estados+'</select>';
 
 
 game.Inicio = me.ObjectEntity.extend({
@@ -43,22 +43,34 @@ game.Inicio = me.ObjectEntity.extend({
 
         var estado = $("#select_estados").val(); 
         
-        for(var _estado in estados){
-            if(estados[_estado].id == estado){
-                game.data.conmax = estados[_estado].maximo;
-            }    
-        
+
+
+        if(estado=="0"){
+
+          alert("Debe seleccionar un estado");
+
+        }else{
+
+          for(var _estado in estados){
+              if(estados[_estado].id == estado){
+                  game.data.conmax = estados[_estado].maximo;
+              }    
+          
+          }
+          
+          me.game.viewport.fadeIn("#000000", 450, 
+
+              (function (){
+                  game.data.score = 0;
+                  this.HUD = new game.HUD.Container();
+                  me.game.world.addChild(this.HUD);
+                  me.audio.play("dopen");
+                  me.levelDirector.loadLevel("escena_02");
+
+              })
+
+          );
         }
-        
-        me.game.viewport.fadeIn("#000000", 450, 
-
-            (function (){
-                me.audio.play("dopen");
-                me.levelDirector.loadLevel("escena_02");
-
-            })
-
-        );
 
 		return false;
 	

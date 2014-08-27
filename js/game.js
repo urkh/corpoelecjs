@@ -1,7 +1,7 @@
 var game = {
 
     data:{
-        score:0,
+        score:10,
         game_over: false,
         conmax:3000
     },
@@ -70,12 +70,14 @@ var game = {
         me.pool.register("bombillo_e2", game.BombilloE2);
         me.pool.register("televisor", game.Televisor);
         me.pool.register("entrar_cuarto1", game.EntrarCuarto1);
+        me.pool.register("salida", game.Salida);
         me.pool.register("entrar_cuarto2", game.EntrarCuarto2);
         me.pool.register("radio_r", game.RadioR);
         
 
         //03
         me.pool.register("nevera", game.Nevera);
+        me.pool.register("campana", game.Campana);
         me.pool.register("micro", game.Micro);
         me.pool.register("reloj", game.Reloj);
         me.pool.register("cocina", game.Cocina);

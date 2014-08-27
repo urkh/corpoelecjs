@@ -1,16 +1,18 @@
 consumos = {
 
-    "bom1": {
-        "id": "bom1",
-        "kw":10,
+    "bom1_sala": {
+        "id": "bom1_sala",
+        "nombre":"Bombillo Ahorrador Sal&oacute;n",
+        "kw":30,
         "consumo":0,
         "apagado":true,
         "flag":false
 
     },
 
-    "bom2": {
-        "id": "bom2",
+    "bom2_sala": {
+        "id": "bom2_sala",
+        "nombre":"Bombillo Normal Sal&oacute;n",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -18,34 +20,161 @@ consumos = {
 
     },
 
-    "tv1": {
-        "id":"tv1",
-    	"kw": 120,
+
+    "bom1_cocina": {
+        "id": "bom1_cocina",
+        "nombre":"Bombillo Ahorrador Cocina",
+        "kw":30,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom2_cocina": {
+        "id": "bom2_cocina",
+        "nombre":"Bombillo Normal Cocina",
+        "kw":100,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom1_lavandero": {
+        "id": "bom1_lavandero",
+        "nombre":"Bombillo Ahorrador Servicios",
+        "kw":30,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom2_lavandero": {
+        "id": "bom2_lavandero",
+        "nombre":"Bombillo Normal Servicios",
+        "kw":100,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+
+    "bom1_cuarto1": {
+        "id": "bom1_cuarto1",
+        "nombre":"Bombillo Ahorrador Habitacion 1",
+        "kw":30,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom2_cuarto1": {
+        "id": "bom2_cuarto1",
+        "nombre":"Bombillo Normal Habitacion 1",
+        "kw":100,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom1_cuarto2": {
+        "id": "bom1_cuarto2",
+        "nombre":"Bombillo Ahorrador Habitacion 2",
+        "kw":30,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom2_cuarto2": {
+        "id": "bom2_cuarto2",
+        "nombre":"Bombillo Normal Habitacion 2",
+        "kw":100,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom1_bano": {
+        "id": "bom1_bano",
+        "nombre":"Bombillo Ahorrador Ba&ntilde;o",
+        "kw":30,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "bom2_bano": {
+        "id": "bom2_bano",
+        "nombre":"Bombillo Normal Ba&ntilde;o",
+        "kw":100,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "tv1_sala": {
+        "id":"tv1_sala",
+        "nombre":"TV LCD",
+    	"kw": 205,
     	"consumo": 0,
         "apagado":true,
         "flag":false
 
     },
 
-    "tv2": {
-        "id":"tv2",
-        "kw": 150,
+    "tv2_sala": {
+        "id":"tv2_sala",
+        "nombre":"TV Plasma",
+        "kw": 250,
         "consumo": 0,
         "apagado":true,
         "flag":false
 
     },
 
-    "tv3": {
-        "id":"tv3",
-        "kw": 180,
+    "tv3_sala": {
+        "id":"tv3_sala",
+        "nombre":"TV CRT",
+        "kw": 280,
         "consumo": 0,
         "apagado":true,
         "flag":false
+    },
+
+
+    "tv1_cuarto2": {
+        "id":"tv1_cuarto2",
+        "nombre":"Consola + TV LCD",
+        "kw": 305,
+        "consumo": 0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "tv2_cuarto2": {
+        "id":"tv2_cuarto2",
+        "nombre":"Consola + TV CRT",
+        "kw": 380,
+        "consumo": 0,
+        "apagado":true,
+        "flag":false
+
     },
 
     "radio_r": {
         "id": "radio_r",
+        "nombre":"Radio Reproductor",
         "kw": 80,
         "consumo": 0,
         "apagado":true,
@@ -55,7 +184,8 @@ consumos = {
 
     "lavadora": {
         "id": "lavadora",
-        "kw": 230,
+        "nombre":"Lavadora",
+        "kw": 2000,
         "consumo": 0,
         "apagado":true,
         "flag":false
@@ -64,25 +194,26 @@ consumos = {
 
     "secadora": {
         "id": "secadora",
-        "kw": 400,
+        "nombre":"Secadora",
+        "kw": 2000,
         "consumo": 0,
         "apagado":true,
         "flag":false
-
     },
 
     "nevera": {
         "id": "nevera",
-        "kw": 580,
+        "nombre":"Nevera",
+        "kw": 350,
         "consumo": 0,
         "apagado":true,
-
-
+        "flag":false
     },
 
     "microondas": {
         "id": "microondas",
-        "kw": 300,
+        "nombre":"Microondas",
+        "kw": 1300,
         "consumo": 0,
         "apagado":true,
         "flag":false
@@ -91,7 +222,8 @@ consumos = {
 
     "pc1": {
         "id": "pc1",
-        "kw": 90,
+        "nombre":"PC + Monitor LCD",
+        "kw": 360,
         "consumo": 0,
         "apagado":true,
         "flag":false
@@ -100,7 +232,8 @@ consumos = {
 
      "pc2": {
         "id": "pc2",
-        "kw": 140,
+        "nombre":"PC + Monitor CRT",
+        "kw": 540,
         "consumo": 0,
         "apagado":true,
         "flag":false
@@ -110,17 +243,28 @@ consumos = {
 
     "cal1": {
         "id": "cal1",
-        "kw": 300,
+        "nombre":"Calentador Grande",
+        "kw": 1500,
         "consumo": 0,
         "apagado":true,
         "flag":false
 
     },
 
-
     "cal2": {
         "id": "cal2",
-        "kw": 250,
+        "nombre":"Calentador Peque&ntilde;o",
+        "kw": 750,
+        "consumo": 0,
+        "apagado":true,
+        "flag":false
+
+    },
+
+    "cal3": {
+        "id": "cal3",
+        "nombre":"Calentador Termotronik",
+        "kw": 5500,
         "consumo": 0,
         "apagado":true,
         "flag":false
@@ -130,16 +274,8 @@ consumos = {
 
     "ducha_corona": {
         "id": "ducha_corona",
-        "kw": 120,
-        "consumo": 0,
-        "apagado":true,
-        "flag":false
-
-    },
-
-    "microondas": {
-        "id": "microondas",
-        "kw": 120,
+        "nombre":"Ducha Corona",
+        "kw": 3000,
         "consumo": 0,
         "apagado":true,
         "flag":false
@@ -148,7 +284,8 @@ consumos = {
 
     "licuadora": {
         "id": "licuadora",
-        "kw": 120,
+        "nombre":"Licuadora",
+        "kw": 350,
         "consumo": 0,
         "apagado":true,
         "flag":false
@@ -157,23 +294,45 @@ consumos = {
 
     "plancha":{
         "id":"plancha",
-        "kw":100,
+        "nombre":"Plancha",
+        "kw":500,
         "consumo":0,
         "apagado":true,
         "flag":false
     },
 
-    "ac1":{
-        "id":"ac1",
-        "kw":100,
+    "ac1_cuarto1":{
+        "id":"ac1_cuarto1",
+        "nombre":"A/A Split Habitacion 1",
+        "kw":12000,
         "consumo":0,
         "apagado":true,
         "flag":false
     },
 
-    "ac2":{
-        "id":"ac2",
-        "kw":100,
+    "ac2_cuarto1":{
+        "id":"ac2_cuarto1",
+        "nombre":"A/A Ventana Habitacion 1",
+        "kw":5000,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
+
+    "ac1_cuarto2":{
+        "id":"ac1_cuarto2",
+        "nombre":"A/A Split Habitacion 2",
+        "kw":12000,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
+    "ac2_cuarto2":{
+        "id":"ac2_cuarto2",
+        "nombre":"A/A Ventana Habitacion 2",
+        "kw":5000,
         "consumo":0,
         "apagado":true,
         "flag":false
@@ -181,6 +340,7 @@ consumos = {
 
     "lamp1":{
         "id":"lamp1",
+        "nombre":"Lampara 1",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -189,7 +349,8 @@ consumos = {
 
     "lamp2":{
         "id":"lamp2",
-        "kw":100,
+        "nombre":"Lampara 2",
+        "kw":30,
         "consumo":0,
         "apagado":true,
         "flag":false
@@ -197,6 +358,7 @@ consumos = {
 
     "consola":{
         "id":"consola",
+        "nombre":"Consola",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -205,7 +367,8 @@ consumos = {
 
     "afeitadora":{
         "id":"afeitadora",
-        "kw":100,
+        "nombre":"Afeitadora",
+        "kw":30,
         "consumo":0,
         "apagado":true,
         "flag":false
@@ -213,7 +376,8 @@ consumos = {
 
     "secador":{
         "id":"secador",
-        "kw":100,
+        "nombre":"Secador",
+        "kw":700,
         "consumo":0,
         "apagado":true,
         "flag":false
@@ -221,11 +385,21 @@ consumos = {
 
     "cocina":{
         "id":"cocina",
-        "kw":200,
+        "nombre":"Cocina Electrica",
+        "kw":1950,
         "consumo":0,
         "apagado":true,
         "flag":false
-    }                                    
+    },
+
+    "campana":{
+        "id":"campana",
+        "nombre":"Campana",
+        "kw":120,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    }                                          
 
 
 }
@@ -234,100 +408,108 @@ consumos = {
 estados = {
     "amazonas":{
         "id":"am",
-        "maximo":3100,
+        "maximo":700,
     },
     "anzoategui":{
         "id":"an",
-        "maximo":3101,
+        "maximo":600,
     },
     "apure":{
         "id":"ap",
-        "maximo":3102,
+        "maximo":700,
     },
     "aragua":{
         "id":"ar",
-        "maximo":3103,
+        "maximo":600,
     },
     "barinas":{
         "id":"ba",
-        "maximo":3104,
+        "maximo":700,
     },
     "bolivar":{
         "id":"bo",
-        "maximo":3105,
+        "maximo":700,
     },
     "carabobo":{
         "id":"ca",
-        "maximo":3106,
+        "maximo":600,
     },
     "cojedes":{
         "id":"co",
-        "maximo":3107,
+        "maximo":700,
     },
     "deltaamacuro":{    
         "id":"dm",
-        "maximo":3108,
+        "maximo":700,
     },
     "distritocapital":{    
         "id":"dc",
-        "maximo":3109,
+        "maximo":500,
     },
     "falcon":{
         "id":"fa",
-        "maximo":3110,
+        "maximo":600,
     },
     "guarico":{
         "id":"gu",
-        "maximo":3111,
+        "maximo":700,
     },
     "lara":{   
         "id":"la",
-        "maximo":3112,
+        "maximo":600,
     },
     "merida":{ 
         "id":"me",
-        "maximo":3113,
+        "maximo":500,
     },
     "miranda":{  
         "id":"mi",
-        "maximo":3114,
+        "maximo":600,
     },
     "monagas":{
         "id":"mo",
-        "maximo":3114,
+        "maximo":600,
     },
     "nuevaesparta":{
         "id":"ne",
-        "maximo":3115,
+        "maximo":900,
     },
     "portuguesa":{
         "id":"po",
-        "maximo":3116,
+        "maximo":700,
     },
     "sucre":{
         "id":"su",
-        "maximo":3117,
+        "maximo":600,
     },
     "tachira":{
         "id":"ta",
-        "maximo":3118,
+        "maximo":500,
     },
     "trujillo":{
         "id":"tr",
-        "maximo":3119,
+        "maximo":500,
     },
     "vargas":{
         "id":"va",
-        "maximo":3120,
+        "maximo":600,
     },
     "yaracuy":{
         "id":"ya",
-        "maximo":3121,
+        "maximo":600,
     },
     "zulia":{  
         "id":"zu",
-        "maximo":3122
+        "maximo":1300
     }
+
+}
+
+
+sonidos = {
+    "alerta1":false,
+    "alerta2":false,
+    "alerta3":false
 
 }
 
@@ -336,15 +518,16 @@ estados = {
 states = {
 
     "escena2":{
-        "televisor":"tv1_off",
-        "bombillo":"bom1_off",
+        "televisor":"tv1_sala_off",
+        "bombillo":"bom1_sala_off",
         "radio_r":"radio_r_off"
     },
 
     "escena3":{
         "cocina":"cocina_off",
+        "campana":"campana_off",
         "nevera":"nevera_off",
-        "bombillo":"bom1_off",
+        "bombillo":"bom1_cocina_off",
         "licuadora":"licuadora_off",
         "microondas":"microondas_off",
         "campana":"campana_off"
@@ -353,30 +536,30 @@ states = {
     "escena4":{
         "plancha":"plancha_off",
         "lavadora":"lavadora_off",
-        "bombillo":"bom1_off",
+        "bombillo":"bom1_lavandero_off",
         "secadora":"secadora_off",
         "calentador":"cal1_off"
     },
 
     "escena5":{
         "computadora":"pc1_off",
-        "lampara":"lamp1_off",
-        "bombillo":"bom1_off",
-        "ac":"ac1_off"
-    },
-
-    "escena7":{
-        "televisor":"tv1_off",
-        "lampara":"lamp1_off",
-        "bombillo":"bom1_off",
-        "ac":"ac2_off"
+        "lampara":"lamp2_off",
+        "bombillo":"bom1_cuarto1_off",
+        "ac":"ac1_cuarto1_off"
     },
 
     "escena6":{
         "ducha":"ducha_corona_off",
         "afeitadora":"afeitadora_off",
-        "bombillo":"bom1_off",
+        "bombillo":"bom1_bano_off",
         "secador":"secador_off"
+    },
+
+    "escena7":{
+        "televisor":"tv1_cuarto2_off",
+        "lampara":"lamp1_off",
+        "bombillo":"bom1_cuarto2_off",
+        "ac":"ac1_cuarto2_off"
     },
 
 

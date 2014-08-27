@@ -3,17 +3,17 @@ game.Televisor = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("tv1_off", [0]);
-        this.renderable.addAnimation("tv1_on", [1]);
-        this.renderable.addAnimation("tv2_off", [2]);
-        this.renderable.addAnimation("tv2_on", [3]);
-        this.renderable.addAnimation("tv3_off", [4]);
-        this.renderable.addAnimation("tv3_on", [5]);
+        this.renderable.addAnimation("tv1_sala_off", [0]);
+        this.renderable.addAnimation("tv1_sala_on", [1]);
+        this.renderable.addAnimation("tv2_sala_off", [2]);
+        this.renderable.addAnimation("tv2_sala_on", [3]);
+        this.renderable.addAnimation("tv3_sala_off", [4]);
+        this.renderable.addAnimation("tv3_sala_on", [5]);
         this.renderable.setCurrentAnimation(states.escena2.televisor);
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(150,600), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(450,600), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(450,600), 64, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -23,34 +23,34 @@ game.Televisor = me.ObjectEntity.extend({
         
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("tv1_off")){
-            states.escena2.televisor = "tv2_off";
-            this.renderable.setCurrentAnimation("tv2_off");
+        if(this.renderable.isCurrentAnimation("tv1_sala_off")){
+            states.escena2.televisor = "tv2_sala_off";
+            this.renderable.setCurrentAnimation("tv2_sala_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("tv2_off")){
-            states.escena2.televisor = "tv3_off";
-            this.renderable.setCurrentAnimation("tv3_off");
+        else if(this.renderable.isCurrentAnimation("tv2_sala_off")){
+            states.escena2.televisor = "tv3_sala_off";
+            this.renderable.setCurrentAnimation("tv3_sala_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("tv3_off")){
-            states.escena2.televisor = "tv1_off";
-            this.renderable.setCurrentAnimation("tv1_off");
+        else if(this.renderable.isCurrentAnimation("tv3_sala_off")){
+            states.escena2.televisor = "tv1_sala_off";
+            this.renderable.setCurrentAnimation("tv1_sala_off");
         } 
 
-        else if(this.renderable.isCurrentAnimation("tv1_on")){
-            states.escena2.televisor = "tv2_on";
-            this.renderable.setCurrentAnimation("tv2_on");
+        else if(this.renderable.isCurrentAnimation("tv1_sala_on")){
+            states.escena2.televisor = "tv2_sala_on";
+            this.renderable.setCurrentAnimation("tv2_sala_on");
         }
 
-        else if(this.renderable.isCurrentAnimation("tv2_on")){
-            states.escena2.televisor = "tv3_on";
-            this.renderable.setCurrentAnimation("tv3_on");
+        else if(this.renderable.isCurrentAnimation("tv2_sala_on")){
+            states.escena2.televisor = "tv3_sala_on";
+            this.renderable.setCurrentAnimation("tv3_sala_on");
         }
 
         else{
-            states.escena2.televisor = "tv1_on";
-            this.renderable.setCurrentAnimation("tv1_on");
+            states.escena2.televisor = "tv1_sala_on";
+            this.renderable.setCurrentAnimation("tv1_sala_on");
         } 
 
         
@@ -59,40 +59,40 @@ game.Televisor = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("tv1_on")){
-            agregar_tabla("tv1");
-            states.escena2.televisor = "tv1_off";
-            this.renderable.setCurrentAnimation("tv1_off");
+        if(this.renderable.isCurrentAnimation("tv1_sala_on")){
+            agregar_tabla("tv1_sala");
+            states.escena2.televisor = "tv1_sala_off";
+            this.renderable.setCurrentAnimation("tv1_sala_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("tv1_off")){
-            agregar_tabla("tv1");
-            states.escena2.televisor = "tv1_on";
-            this.renderable.setCurrentAnimation("tv1_on");
+        else if(this.renderable.isCurrentAnimation("tv1_sala_off")){
+            agregar_tabla("tv1_sala");
+            states.escena2.televisor = "tv1_sala_on";
+            this.renderable.setCurrentAnimation("tv1_sala_on");
         }
 
-        else if(this.renderable.isCurrentAnimation("tv2_on")){
-            agregar_tabla("tv2");
-            states.escena2.televisor = "tv2_off";
-            this.renderable.setCurrentAnimation("tv2_off");
+        else if(this.renderable.isCurrentAnimation("tv2_sala_on")){
+            agregar_tabla("tv2_sala");
+            states.escena2.televisor = "tv2_sala_off";
+            this.renderable.setCurrentAnimation("tv2_sala_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("tv2_off")){
-            agregar_tabla("tv2");
-            states.escena2.televisor = "tv2_on";
-            this.renderable.setCurrentAnimation("tv2_on");
+        else if(this.renderable.isCurrentAnimation("tv2_sala_off")){
+            agregar_tabla("tv2_sala");
+            states.escena2.televisor = "tv2_sala_on";
+            this.renderable.setCurrentAnimation("tv2_sala_on");
         }
 
-        else if(this.renderable.isCurrentAnimation("tv3_on")){
-            agregar_tabla("tv3");
-            states.escena2.televisor = "tv3_off";
-            this.renderable.setCurrentAnimation("tv3_off");
+        else if(this.renderable.isCurrentAnimation("tv3_sala_on")){
+            agregar_tabla("tv3_sala");
+            states.escena2.televisor = "tv3_sala_off";
+            this.renderable.setCurrentAnimation("tv3_sala_off");
         }
 
         else {
-            agregar_tabla("tv3");
-            states.escena2.televisor = "tv3_on";
-            this.renderable.setCurrentAnimation("tv3_on");
+            agregar_tabla("tv3_sala");
+            states.escena2.televisor = "tv3_sala_on";
+            this.renderable.setCurrentAnimation("tv3_sala_on");
         }
 
         return false;
@@ -115,14 +115,14 @@ game.BombilloE2 = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
-        this.renderable.addAnimation("bom2_off", [2]);
-        this.renderable.addAnimation("bom2_on", [3]);
-        this.renderable.addAnimation("bom1_off", [0]);
-        this.renderable.addAnimation("bom1_on", [1]);
+        this.renderable.addAnimation("bom2_sala_off", [2]);
+        this.renderable.addAnimation("bom2_sala_on", [3]);
+        this.renderable.addAnimation("bom1_sala_off", [0]);
+        this.renderable.addAnimation("bom1_sala_on", [1]);
         this.renderable.setCurrentAnimation(states.escena2.bombillo);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(220,180), 42, 42), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(590,180), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(440,180), 42, 42), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(810,180), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -131,24 +131,24 @@ game.BombilloE2 = me.ObjectEntity.extend({
 
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("bom1_on")){
-            states.escena2.bombillo = "bom2_on";
-            this.renderable.setCurrentAnimation("bom2_on");
+        if(this.renderable.isCurrentAnimation("bom1_sala_on")){
+            states.escena2.bombillo = "bom2_sala_on";
+            this.renderable.setCurrentAnimation("bom2_sala_on");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom1_off")){
-            states.escena2.bombillo = "bom2_off";
-            this.renderable.setCurrentAnimation("bom2_off");
+        else if(this.renderable.isCurrentAnimation("bom1_sala_off")){
+            states.escena2.bombillo = "bom2_sala_off";
+            this.renderable.setCurrentAnimation("bom2_sala_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom2_on")){
-            states.escena2.bombillo = "bom1_on";
-            this.renderable.setCurrentAnimation("bom1_on");
+        else if(this.renderable.isCurrentAnimation("bom2_sala_on")){
+            states.escena2.bombillo = "bom1_sala_on";
+            this.renderable.setCurrentAnimation("bom1_sala_on");
         }
 
         else{
-            states.escena2.bombillo = "bom1_off";
-            this.renderable.setCurrentAnimation("bom1_off");
+            states.escena2.bombillo = "bom1_sala_off";
+            this.renderable.setCurrentAnimation("bom1_sala_off");
         }
 
     },
@@ -157,28 +157,28 @@ game.BombilloE2 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom1_on")){
-            agregar_tabla("bom1");
-            states.escena2.bombillo = "bom1_off";
-            this.renderable.setCurrentAnimation("bom1_off");
+        if(this.renderable.isCurrentAnimation("bom1_sala_on")){
+            agregar_tabla("bom1_sala");
+            states.escena2.bombillo = "bom1_sala_off";
+            this.renderable.setCurrentAnimation("bom1_sala_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom2_on")){
-            agregar_tabla("bom2");
-            states.escena2.bombillo = "bom2_off";
-            this.renderable.setCurrentAnimation("bom2_off");
+        else if(this.renderable.isCurrentAnimation("bom2_sala_on")){
+            agregar_tabla("bom2_sala");
+            states.escena2.bombillo = "bom2_sala_off";
+            this.renderable.setCurrentAnimation("bom2_sala_off");
         }
         
-        else if (this.renderable.isCurrentAnimation("bom2_off")) {
-            agregar_tabla("bom2");
-            states.escena2.bombillo = "bom2_on";
-            this.renderable.setCurrentAnimation("bom2_on");
+        else if (this.renderable.isCurrentAnimation("bom2_sala_off")) {
+            agregar_tabla("bom2_sala");
+            states.escena2.bombillo = "bom2_sala_on";
+            this.renderable.setCurrentAnimation("bom2_sala_on");
         }
 
         else{
-            agregar_tabla("bom1");
-            states.escena2.bombillo = "bom1_on";
-            this.renderable.setCurrentAnimation("bom1_on");
+            agregar_tabla("bom1_sala");
+            states.escena2.bombillo = "bom1_sala_on";
+            this.renderable.setCurrentAnimation("bom1_sala_on");
         }
 
         return false;
@@ -220,22 +220,13 @@ game.RadioR = me.ObjectEntity.extend({
         agregar_tabla("radio_r");
        
         if(this.renderable.isCurrentAnimation("radio_r_off")){           
-            //consumos.radio_r.apagado=false;  
-            //consumo(consumos.radio_r.id);          
-            //me.audio.play("prender");
-            //me.audio.play("radio");
             states.escena2.radio_r = "radio_r_on";
             this.renderable.setCurrentAnimation("radio_r_on");
+        }
 
-
-        }else{
-            //consumos.radio_r.apagado=true;  
-            //consumo(consumos.radio_r.id);    
-            //me.audio.play("apagar");
-            //me.audio.pause("radio");
+        else{
             states.escena2.radio_r = "radio_r_off";
             this.renderable.setCurrentAnimation("radio_r_off");
-
         }
 
 
@@ -415,3 +406,42 @@ game.EntrarBano = me.ObjectEntity.extend({
     },
 
 });
+
+
+game.Salida = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("salir", [9]);
+        this.renderable.setCurrentAnimation("salir");
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+
+
+    },
+
+    onMouseDown : function() {
+
+        me.audio.stop("radio");
+        game.data.game_over = true;
+
+
+        if(game.data.score >= game.data.conmax){
+            me.audio.play("pierde");
+        }
+
+        else{
+            me.audio.play("gana");
+        }
+
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+});
+

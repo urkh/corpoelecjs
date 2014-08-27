@@ -9,8 +9,8 @@ game.Ducha = me.ObjectEntity.extend({
         this.renderable.addAnimation("ducha_corona_on", [5]);
         this.renderable.setCurrentAnimation(states.escena6.ducha);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(330,220), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(470,220), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(330,260), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(470,260), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -83,10 +83,10 @@ game.BombilloE6 = me.ObjectEntity.extend({
 
         this.parent(x, y, settings);
 
-        this.renderable.addAnimation("bom1_off", [0]);
-        this.renderable.addAnimation("bom1_on", [1]);
-        this.renderable.addAnimation("bom2_off", [2]);
-        this.renderable.addAnimation("bom2_on", [3]);
+        this.renderable.addAnimation("bom1_bano_off", [2]);
+        this.renderable.addAnimation("bom1_bano_on", [3]);
+        this.renderable.addAnimation("bom2_bano_off", [0]);
+        this.renderable.addAnimation("bom2_bano_on", [1]);
         this.renderable.setCurrentAnimation(states.escena6.bombillo);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(730,60), 32, 32), this.cambiarS.bind(this), false);
@@ -99,24 +99,24 @@ game.BombilloE6 = me.ObjectEntity.extend({
 
         me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("bom1_on")){
-            states.escena6.bombillo = "bom2_on";
-            this.renderable.setCurrentAnimation("bom2_on");
+        if(this.renderable.isCurrentAnimation("bom1_bano_on")){
+            states.escena6.bombillo = "bom2_bano_on";
+            this.renderable.setCurrentAnimation("bom2_bano_on");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom1_off")){
-            states.escena6.bombillo = "bom2_off";
-            this.renderable.setCurrentAnimation("bom2_off");
+        else if(this.renderable.isCurrentAnimation("bom1_bano_off")){
+            states.escena6.bombillo = "bom2_bano_off";
+            this.renderable.setCurrentAnimation("bom2_bano_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom2_on")){
-            states.escena6.bombillo = "bom1_on";
-            this.renderable.setCurrentAnimation("bom1_on");
+        else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
+            states.escena6.bombillo = "bom1_bano_on";
+            this.renderable.setCurrentAnimation("bom1_bano_on");
         }
 
         else{
-            states.escena6.bombillo = "bom1_off";
-            this.renderable.setCurrentAnimation("bom1_off");
+            states.escena6.bombillo = "bom1_bano_off";
+            this.renderable.setCurrentAnimation("bom1_bano_off");
         }
 
     },
@@ -125,28 +125,28 @@ game.BombilloE6 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom1_on")){
-            agregar_tabla("bom1");
-            states.escena6.bombillo = "bom1_off";
-            this.renderable.setCurrentAnimation("bom1_off");
+        if(this.renderable.isCurrentAnimation("bom1_bano_on")){
+            agregar_tabla("bom1_bano");
+            states.escena6.bombillo = "bom1_bano_off";
+            this.renderable.setCurrentAnimation("bom1_bano_off");
         }
 
-        else if(this.renderable.isCurrentAnimation("bom2_on")){
-            agregar_tabla("bom2");
-            states.escena6.bombillo = "bom2_off";
-            this.renderable.setCurrentAnimation("bom2_off");
+        else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
+            agregar_tabla("bom2_bano");
+            states.escena6.bombillo = "bom2_bano_off";
+            this.renderable.setCurrentAnimation("bom2_bano_off");
         }
         
-        else if (this.renderable.isCurrentAnimation("bom2_off")) {
-            agregar_tabla("bom2");
-            states.escena6.bombillo = "bom2_on";
-            this.renderable.setCurrentAnimation("bom2_on");
+        else if (this.renderable.isCurrentAnimation("bom2_bano_off")) {
+            agregar_tabla("bom2_bano");
+            states.escena6.bombillo = "bom2_bano_on";
+            this.renderable.setCurrentAnimation("bom2_bano_on");
         }
 
         else{
-            agregar_tabla("bom1");
-            states.escena6.bombillo = "bom1_on";
-            this.renderable.setCurrentAnimation("bom1_on");
+            agregar_tabla("bom1_bano");
+            states.escena6.bombillo = "bom1_bano_on";
+            this.renderable.setCurrentAnimation("bom1_bano_on");
         }
 
         return false;
@@ -260,7 +260,7 @@ game.SalirBano = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        me.audio.play("dclose");
+        me.audio.play("dopen");
         me.game.viewport.fadeIn("#000000", 450, 
 
             (function (){
