@@ -31,6 +31,7 @@ game.HUD.Pila = me.Renderable.extend({
 		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 573, 112);	
 		this.pierde = new me.SpriteObject(1, 200, me.loader.getImage("pierde"), 1546, 517);
 		this.gana = new me.SpriteObject(1, 200, me.loader.getImage("gana"), 1536, 720);
+		me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1270,280), 200, 100), this.reset.bind(this), false);
 		
 		//this.score = -1;
 		this.floating = true;
@@ -61,6 +62,7 @@ game.HUD.Pila = me.Renderable.extend({
     	if(game.data.game_over){
 
     		if(game.data.score > game.data.conmax){
+    			
     			this.pierde.draw(context);
     		}
 
@@ -68,6 +70,39 @@ game.HUD.Pila = me.Renderable.extend({
     			this.gana.draw(context);
     		}
     	}
+	},
+
+
+	reset: function(){
+		if(game.data.game_over){
+			game.data.game_over = false;
+		    for(var cons in consumos) {
+		        consumos[cons].apagado = true;
+		        consumos[cons].flag = false;
+		        consumos[cons].consumo = 0;
+
+		    }
+
+		    for(var _est in states) {
+		    	for(var _esc in states[_est]){
+		    		if(states[_est][_esc].slice(-1)=='n'){
+		    			states[_est][_esc] = states[_est][_esc].substr(0, states[_est][_esc].length-2)+'off'; 
+		    		}
+		    	}
+		    }
+
+            $('#tabla').DataTable().clear().draw()
+			
+			me.game.viewport.fadeIn("#000000", 450, 
+
+                (function (){
+
+                    me.levelDirector.loadLevel("escena_01");
+
+                })
+
+            );
+		}
 	}
 
 

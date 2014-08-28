@@ -5,7 +5,10 @@ game.Micro = me.ObjectEntity.extend({
         this.parent(x, y, settings);
         this.renderable.addAnimation("microondas_off", [0]);
         this.renderable.addAnimation("microondas_on", [1]);
-        this.renderable.setCurrentAnimation(states.escena3.microondas);        
+        this.renderable.setCurrentAnimation(states.escena3.microondas);   
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 100;
+        this.getShape().pos.y = 30;     
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
@@ -49,7 +52,10 @@ game.Cocina = me.ObjectEntity.extend({
         this.renderable.addAnimation("cocina_on", [1]);
         this.renderable.addAnimation("cocinag", [2]);
         this.renderable.addAnimation("cocinag2", [2]);
-        this.renderable.setCurrentAnimation(states.escena3.cocina);        
+        this.renderable.setCurrentAnimation(states.escena3.cocina);     
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 240;
+        this.getShape().pos.y = 180;   
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1040,655), 32, 32), this.cambiarS.bind(this), false);
@@ -126,6 +132,9 @@ game.Licuadora = me.ObjectEntity.extend({
         this.renderable.addAnimation("licuadora_off", [0]);
         this.renderable.addAnimation("licuadora_on", [1]);
         this.renderable.setCurrentAnimation(states.escena3.licuadora);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 30;
+        this.getShape().pos.y = 50;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -258,6 +267,9 @@ game.Campana = me.ObjectEntity.extend({
         this.renderable.addAnimation("campana_off", [0]);
         this.renderable.addAnimation("campana_on", [1]);
         this.renderable.setCurrentAnimation(states.escena3.campana);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 130;
+        this.getShape().pos.y = 170;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -296,9 +308,14 @@ game.Nevera = me.ObjectEntity.extend({
     init: function(x,y,settings){
 
         this.parent(x, y, settings);
+
         this.renderable.addAnimation("nevera_off", [0]);
         this.renderable.addAnimation("nevera_on", [1]);
         this.renderable.setCurrentAnimation(states.escena3.nevera);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 80;
+        this.getShape().pos.y = 100;
+
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -369,18 +386,21 @@ game.SalirCocina = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        me.audio.stop("licuadora");
-        me.audio.stop("microondas");
-        me.audio.play("dopen");
-        me.game.viewport.fadeIn("#000000", 450, 
 
-            (function (){
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
+            me.audio.stop("licuadora");
+            me.audio.stop("microondas");
+            me.audio.play("dopen");
+            me.game.viewport.fadeIn("#000000", 450, 
 
-                me.levelDirector.loadLevel("escena_02");
+                (function (){
 
-            })
+                    me.levelDirector.loadLevel("escena_02");
 
-        );        
+                })
+
+            );
+        }        
         return false;
     
     },
@@ -409,18 +429,22 @@ game.EntrarLavandero= me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.audio.stop("licuadora");
-        me.audio.stop("microondas");
-        me.audio.play("dopen");
-        me.game.viewport.fadeIn("#000000", 450, 
 
-            (function (){
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
+            me.audio.stop("licuadora");
+            me.audio.stop("microondas");
+            me.audio.play("dopen");
+            me.game.viewport.fadeIn("#000000", 450, 
 
-                me.levelDirector.loadLevel("escena_04");
+                (function (){
 
-            })
+                    me.levelDirector.loadLevel("escena_04");
 
-        );
+                })
+
+            );
+        }
+
         return false;
     
     },

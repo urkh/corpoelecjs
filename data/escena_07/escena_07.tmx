@@ -52,4 +52,13 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="lampara3" width="50" height="31">
+  <object name="lampara3" x="694" y="627" width="94" height="85">
+   <properties>
+    <property name="image" value="accesorios_e05"/>
+    <property name="spriteheight" value="256"/>
+    <property name="spritewidth" value="192"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

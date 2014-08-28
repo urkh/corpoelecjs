@@ -3,7 +3,7 @@ consumos = {
     "bom1_sala": {
         "id": "bom1_sala",
         "nombre":"Bombillo Ahorrador Sal&oacute;n",
-        "kw":30,
+        "kw":300000,
         "consumo":0,
         "apagado":true,
         "flag":false
@@ -338,23 +338,62 @@ consumos = {
         "flag":false
     },
 
-    "lamp1":{
-        "id":"lamp1",
-        "nombre":"Lampara 1",
+    "lamp1_cuarto1":{
+        "id":"lamp1_cuarto1",
+        "nombre":"Lampara PC 1",
         "kw":100,
         "consumo":0,
         "apagado":true,
         "flag":false
     },
 
-    "lamp2":{
-        "id":"lamp2",
-        "nombre":"Lampara 2",
+    "lamp2_cuarto1":{
+        "id":"lamp2_cuarto1",
+        "nombre":"Lampara PC 2",
         "kw":30,
         "consumo":0,
         "apagado":true,
         "flag":false
     },
+
+
+    "lamp3_cuarto1":{
+        "id":"lamp3_cuarto1",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n 1",
+        "kw":100,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
+    "lamp4_cuarto1":{
+        "id":"lamp4_cuarto1",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n 1",
+        "kw":30,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
+
+    "lamp1_cuarto2":{
+        "id":"lamp1_cuarto2",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n 2",
+        "kw":100,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
+    "lamp2_cuarto2":{
+        "id":"lamp2_cuarto2",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n 2",
+        "kw":30,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
 
     "consola":{
         "id":"consola",
@@ -543,7 +582,8 @@ states = {
 
     "escena5":{
         "computadora":"pc1_off",
-        "lampara":"lamp2_off",
+        "lampara1":"lamp2_cuarto1_off",
+        "lampara2":"lamp4_cuarto1_off",
         "bombillo":"bom1_cuarto1_off",
         "ac":"ac1_cuarto1_off"
     },
@@ -557,7 +597,7 @@ states = {
 
     "escena7":{
         "televisor":"tv1_cuarto2_off",
-        "lampara":"lamp1_off",
+        "lampara1":"lamp1_cuarto2_off",
         "bombillo":"bom1_cuarto2_off",
         "ac":"ac1_cuarto2_off"
     },

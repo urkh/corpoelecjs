@@ -42,6 +42,13 @@
     <property name="spritewidth" value="192"/>
    </properties>
   </object>
+  <object name="lampara2" x="1461" y="774" width="94" height="85">
+   <properties>
+    <property name="image" value="accesorios_e05"/>
+    <property name="spriteheight" value="256"/>
+    <property name="spritewidth" value="192"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="salir_cuarto" width="50" height="31">
   <object name="salir_cuarto" x="158" y="316" width="101" height="93">

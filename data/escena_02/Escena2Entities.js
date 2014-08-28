@@ -10,6 +10,9 @@ game.Televisor = me.ObjectEntity.extend({
         this.renderable.addAnimation("tv3_sala_off", [4]);
         this.renderable.addAnimation("tv3_sala_on", [5]);
         this.renderable.setCurrentAnimation(states.escena2.televisor);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 130;
+        this.getShape().pos.y = 80;
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(150,600), 32, 32), this.cambiarS.bind(this), false);
@@ -26,16 +29,25 @@ game.Televisor = me.ObjectEntity.extend({
         if(this.renderable.isCurrentAnimation("tv1_sala_off")){
             states.escena2.televisor = "tv2_sala_off";
             this.renderable.setCurrentAnimation("tv2_sala_off");
+            this.getShape().resize(64,64);
+            this.getShape().pos.x = 130;
+            this.getShape().pos.y = 90;
         }
 
         else if(this.renderable.isCurrentAnimation("tv2_sala_off")){
             states.escena2.televisor = "tv3_sala_off";
             this.renderable.setCurrentAnimation("tv3_sala_off");
+            this.getShape().resize(64,64);
+            this.getShape().pos.x = 105;
+            this.getShape().pos.y = 95;
         }
 
         else if(this.renderable.isCurrentAnimation("tv3_sala_off")){
             states.escena2.televisor = "tv1_sala_off";
             this.renderable.setCurrentAnimation("tv1_sala_off");
+            this.getShape().resize(64,64);
+            this.getShape().pos.x = 130;
+            this.getShape().pos.y = 80;
         } 
 
         else if(this.renderable.isCurrentAnimation("tv1_sala_on")){
@@ -120,6 +132,9 @@ game.BombilloE2 = me.ObjectEntity.extend({
         this.renderable.addAnimation("bom1_sala_off", [0]);
         this.renderable.addAnimation("bom1_sala_on", [1]);
         this.renderable.setCurrentAnimation(states.escena2.bombillo);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 205;
+        this.getShape().pos.y = 95;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(440,180), 42, 42), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(810,180), 32, 32), this.cambiarS.bind(this), false);
@@ -209,6 +224,9 @@ game.RadioR = me.ObjectEntity.extend({
         this.renderable.addAnimation("radio_r_on", [1]);
         this.renderable.addAnimation("radio_r_off", [0]);
         this.renderable.setCurrentAnimation(states.escena2.radio_r);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 65;
+        this.getShape().pos.y = 20;
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
@@ -258,20 +276,26 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
-        me.audio.play("dopen");
-        me.audio.stop("radio");
-       
-        me.game.viewport.fadeIn("#000000", 450, 
-
-            (function (){
-
-                me.levelDirector.loadLevel("escena_05");
-
-            })
-
-        );
         
-        
+        //cuarto1.resize(27, 33, 55, 66);
+        //cuarto2.resize(28, 31, 57, 62);
+        //bano.resize(32,34, 64, 69)
+        //console.log(me.game.world.getChildByName("entrar_cuarto2")[0].getShape());
+        //console.log(me.levelDirector.getCurrentLevelId());
+
+        if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
+            me.audio.play("dopen");
+            me.audio.stop("radio");
+            me.game.viewport.fadeIn("#000000", 450, 
+
+                (function (){
+
+                    me.levelDirector.loadLevel("escena_05");
+
+
+                })
+            );
+        }
         return false;
     
     },
@@ -293,27 +317,27 @@ game.EntrarCuarto2 = me.ObjectEntity.extend({
         this.parent(x, y, settings);
         this.renderable.addAnimation("entrar_cuarto2", [3]);
         this.renderable.setCurrentAnimation("entrar_cuarto2");
-
-
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
 
 
-    onMouseDown : function() {
-        me.audio.play("dopen");
-        me.audio.stop("radio");
-        me.game.viewport.fadeIn("#000000", 450, 
+    onMouseDown : function() {    
 
-            (function (){
+        if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
+            me.audio.play("dopen");
+            me.audio.stop("radio");
+            me.game.viewport.fadeIn("#000000", 450, 
 
-                me.levelDirector.loadLevel("escena_07");
+                (function (){
 
-            })
+                    me.levelDirector.loadLevel("escena_07");
 
-        );
+                })
 
-        
+            );
+        }
+
         return false;
     
     },
@@ -344,17 +368,21 @@ game.EntrarCocina = me.ObjectEntity.extend({
     },
 
     onMouseDown : function() {
-        me.audio.play("dopen");
-        me.audio.stop("radio");
-        me.game.viewport.fadeIn("#000000", 450, 
+        
+        if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
+            me.audio.play("dopen");
+            me.audio.stop("radio");
+            me.game.viewport.fadeIn("#000000", 450, 
 
-            (function (){
+                (function (){
 
-                me.levelDirector.loadLevel("escena_03");
+                    me.levelDirector.loadLevel("escena_03");
 
-            })
+                })
 
-        );
+            );
+        }
+
         return false;
     
     },
@@ -384,17 +412,18 @@ game.EntrarBano = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        me.audio.play("dopen");
-        me.audio.stop("radio");
-        me.game.viewport.fadeIn("#000000", 450, 
+        if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
+            me.audio.play("dopen");
+            me.audio.stop("radio");
+            me.game.viewport.fadeIn("#000000", 450, 
 
-            (function (){
+                (function (){
+                    me.levelDirector.loadLevel("escena_06");
+                })
 
-                me.levelDirector.loadLevel("escena_06");
+            );
+        }
 
-            })
-
-        );
         return false;
     
     },

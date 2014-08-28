@@ -12,7 +12,9 @@
 		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"> 
 
 		<link rel="stylesheet" type="text/css" href="lib/dataTables/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pgwmodal.min.css">
 		<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="lib/pgwmodal.min.js"></script>
 		<script type="text/javascript" src="lib/dataTables/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="js/tabla.js"></script>
 
@@ -29,22 +31,15 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th width="15%">Electrodomestico</th>
+						<th width="15%">Electrodom&eacute;stico</th>
 						<th width="15%">Cantidad</th>
 						<th width="15%">Frecuencia / Uso</th>
 						<th width="15%">Potencia (w)</th>
-						<th width="15%">Consumo / Mes</th>
+						<th width="15%">Consumo / Hora</th>
 					</tr>
 				</thead>
 				<tbody align="center">
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+
 				</tbody>
 				
 			</table>
@@ -52,6 +47,9 @@
 
 		</div>
 
+
+
+		
 
 
 		<script type="text/javascript" src="lib/melonJS-1.0.2-min.js"></script>
@@ -78,7 +76,36 @@
 
 
 		
-
+		<div id="modal_estado" style="text-align:center" >
+			<select id="select_estados" name="select_estados" >
+		    	<option value="0">---</option>
+	              <option value="am">Amazonas</option>
+	              <option value="an">Anzo&aacute;tegui</option>
+	              <option value="ap">Apure</option>
+	              <option value="ar">Aragua</option>
+	              <option value="ba">Barinas</option>
+	              <option value="bo">Bolivar</option>
+	              <option value="ca">Carabobo</option>
+	              <option value="co">Cojedes</option>
+	              <option value="dm">Delta Amacuro</option>
+	              <option value="dc">Distrito Capital</option>
+	              <option value="fa">Falc&oacute;n</option>
+	              <option value="gu">Guarico</option>
+	              <option value="la">Lara</option>
+	              <option value="me">M&eacute;rida</option>
+	              <option value="mi">Miranda</option>
+	              <option value="mo">Monagas</option>
+	              <option value="ne">Nueva Esparta</option>
+	              <option value="po">Portuguesa</option>
+	              <option value="su">Sucre</option>
+	              <option value="ta">T&aacute;chira</option>
+	              <option value="tr">Trujillo</option>
+	              <option value="va">Vargas</option>
+	              <option value="ya">Yaracuy</option>
+	              <option value="zu">Zulia</option>
+             </select>
+		    <button onclick="fentrar()">Aceptar</button>
+		</div>
 
 
 		<script type="text/javascript">

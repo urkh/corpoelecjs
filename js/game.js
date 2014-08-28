@@ -64,6 +64,7 @@ var game = {
         //01
         me.pool.register("inicio", game.Inicio);
         me.pool.register("sinput", game.SelectInput);
+        me.pool.register("cambiar_level", game.CambiarLevel);
 
         //02
         me.pool.register("entrar_cocina", game.EntrarCocina);
@@ -114,6 +115,7 @@ var game = {
         me.pool.register("ac_e7", game.AcE7);
         me.pool.register("televisor_e07", game.TelevisorE7);
         me.pool.register("bombillo_e7", game.BombilloE7);
+        me.pool.register("lampara3", game.Lampara3);
         //me.pool.register("consola", game.Consola);
         me.pool.register("salir_cuarto2", game.SalirCuarto2);
 

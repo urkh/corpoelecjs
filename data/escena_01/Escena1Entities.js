@@ -1,3 +1,4 @@
+
 var estados = '<option value="0">---</option>\
               <option value="am">Amazonas</option>\
               <option value="an">Anzo&aacute;tegui</option>\
@@ -27,6 +28,17 @@ var estados = '<option value="0">---</option>\
 var select_input = '<select id="select_estados" name="select_estados" style="position:absolute;width:20%;" >'+estados+'</select>';
 
 
+
+/*var entrarr = "0";
+var estado = "0";
+
+function fentrar(){
+  estado = $("#select_estados").val(); 
+    console.log(estado);
+}*/
+
+
+
 game.Inicio = me.ObjectEntity.extend({
 
     init: function(x,y,settings){
@@ -39,17 +51,33 @@ game.Inicio = me.ObjectEntity.extend({
 
 
 
+
 	onMouseDown : function() {
+
+
+  
+
+        //estado = entrarr; 
+        //console.log(estado);
 
         var estado = $("#select_estados").val(); 
         
-
+        
 
         if(estado=="0"){
 
-          alert("Debe seleccionar un estado");
+          /*
+          $.pgwModal({
+              target: '#modal_estado',
+              title: 'Seleccione su estado de residencia',
+              maxWidth: 800
+          });*/
+          alert("Seleccione el estado de su residencia");
 
         }else{
+
+
+          
 
           for(var _estado in estados){
               if(estados[_estado].id == estado){
@@ -57,20 +85,25 @@ game.Inicio = me.ObjectEntity.extend({
               }    
           
           }
+
+          if(me.levelDirector.getCurrentLevelId() == 'escena_01'){
           
-          me.game.viewport.fadeIn("#000000", 450, 
+            me.game.viewport.fadeIn("#000000", 450, 
 
-              (function (){
-                  game.data.score = 0;
-                  this.HUD = new game.HUD.Container();
-                  me.game.world.addChild(this.HUD);
-                  me.audio.play("dopen");
-                  me.levelDirector.loadLevel("escena_02");
+                (function (){
+                    game.data.score = 0;
+                    this.HUD = new game.HUD.Container();
+                    me.game.world.addChild(this.HUD);
+                    me.audio.play("dopen");
+                    me.levelDirector.loadLevel("escena_02");
 
-              })
+                })
 
-          );
-        }
+            );
+
+          }
+
+       }
 
 		return false;
 	
@@ -88,12 +121,21 @@ game.Inicio = me.ObjectEntity.extend({
 
 
 
+
+
+
+
+
+
+
+
 game.SelectInput = me.Renderable.extend({
     init : function (x, y, type, length) {
         this.$input = $(select_input).css({
             "left" : x,
             "top" : y
         });
+        this.floating = true;
 
         $(me.video.getWrapper()).append(this.$input);
     },

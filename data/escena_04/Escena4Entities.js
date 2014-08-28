@@ -6,6 +6,9 @@ game.Lavadora= me.ObjectEntity.extend({
         this.renderable.addAnimation("lavadora_off", [0]);
         this.renderable.addAnimation("lavadora_on", [1,2], 100);
         this.renderable.setCurrentAnimation(states.escena4.lavadora);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 130;
+        this.getShape().pos.y = 210;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -48,6 +51,9 @@ game.Secadora = me.ObjectEntity.extend({
         this.renderable.addAnimation("secadora_off", [0]);
         this.renderable.addAnimation("secadora_on", [1,2], 100);
         this.renderable.setCurrentAnimation(states.escena4.secadora);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 180;
+        this.getShape().pos.y = 210;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -90,6 +96,9 @@ game.Plancha = me.ObjectEntity.extend({
         this.renderable.addAnimation("plancha_off", [1]);
         this.renderable.addAnimation("plancha_on", [0]);
         this.renderable.setCurrentAnimation(states.escena4.plancha);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 70;
+        this.getShape().pos.y = 25;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -136,6 +145,9 @@ game.Calentador = me.ObjectEntity.extend({
         this.renderable.addAnimation("cal2_on", [3]);
         this.renderable.addAnimation("cal3_off", [4]);
         this.renderable.addAnimation("cal3_on", [5]);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 95;
+        this.getShape().pos.y = 90;
         this.renderable.setCurrentAnimation(states.escena4.calentador);
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1350,300), 32, 32), this.cambiarS.bind(this), false);
@@ -248,6 +260,9 @@ game.BombilloE4 = me.ObjectEntity.extend({
         this.renderable.addAnimation("bom2_lavandero_off", [0]);
         this.renderable.addAnimation("bom2_lavandero_on", [1]);
         this.renderable.setCurrentAnimation(states.escena4.bombillo);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 0;
+        this.getShape().pos.y = 20;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(660,300), 42, 42), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(770,300), 32, 32), this.cambiarS.bind(this), false);
@@ -345,19 +360,22 @@ game.SalirLavandero= me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        me.audio.stop("lavadora");
-        me.audio.stop("secadora");
-        me.audio.play("open");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
+            me.audio.stop("lavadora");
+            me.audio.stop("secadora");
+            me.audio.play("open");
 
-        me.game.viewport.fadeIn("#000000", 450, 
+            me.game.viewport.fadeIn("#000000", 450, 
 
-            (function (){
+                (function (){
 
-                me.levelDirector.loadLevel("escena_03");
+                    me.levelDirector.loadLevel("escena_03");
 
-            })
+                })
 
-        );
+            );
+        }
+
         return false;
     
     },

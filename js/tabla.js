@@ -9,6 +9,9 @@ $(document).ready(function() {
 		bInfo: false,
         aaSorting: [[ 0, "desc" ]],
         bJQueryUI: true,
+        oLanguage:{
+            sEmptyTable:     "No ha seleccionado ning&uacute;n electrodom&eacute;stico"
+        },
 		columnDefs: [
             {
                 "targets": [0],

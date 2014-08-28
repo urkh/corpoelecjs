@@ -8,6 +8,9 @@ game.Ducha = me.ObjectEntity.extend({
         this.renderable.addAnimation("ducha_corona_off", [4]);
         this.renderable.addAnimation("ducha_corona_on", [5]);
         this.renderable.setCurrentAnimation(states.escena6.ducha);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 20;
+        this.getShape().pos.y = -30;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(330,260), 32, 32), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(470,260), 32, 32), this.cambiarS.bind(this), false);
@@ -88,6 +91,9 @@ game.BombilloE6 = me.ObjectEntity.extend({
         this.renderable.addAnimation("bom2_bano_off", [0]);
         this.renderable.addAnimation("bom2_bano_on", [1]);
         this.renderable.setCurrentAnimation(states.escena6.bombillo);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 95;
+        this.getShape().pos.y = 25;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(730,60), 32, 32), this.cambiarS.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(980,60), 32, 32), this.cambiarS.bind(this), false);
@@ -172,6 +178,9 @@ game.Afeitadora = me.ObjectEntity.extend({
         this.renderable.addAnimation("afeitadora_off", [0]);
         this.renderable.addAnimation("afeitadora_on", [1]);
         this.renderable.setCurrentAnimation(states.escena6.afeitadora);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 15;
+        this.getShape().pos.y = -20;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -213,6 +222,9 @@ game.Secador = me.ObjectEntity.extend({
         this.renderable.addAnimation("secador_off", [2]);
         this.renderable.addAnimation("secador_on", [3]);
         this.renderable.setCurrentAnimation(states.escena6.secador);
+        this.getShape().resize(64,64);
+        this.getShape().pos.x = 0;
+        this.getShape().pos.y = -20;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         
     },
@@ -260,16 +272,19 @@ game.SalirBano = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        me.audio.play("dopen");
-        me.game.viewport.fadeIn("#000000", 450, 
+        if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
+            me.audio.play("dopen");
+            me.game.viewport.fadeIn("#000000", 450, 
 
-            (function (){
+                (function (){
 
-                me.levelDirector.loadLevel("escena_02");
+                    me.levelDirector.loadLevel("escena_02");
 
-            })
+                })
 
-        );
+            );
+        }
+
         return false;
     
     },
