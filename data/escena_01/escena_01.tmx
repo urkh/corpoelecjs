@@ -9,7 +9,6 @@
   </data>
  </layer>
  <objectgroup name="sinput" width="50" height="31">
-  <object name="sinput" x="292" y="318" width="206" height="133"/>
   <object name="inicio" x="432" y="561" width="158" height="75">
    <properties>
     <property name="image" value="inicio"/>

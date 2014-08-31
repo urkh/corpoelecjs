@@ -2,6 +2,7 @@ var game = {
 
     data:{
         score:10,
+        score_num: false,
         game_over: false,
         conmax:3000
     },
@@ -63,7 +64,7 @@ var game = {
 
         //01
         me.pool.register("inicio", game.Inicio);
-        me.pool.register("sinput", game.SelectInput);
+        //me.pool.register("sinput", game.SelectInput);
         me.pool.register("cambiar_level", game.CambiarLevel);
 
         //02

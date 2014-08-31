@@ -6,25 +6,29 @@
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" type="text/css" href="css/style.css"> 
-		<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
-
+		 
 		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"> 
-
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="lib/dataTables/css/jquery.dataTables.min.css">
-		<link rel="stylesheet" type="text/css" href="css/pgwmodal.min.css">
+
 		<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="lib/pgwmodal.min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="lib/dataTables/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="js/tabla.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	
 	</head>
 	<body background="data/img/bg.min.png">
 		<div id="juego" align="center">
-			
-			 
+
+		
+
+		
+		
 		</div>
+
 		<div id="tabla_consumos" style="width: 77%;">
 			
 			<table id="tabla" class="display" cellspacing="0" >
@@ -48,6 +52,40 @@
 		</div>
 
 
+		<div id="fixedtop1">
+		<div id="center250a">
+		<select class="form-control" id="select_estados" name="select_estados" style="width:100%;">
+		    	
+		    <option value="0">---</option>	
+              <option value="am">Amazonas</option>
+              <option value="an">Anzo&aacute;tegui</option>
+              <option value="ap">Apure</option>
+              <option value="ar">Aragua</option>
+              <option value="ba">Barinas</option>
+              <option value="bo">Bolivar</option>
+              <option value="ca">Carabobo</option>
+              <option value="co">Cojedes</option>
+              <option value="dm">Delta Amacuro</option>
+              <option value="dc">Distrito Capital</option>
+              <option value="fa">Falc&oacute;n</option>
+              <option value="gu">Guarico</option>
+              <option value="la">Lara</option>
+              <option value="me">M&eacute;rida</option>
+              <option value="mi">Miranda</option>
+              <option value="mo">Monagas</option>
+              <option value="ne">Nueva Esparta</option>
+              <option value="po">Portuguesa</option>
+              <option value="su">Sucre</option>
+              <option value="ta">T&aacute;chira</option>
+              <option value="tr">Trujillo</option>
+              <option value="va">Vargas</option>
+              <option value="ya">Yaracuy</option>
+              <option value="zu">Zulia</option>
+         </select>
+		
+		</div>
+		</div> 
+		
 
 		
 
@@ -75,43 +113,19 @@
 		<script type="text/javascript" src="js/consumos.json"></script>
 
 
-		
-		<div id="modal_estado" style="text-align:center" >
-			<select id="select_estados" name="select_estados" >
-		    	<option value="0">---</option>
-	              <option value="am">Amazonas</option>
-	              <option value="an">Anzo&aacute;tegui</option>
-	              <option value="ap">Apure</option>
-	              <option value="ar">Aragua</option>
-	              <option value="ba">Barinas</option>
-	              <option value="bo">Bolivar</option>
-	              <option value="ca">Carabobo</option>
-	              <option value="co">Cojedes</option>
-	              <option value="dm">Delta Amacuro</option>
-	              <option value="dc">Distrito Capital</option>
-	              <option value="fa">Falc&oacute;n</option>
-	              <option value="gu">Guarico</option>
-	              <option value="la">Lara</option>
-	              <option value="me">M&eacute;rida</option>
-	              <option value="mi">Miranda</option>
-	              <option value="mo">Monagas</option>
-	              <option value="ne">Nueva Esparta</option>
-	              <option value="po">Portuguesa</option>
-	              <option value="su">Sucre</option>
-	              <option value="ta">T&aacute;chira</option>
-	              <option value="tr">Trujillo</option>
-	              <option value="va">Vargas</option>
-	              <option value="ya">Yaracuy</option>
-	              <option value="zu">Zulia</option>
-             </select>
-		    <button onclick="fentrar()">Aceptar</button>
-		</div>
-
 
 		<script type="text/javascript">
 			window.onReady(function onReady() {
 				game.onload();
 			});
 		</script>
+
+
+
+
+
+
+
+
 	</body>
 </html>

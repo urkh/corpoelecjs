@@ -30,3 +30,36 @@
 input[type="number"] {
     width: 30%;
 }
+
+
+@media (min-width: 768px) { 
+
+#fixedtop1 { position: fixed; top: 318px; left: -550px; right: 0; border: none; z-index: 50; visibility: hidden;}
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+
+
+@media (min-width: 1280px) { 
+
+#fixedtop1 { position: fixed; top: 395px; left: -750px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+
+@media (min-width: 1366px) { 
+
+#fixedtop1 { position: fixed; top: 320px; left: -550px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+
+@media (min-width: 1920px) { 
+
+#fixedtop1 { position: fixed; top: 432px; left: -880px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}

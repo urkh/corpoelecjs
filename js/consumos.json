@@ -3,7 +3,7 @@ consumos = {
     "bom1_sala": {
         "id": "bom1_sala",
         "nombre":"Bombillo Ahorrador Sal&oacute;n",
-        "kw":300000,
+        "kw":30,
         "consumo":0,
         "apagado":true,
         "flag":false

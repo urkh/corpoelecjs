@@ -3,7 +3,8 @@ game.PlayScreen = me.ScreenObject.extend({
     onResetEvent: function(){
     
         me.levelDirector.loadLevel("escena_01");
-       // me.audio.playTrack("background");
+        me.audio.playTrack("background");
+        document.getElementById('fixedtop1').style.visibility = 'visible';
 
     },
 

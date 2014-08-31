@@ -75,6 +75,10 @@ game.HUD.Pila = me.Renderable.extend({
 
 	reset: function(){
 		if(game.data.game_over){
+
+			me.game.world.removeChild(this);
+			game.data.score_num = true;
+
 			game.data.game_over = false;
 		    for(var cons in consumos) {
 		        consumos[cons].apagado = true;
@@ -92,6 +96,7 @@ game.HUD.Pila = me.Renderable.extend({
 		    }
 
             $('#tabla').DataTable().clear().draw()
+            document.getElementById('fixedtop1').style.visibility = 'visible';
 			
 			me.game.viewport.fadeIn("#000000", 450, 
 
@@ -132,7 +137,15 @@ game.HUD.PilaE = me.Renderable.extend({
 	
 	draw : function (context) {
 	
-		this.pilae.draw(context);
+		if(game.data.game_over){
+			me.game.world.removeChild(this);
+
+
+		}else{
+
+
+			this.pilae.draw(context);
+		}
 	}
 
 
@@ -163,6 +176,9 @@ game.HUD.ScoreItem = me.Renderable.extend({
 	},
 
 	draw : function (context) {
+
+
+	if(!game.data.score_num){
 		if(game.data.game_over){
 			if(game.data.score > game.data.conmax){
         		this.font.draw(context, game.data.score, 1225, 530);
@@ -175,6 +191,16 @@ game.HUD.ScoreItem = me.Renderable.extend({
         else{
         	this.font.draw(context, game.data.score, this.pos.x, this.pos.y);
 	    }
+
+
+	}else{
+
+		me.game.world.removeChild(this);
+	}
+	    	
+
+
+
 	}
 
 });
@@ -204,20 +230,26 @@ game.HUD.ScoreItem2 = me.Renderable.extend({
 	},
 
 	draw : function (context) {
-		if(game.data.game_over){
-			if(game.data.score > game.data.conmax){
-        		this.font.draw(context, game.data.conmax, 1305, 590);
-        	}
 
-        	else{
-        		this.font.draw(context, game.data.conmax, 1330, 610);
+		if(!game.data.score_num){
+			if(game.data.game_over){
+				if(game.data.score > game.data.conmax){
+	        		this.font.draw(context, game.data.conmax, 1305, 590);
+	        	}
 
-        	}
-        }
+	        	else{
+	        		this.font.draw(context, game.data.conmax, 1330, 610);
 
-        else{
-        	this.font.draw(context, game.data.conmax, this.pos.x, this.pos.y);
-	    }
+	        	}
+	        }
+
+	        else{
+	        	this.font.draw(context, game.data.conmax, this.pos.x, this.pos.y);
+		    }
+		}else{
+
+			me.game.world.removeChild(this);
+		}
 	}
 
 });

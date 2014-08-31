@@ -1,3 +1,5 @@
+/*
+
 
 var estados = '<option value="0">---</option>\
               <option value="am">Amazonas</option>\
@@ -29,7 +31,7 @@ var select_input = '<select id="select_estados" name="select_estados" style="pos
 
 
 
-/*var entrarr = "0";
+var entrarr = "0";
 var estado = "0";
 
 function fentrar(){
@@ -77,7 +79,7 @@ game.Inicio = me.ObjectEntity.extend({
         }else{
 
 
-          
+          document.getElementById('fixedtop1').style.visibility = 'hidden';
 
           for(var _estado in estados){
               if(estados[_estado].id == estado){
@@ -92,6 +94,7 @@ game.Inicio = me.ObjectEntity.extend({
 
                 (function (){
                     game.data.score = 0;
+                    game.data.score_num = false;
                     this.HUD = new game.HUD.Container();
                     me.game.world.addChild(this.HUD);
                     me.audio.play("dopen");
@@ -125,7 +128,7 @@ game.Inicio = me.ObjectEntity.extend({
 
 
 
-
+/*
 
 
 
@@ -145,3 +148,4 @@ game.SelectInput = me.Renderable.extend({
     }
 });
 
+*/
