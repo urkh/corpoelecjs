@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    $('#eliminar').tooltip();
 	
 	$('#tabla').DataTable({
 		scrollY: "200px",
