@@ -56,7 +56,12 @@ game.resources = [
 
     {name:"flechas", type:"image", src:"data/img/flechas.png"},
     {name:"mensaje", type:"image", src:"data/img/mensaje.png"},
-    {name:"pila", type:"image", src:"data/img/pila.png"},
+    {name:"pila500", type:"image", src:"data/img/pila500.png"},
+    {name:"pila600", type:"image", src:"data/img/pila600.png"},
+    {name:"pila700", type:"image", src:"data/img/pila700.png"},
+    {name:"pila900", type:"image", src:"data/img/pila900.png"},
+    {name:"pila1300", type:"image", src:"data/img/pila1300.png"},
+
     {name:"pila1", type:"image", src:"data/img/pila1.png"},
     {name:"pila2", type:"image", src:"data/img/pila2.png"},
     {name:"pila3", type:"image", src:"data/img/pila3.png"},
@@ -64,9 +69,7 @@ game.resources = [
     {name:"gana", type:"image", src:"data/img/gana.png"},
     {name:"logo", type:"image", src:"data/img/logo.png"},
 
-
     {name:"32x32_font", type:"image", src:"data/img/font/32x32_font.png"},
-    {name: "background", type:"audio", src:"data/sound/", channel:"2"},
     {name: "dopen", type:"audio", src:"data/sound/", channel:"1"},
     {name: "cambiar", type:"audio", src:"data/sound/", channel:"1"},
     {name: "prender", type:"audio", src:"data/sound/", channel:"1"},

@@ -122,6 +122,102 @@ game.Televisor = me.ObjectEntity.extend({
 
 
 
+
+
+
+
+game.AcE2 = me.ObjectEntity.extend({
+
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.renderable.addAnimation("ac1_cuarto3_off", [0]);
+        this.renderable.addAnimation("ac1_cuarto3_loop", [1, 2], 300);
+        this.renderable.addAnimation("ac2_cuarto3_off", [3]);
+        this.renderable.addAnimation("ac2_cuarto3_loop", [4, 5], 300);
+        this.renderable.setCurrentAnimation(states.escena2.ac);
+        this.getShape().resize(164,164);
+        this.getShape().pos.x = 130;
+        this.getShape().pos.y = -40;
+        me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(850,70), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1370,70), 32, 32), this.cambiarS.bind(this), false);
+
+    },
+
+
+    cambiarS: function(){
+
+        me.audio.play("cambiar");
+
+        if(this.renderable.isCurrentAnimation("ac1_cuarto3_off")){
+            states.escena2.ac = "ac2_cuarto3_off";
+            this.renderable.setCurrentAnimation("ac2_cuarto3_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("ac2_cuarto3_off")){
+            states.escena2.ac = "ac1_cuarto3_off";
+            this.renderable.setCurrentAnimation("ac1_cuarto3_off");
+        }
+
+        else if(this.renderable.isCurrentAnimation("ac1_cuarto3_loop")){
+            states.escena2.ac = "ac2_cuarto3_loop";
+            this.renderable.setCurrentAnimation("ac2_cuarto3_loop");
+        }
+
+        else{
+            states.escena2.ac = "ac1_cuarto3_loop";
+            this.renderable.setCurrentAnimation("ac1_cuarto3_loop");
+        }
+
+    },
+
+
+    onMouseDown : function() {
+    
+        if(this.renderable.isCurrentAnimation("ac1_cuarto3_off")){
+            agregar_tabla("ac1_cuarto3");
+            states.escena2.ac = "ac1_cuarto3_loop";
+            this.renderable.setCurrentAnimation("ac1_cuarto3_loop");
+        }
+
+        else if(this.renderable.isCurrentAnimation("ac2_cuarto3_off")){
+            agregar_tabla("ac2_cuarto3");
+            states.escena2.ac = "ac2_cuarto3_loop";
+            this.renderable.setCurrentAnimation("ac2_cuarto3_loop");
+        }
+
+        else if(this.renderable.isCurrentAnimation("ac1_cuarto3_loop")){
+            agregar_tabla("ac1_cuarto3");
+            states.escena2.ac = "ac1_cuarto3_off";
+            this.renderable.setCurrentAnimation("ac1_cuarto3_off");
+        }
+
+        else{
+            agregar_tabla("ac2_cuarto3");
+            states.escena2.ac = "ac2_cuarto3_off";
+            this.renderable.setCurrentAnimation("ac2_cuarto3_off");
+        }
+        
+        return false;
+    
+    },
+
+    update: function(dt){
+
+        return this.parent(dt);
+        
+    },
+
+
+
+});
+
+
+
+
+
+
+
 game.BombilloE2 = me.ObjectEntity.extend({
 
     init: function(x,y,settings){

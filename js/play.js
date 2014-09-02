@@ -3,7 +3,7 @@ game.PlayScreen = me.ScreenObject.extend({
     onResetEvent: function(){
     
         me.levelDirector.loadLevel("escena_01");
-        me.audio.playTrack("background");
+        //me.audio.playTrack("background");
         document.getElementById('fixedtop1').style.visibility = 'visible';
 
     },
@@ -124,7 +124,7 @@ game.CustomLoadingScreen = me.ScreenObject.extend({
 
     "onResetEvent" : function() {
 
-        this.backgroundImage = new BackgroundImagen(me.loader.getImage("logo"), 500, 500, me.game.viewport.width, me.game.viewport.height);
+        this.backgroundImage = new BackgroundImagen(me.loader.getImage("logo"), 450, 500, me.game.viewport.width, me.game.viewport.height);
         this.backgroundImage.forceDraw();
         me.game.world.addChild(this.backgroundImage, 1);
 

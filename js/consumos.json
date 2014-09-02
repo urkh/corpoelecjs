@@ -338,6 +338,25 @@ consumos = {
         "flag":false
     },
 
+
+    "ac1_cuarto3":{
+        "id":"ac1_cuarto3",
+        "nombre":"A/A Split Sal&oacute;n",
+        "kw":12000,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
+    "ac2_cuarto3":{
+        "id":"ac2_cuarto3",
+        "nombre":"A/A Ventana Sal&oacute;n",
+        "kw":5000,
+        "consumo":0,
+        "apagado":true,
+        "flag":false
+    },
+
     "lamp1_cuarto1":{
         "id":"lamp1_cuarto1",
         "nombre":"Lampara PC 1",
@@ -559,7 +578,8 @@ states = {
     "escena2":{
         "televisor":"tv1_sala_off",
         "bombillo":"bom1_sala_off",
-        "radio_r":"radio_r_off"
+        "radio_r":"radio_r_off",
+        "ac":"ac1_cuarto3_off"
     },
 
     "escena3":{

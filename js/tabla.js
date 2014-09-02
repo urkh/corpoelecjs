@@ -9,6 +9,9 @@ $(document).ready(function() {
 		bInfo: false,
         aaSorting: [[ 0, "desc" ]],
         bJQueryUI: true,
+        "oTableTools": {
+            "sRowSelect": "single"
+        },
         oLanguage:{
             sEmptyTable:     "No ha seleccionado ning&uacute;n electrodom&eacute;stico"
         },
@@ -22,10 +25,64 @@ $(document).ready(function() {
 
 	});
 
+
+    var id=null;
+
+
+    $('#tabla tbody').on( 'click', 'tr', function () {
+        
+        id = $('#tabla').dataTable().fnGetData(this);
+       
+        if ($(this).hasClass('selected')){
+            $(this).removeClass('selected');
+        }
+
+        else {
+            
+            $('#tabla').DataTable().$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+
+            for(var _est in states) {
+                for(var _esc in states[_est]){
+                    if(states[_est][_esc] == id[0]+"_on"){
+                         $('#eliminar').attr("disabled", true);
+                    }
+
+                    if(states[_est][_esc] == id[0]+"_off"){
+                         $('#eliminar').attr("disabled", false);
+                    }
+                }
+            }
+        }
+    });
+
+
+    $('#eliminar').click( function () {
+        $('#tabla').DataTable().row('.selected').remove().draw(false);
+        eliminar_tabla(id[0]);
+    });
+
 });
 
 
-function agregar_tabla(id){
+
+function eliminar_tabla(id){
+
+    for(var cons in consumos){
+        if(consumos[cons].id == id){
+            consumos[cons].flag = false;
+            me.audio.play("prender");
+            consumo(id);
+            consumos[cons].apagado = true;
+            consumo(consumos[cons].id);
+            me.audio.stop(id);
+        }
+    }
+
+}
+
+
+function agregar_tabla(id){  
 
     for(var cons in consumos){
         
@@ -38,9 +95,9 @@ function agregar_tabla(id){
                     $('#tabla').DataTable().row.add([
                         consumos[cons].id,
                         consumos[cons].nombre,
-                        "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(id)' value='1'>",
-                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(id)' value='1'> H/s",
-                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(id)' value="+consumos[cons].kw+"> W",
+                        "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
+                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> H/s",
+                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> W",
                         "<p id='"+id+"_total'></p>"
                     ]).draw();
 
@@ -51,9 +108,9 @@ function agregar_tabla(id){
                     $('#tabla').DataTable().row.add([
                         consumos[cons].id,
                         consumos[cons].nombre,
-                        "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(id)' value='1'>",
-                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(id)' value='1'> H/s",
-                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(id)' value="+consumos[cons].kw+"> BTU",
+                        "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
+                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> H/s",
+                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> BTU",
                         "<p id='"+id+"_total'></p>"
                     ]).draw();
                 }
@@ -67,12 +124,14 @@ function agregar_tabla(id){
             consumo(id);
             
             if(consumos[cons].apagado){
+                $('#eliminar').attr("disabled", true);
                 consumos[cons].apagado = false;
                 consumo(consumos[cons].id);
                 me.audio.play(id);
             }
 
             else{
+                $('#eliminar').attr("disabled", false);
                 consumos[cons].apagado = true;
                 consumo(consumos[cons].id);
                 me.audio.stop(id);
@@ -123,9 +182,6 @@ function consumo(id){
     $('#'+id+'_total').text(total+" Wh");
 
     if(game.data.score < game.data.conmax/3){
-        /*if(!sonidos.alerta1){
-            me.audio.play("alerta");
-        }*/
         sonidos.alerta1 = true;
     }
 

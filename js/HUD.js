@@ -97,6 +97,7 @@ game.HUD.Pila = me.Renderable.extend({
 
             $('#tabla').DataTable().clear().draw()
             document.getElementById('fixedtop1').style.visibility = 'visible';
+            document.getElementById('tabla_consumos').style.visibility = 'hidden';
 			
 			me.game.viewport.fadeIn("#000000", 450, 
 
@@ -121,7 +122,11 @@ game.HUD.PilaE = me.Renderable.extend({
 	init: function(x, y){
 
 		this.parent(new me.Vector2d(x,y), 10, 10);
-		this.pilae = new me.SpriteObject(10, 115, me.loader.getImage("pila"), 359, 89);	
+		this.pila500 = new me.SpriteObject(10, 115, me.loader.getImage("pila500"), 359, 89);	
+		this.pila600 = new me.SpriteObject(10, 115, me.loader.getImage("pila600"), 359, 89);	
+		this.pila700 = new me.SpriteObject(10, 115, me.loader.getImage("pila700"), 359, 89);	
+		this.pila900 = new me.SpriteObject(10, 115, me.loader.getImage("pila900"), 359, 89);	
+		this.pila1300 = new me.SpriteObject(10, 115, me.loader.getImage("pila1300"), 359, 89);	
 
 		//this.score = -1;
 		this.floating = false;
@@ -143,8 +148,26 @@ game.HUD.PilaE = me.Renderable.extend({
 
 		}else{
 
+			if(game.data.conmax==500){
+				this.pila500.draw(context);
+			}
 
-			this.pilae.draw(context);
+			if(game.data.conmax==600){
+				this.pila600.draw(context);
+			}
+
+			if(game.data.conmax==700){
+				this.pila700.draw(context);
+			}
+
+			if(game.data.conmax==900){
+				this.pila900.draw(context);
+			}
+
+			if(game.data.conmax==1300){
+				this.pila1300.draw(context);
+			}
+			
 		}
 	}
 

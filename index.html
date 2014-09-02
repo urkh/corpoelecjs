@@ -10,10 +10,12 @@
 		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"> 
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="lib/dataTables/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="lib/dataTables/css/dataTables.tableTools.css">
 
 		<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="lib/dataTables/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="lib/dataTables/js/dataTables.tableTools.min.js"></script>
 		<script type="text/javascript" src="js/tabla.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -21,15 +23,9 @@
 	
 	</head>
 	<body background="data/img/bg.min.png">
-		<div id="juego" align="center">
+		<div id="juego" align="center"></div>
 
-		
-
-		
-		
-		</div>
-
-		<div id="tabla_consumos" style="width: 77%;">
+		<div id="tabla_consumos" style="width: 100%; visibility: hidden;" >
 			
 			<table id="tabla" class="display" cellspacing="0" >
 				<thead>
@@ -45,11 +41,19 @@
 				<tbody align="center">
 
 				</tbody>
+
+
+
 				
 			</table>
 
+			<button id="eliminar" class="btn btn-danger" disabled>Eliminar</button>
+
 
 		</div>
+
+
+		
 
 
 		<div id="fixedtop1">

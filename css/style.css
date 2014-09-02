@@ -7,24 +7,16 @@
     color: #000;
     font-family: "ActionMan";
     font-size:13px;
-    
+    text-align: center;
     margin: 0 auto;
 }
 
-/*
- * #select_estados{
-
-	position:absolute;
-	width:20%;
-
-}
-
-*/
 
 #eliminar {
-    color: #000;
+    color: white;
     font-family: "ActionMan";
     font-size:13px;
+     
 }
 
 input[type="number"] {
