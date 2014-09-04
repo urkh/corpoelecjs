@@ -4,7 +4,8 @@ var game = {
         score:10,
         score_num: false,
         game_over: false,
-        conmax:3000
+        conmax:3000,
+        hovering: true
     },
 
     onload: function(){

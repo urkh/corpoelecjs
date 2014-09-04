@@ -477,12 +477,15 @@ game.SalirCuarto = me.ObjectEntity.extend({
         this.renderable.addAnimation("salir_cuarto", [6]);
         this.renderable.setCurrentAnimation("salir_cuarto");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+      //  me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(160,320), 90, 90), hand.bind(this), false);
 
 
     },
 
 
     onMouseDown : function() {
+
+        
 
     	if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 

@@ -380,12 +380,12 @@ game.SalirCocina = me.ObjectEntity.extend({
         this.renderable.addAnimation("salir_cocina", [8]);
         this.renderable.setCurrentAnimation("salir_cocina");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+       // me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(1475,95), 90, 90), hand.bind(this), false);
         
     },
 
 
     onMouseDown : function() {
-
 
         if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
             me.audio.stop("licuadora");
@@ -424,6 +424,7 @@ game.EntrarLavandero= me.ObjectEntity.extend({
         this.renderable.addAnimation("entrar_lavandero", [4]);
         this.renderable.setCurrentAnimation("entrar_lavandero");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+       // me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(170,370), 90, 90), hand.bind(this), false);
         
     },
 

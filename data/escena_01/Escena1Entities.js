@@ -5,7 +5,7 @@ game.Inicio = me.ObjectEntity.extend({
         this.parent(x, y, settings);
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), true);
-        
+       // me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(400,590), 200, 60), hand.bind(this), false);
     },
 
 

@@ -76,6 +76,7 @@ game.HUD.Pila = me.Renderable.extend({
 	reset: function(){
 		if(game.data.game_over){
 
+			$('#select_estados').val('0'); 
 			me.game.world.removeChild(this);
 			game.data.score_num = true;
 
@@ -204,10 +205,10 @@ game.HUD.ScoreItem = me.Renderable.extend({
 	if(!game.data.score_num){
 		if(game.data.game_over){
 			if(game.data.score > game.data.conmax){
-        		this.font.draw(context, game.data.score, 1225, 530);
+        		this.font.draw(context, game.data.score, 1290, 510);
         	}
         	else{
-        		this.font.draw(context, game.data.score, 1250, 550);	
+        		this.font.draw(context, game.data.score, 1290, 530);	
         	}
         }
 
@@ -257,11 +258,11 @@ game.HUD.ScoreItem2 = me.Renderable.extend({
 		if(!game.data.score_num){
 			if(game.data.game_over){
 				if(game.data.score > game.data.conmax){
-	        		this.font.draw(context, game.data.conmax, 1305, 590);
+	        		this.font.draw(context, game.data.conmax, 1380, 575);
 	        	}
 
 	        	else{
-	        		this.font.draw(context, game.data.conmax, 1330, 610);
+	        		this.font.draw(context, game.data.conmax, 1380, 600);
 
 	        	}
 	        }

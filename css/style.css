@@ -1,12 +1,12 @@
 @font-face {
-    font-family: "ActionMan";
-    src: url(./font/acm.ttf) format("truetype");
+    font-family: "Knockout";
+    src: url(./font/knk.otf) format("opentype");
 }
 
 #tabla_consumos {
     color: #000;
-    font-family: "ActionMan";
-    font-size:13px;
+    font-family: "Knockout";
+    font-size:22px;
     text-align: center;
     margin: 0 auto;
 }
@@ -14,8 +14,8 @@
 
 #eliminar {
     color: white;
-    font-family: "ActionMan";
-    font-size:13px;
+    font-family: "Knockout";
+    font-size:22px;
      
 }
 
@@ -24,9 +24,17 @@ input[type="number"] {
 }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 800px) { 
 
-#fixedtop1 { position: fixed; top: 318px; left: -550px; right: 0; border: none; z-index: 50; visibility: hidden;}
+#fixedtop1 { position: absolute; top: 208px; left: -390px; right: 0; border: none; z-index: 50; visibility: hidden;}
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+
+@media (min-width: 1024px) { 
+
+#fixedtop1 { position: absolute; top: 270px; left: -550px; right: 0; border: none; z-index: 50; visibility: hidden;}
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
@@ -35,15 +43,23 @@ input[type="number"] {
 
 @media (min-width: 1280px) { 
 
-#fixedtop1 { position: fixed; top: 395px; left: -750px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 263px; left: -525px; right: 0; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
 
 
-@media (min-width: 1366px) { 
+@media (min-width: 1280px) and (min-height: 800px) { 
 
-#fixedtop1 { position: fixed; top: 320px; left: -550px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 342px; left: -760px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+
+@media (min-width: 1360px) { 
+
+#fixedtop1 { position: absolute; top: 278px; left: -570px;right: 0; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
@@ -51,7 +67,7 @@ input[type="number"] {
 
 @media (min-width: 1920px) { 
 
-#fixedtop1 { position: fixed; top: 432px; left: -880px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: fixed; top: 385px; left: -880px; right: 0; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }

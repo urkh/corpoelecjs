@@ -267,10 +267,13 @@ game.SalirBano = me.ObjectEntity.extend({
         this.renderable.addAnimation("salir_bano", [8]);
         this.renderable.setCurrentAnimation("salir_bano");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+     //   me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(1190,40), 90, 90), hand.bind(this), false);
         
     },
 
     onMouseDown : function() {
+
+        
 
         if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
             me.audio.play("dopen");

@@ -367,6 +367,7 @@ game.SalirCuarto2 = me.ObjectEntity.extend({
         this.renderable.addAnimation("salir_cuarto", [8]);
         this.renderable.setCurrentAnimation("salir_cuarto");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+      //  me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(890,410), 90, 90), hand.bind(this), false);
 
     },
 

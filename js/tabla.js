@@ -11,11 +11,8 @@ $(document).ready(function() {
 		bInfo: false,
         aaSorting: [[ 0, "desc" ]],
         bJQueryUI: true,
-        "oTableTools": {
-            "sRowSelect": "single"
-        },
         oLanguage:{
-            sEmptyTable:     "No ha seleccionado ning&uacute;n electrodom&eacute;stico"
+            sEmptyTable: "No ha seleccionado ning&uacute;n electrodom&eacute;stico"
         },
 		columnDefs: [
             {
@@ -68,6 +65,20 @@ $(document).ready(function() {
 
 
 
+
+
+function hand(){
+        document.body.style.cursor = "pointer";
+
+            setTimeout(function(){
+
+                document.body.style.cursor = "default";
+            },2000);
+            
+    }
+
+
+
 function eliminar_tabla(id){
 
     for(var cons in consumos){
@@ -98,8 +109,8 @@ function agregar_tabla(id){
                         consumos[cons].id,
                         consumos[cons].nombre,
                         "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
-                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> H/s",
-                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> W",
+                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> Horas",
+                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> Vatios",
                         "<p id='"+id+"_total'></p>"
                     ]).draw();
 
@@ -111,7 +122,7 @@ function agregar_tabla(id){
                         consumos[cons].id,
                         consumos[cons].nombre,
                         "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
-                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> H/s",
+                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> Horas",
                         "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> BTU",
                         "<p id='"+id+"_total'></p>"
                     ]).draw();
@@ -181,7 +192,7 @@ function consumo(id){
     game.data.score=(consumo_total*30)/1000;
 
 
-    $('#'+id+'_total').text(total+" Wh");
+    $('#'+id+'_total').text(total+" Vatios/hora");
 
     if(game.data.score < game.data.conmax/3){
         sonidos.alerta1 = true;

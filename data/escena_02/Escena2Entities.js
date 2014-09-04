@@ -16,7 +16,7 @@ game.Televisor = me.ObjectEntity.extend({
 
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(150,600), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(450,600), 64, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(450,600), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -71,6 +71,11 @@ game.Televisor = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
+
+        
+       // console.log(this.getShape().width);
+        //console.log(this.getShape().pos.y);
+
         if(this.renderable.isCurrentAnimation("tv1_sala_on")){
             agregar_tabla("tv1_sala");
             states.escena2.televisor = "tv1_sala_off";
@@ -113,6 +118,7 @@ game.Televisor = me.ObjectEntity.extend({
   
 
     update: function(dt){
+
 
         return this.parent(dt);
         
@@ -367,6 +373,7 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
         this.renderable.addAnimation("entrar_cuarto1", [2]);
         this.renderable.setCurrentAnimation("entrar_cuarto1");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+        //me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(730,430), 90, 90), hand.bind(this), false);
         
     },
 
@@ -378,6 +385,8 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
         //bano.resize(32,34, 64, 69)
         //console.log(me.game.world.getChildByName("entrar_cuarto2")[0].getShape());
         //console.log(me.levelDirector.getCurrentLevelId());
+        
+
 
         if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
             me.audio.play("dopen");
@@ -414,6 +423,7 @@ game.EntrarCuarto2 = me.ObjectEntity.extend({
         this.renderable.addAnimation("entrar_cuarto2", [3]);
         this.renderable.setCurrentAnimation("entrar_cuarto2");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+       // me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(780,560), 90, 90), hand.bind(this), false);
         
     },
 
@@ -460,11 +470,14 @@ game.EntrarCocina = me.ObjectEntity.extend({
         this.renderable.addAnimation("entrar_cocina",[0]);
         this.renderable.setCurrentAnimation("entrar_cocina");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+      //  me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(62,296), 128, 128), hand.bind(this), false);
+
         
     },
 
     onMouseDown : function() {
-        
+
+       
         if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
             me.audio.play("dopen");
             me.audio.stop("radio");
@@ -502,11 +515,14 @@ game.EntrarBano = me.ObjectEntity.extend({
         this.renderable.addAnimation("entrar_bano", [1]);
         this.renderable.setCurrentAnimation("entrar_bano");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
+    //    me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(670,550), 90, 90), hand.bind(this), false);
 
 
     },
 
     onMouseDown : function() {
+
+
 
         if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
             me.audio.play("dopen");
@@ -540,22 +556,30 @@ game.Salida = me.ObjectEntity.extend({
         this.renderable.addAnimation("salir", [9]);
         this.renderable.setCurrentAnimation("salir");
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-
+       // me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(1410,590), 90, 90), hand.bind(this), false);
 
     },
 
     onMouseDown : function() {
 
-        me.audio.stop("radio");
-        game.data.game_over = true;
+        if(game.data.score>0){
+                
+            me.audio.stop("radio");
+            game.data.game_over = true;
 
 
-        if(game.data.score >= game.data.conmax){
-            me.audio.play("pierde");
+            if(game.data.score >= game.data.conmax){
+                me.audio.play("pierde");
+            }
+
+            else{
+                me.audio.play("gana");
+            }
         }
 
         else{
-            me.audio.play("gana");
+
+            alert("Debe seleccionar al menos un electrodom\u00e9stico");
         }
 
         return false;

@@ -124,7 +124,7 @@ consumos = {
 
     "tv1_sala": {
         "id":"tv1_sala",
-        "nombre":"TV LCD",
+        "nombre":"TV LCD Sal&oacute;n",
     	"kw": 205,
     	"consumo": 0,
         "apagado":true,
@@ -134,7 +134,7 @@ consumos = {
 
     "tv2_sala": {
         "id":"tv2_sala",
-        "nombre":"TV Plasma",
+        "nombre":"TV Plasma Sal&oacute;n",
         "kw": 250,
         "consumo": 0,
         "apagado":true,
@@ -144,7 +144,7 @@ consumos = {
 
     "tv3_sala": {
         "id":"tv3_sala",
-        "nombre":"TV CRT",
+        "nombre":"TV CRT Sal&oacute;n",
         "kw": 280,
         "consumo": 0,
         "apagado":true,
@@ -154,7 +154,7 @@ consumos = {
 
     "tv1_cuarto2": {
         "id":"tv1_cuarto2",
-        "nombre":"Consola + TV LCD",
+        "nombre":"Consola + TV LCD Habitaci&oacute;n Infantil",
         "kw": 305,
         "consumo": 0,
         "apagado":true,
@@ -164,7 +164,7 @@ consumos = {
 
     "tv2_cuarto2": {
         "id":"tv2_cuarto2",
-        "nombre":"Consola + TV CRT",
+        "nombre":"Consola + TV CRT Habitaci&oacute;n Infantil",
         "kw": 380,
         "consumo": 0,
         "apagado":true,
@@ -174,7 +174,7 @@ consumos = {
 
     "radio_r": {
         "id": "radio_r",
-        "nombre":"Radio Reproductor",
+        "nombre":"Radio Reproductor Sal&oacute;n",
         "kw": 80,
         "consumo": 0,
         "apagado":true,
@@ -184,7 +184,7 @@ consumos = {
 
     "lavadora": {
         "id": "lavadora",
-        "nombre":"Lavadora",
+        "nombre":"Lavadora Servicios",
         "kw": 2000,
         "consumo": 0,
         "apagado":true,
@@ -194,7 +194,7 @@ consumos = {
 
     "secadora": {
         "id": "secadora",
-        "nombre":"Secadora",
+        "nombre":"Secadora Servicios",
         "kw": 2000,
         "consumo": 0,
         "apagado":true,
@@ -203,7 +203,7 @@ consumos = {
 
     "nevera": {
         "id": "nevera",
-        "nombre":"Nevera",
+        "nombre":"Nevera Cocina",
         "kw": 350,
         "consumo": 0,
         "apagado":true,
@@ -212,7 +212,7 @@ consumos = {
 
     "microondas": {
         "id": "microondas",
-        "nombre":"Microondas",
+        "nombre":"Microondas Cocina",
         "kw": 1300,
         "consumo": 0,
         "apagado":true,
@@ -222,7 +222,7 @@ consumos = {
 
     "pc1": {
         "id": "pc1",
-        "nombre":"PC + Monitor LCD",
+        "nombre":"PC + Monitor LCD Habitaci&oacute;n Principal",
         "kw": 360,
         "consumo": 0,
         "apagado":true,
@@ -232,7 +232,7 @@ consumos = {
 
      "pc2": {
         "id": "pc2",
-        "nombre":"PC + Monitor CRT",
+        "nombre":"PC + Monitor CRT Habitaci&oacute;n Principal",
         "kw": 540,
         "consumo": 0,
         "apagado":true,
@@ -284,7 +284,7 @@ consumos = {
 
     "licuadora": {
         "id": "licuadora",
-        "nombre":"Licuadora",
+        "nombre":"Licuadora Cocina",
         "kw": 350,
         "consumo": 0,
         "apagado":true,
@@ -303,7 +303,7 @@ consumos = {
 
     "ac1_cuarto1":{
         "id":"ac1_cuarto1",
-        "nombre":"A/A Split Habitacion 1",
+        "nombre":"A/A Split Habitacion Principal",
         "kw":12000,
         "consumo":0,
         "apagado":true,
@@ -312,7 +312,7 @@ consumos = {
 
     "ac2_cuarto1":{
         "id":"ac2_cuarto1",
-        "nombre":"A/A Ventana Habitacion 1",
+        "nombre":"A/A Ventana Habitacion Principal",
         "kw":5000,
         "consumo":0,
         "apagado":true,
@@ -322,7 +322,7 @@ consumos = {
 
     "ac1_cuarto2":{
         "id":"ac1_cuarto2",
-        "nombre":"A/A Split Habitacion 2",
+        "nombre":"A/A Split Habitacion Infantil",
         "kw":12000,
         "consumo":0,
         "apagado":true,
@@ -331,7 +331,7 @@ consumos = {
 
     "ac2_cuarto2":{
         "id":"ac2_cuarto2",
-        "nombre":"A/A Ventana Habitacion 2",
+        "nombre":"A/A Ventana Habitacion Infantil",
         "kw":5000,
         "consumo":0,
         "apagado":true,
@@ -378,7 +378,7 @@ consumos = {
 
     "lamp3_cuarto1":{
         "id":"lamp3_cuarto1",
-        "nombre":"Lampara de Mesa Habitaci&oacute;n 1",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n Principal",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -387,7 +387,7 @@ consumos = {
 
     "lamp4_cuarto1":{
         "id":"lamp4_cuarto1",
-        "nombre":"Lampara de Mesa Habitaci&oacute;n 1",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n Principal",
         "kw":30,
         "consumo":0,
         "apagado":true,
@@ -397,7 +397,7 @@ consumos = {
 
     "lamp1_cuarto2":{
         "id":"lamp1_cuarto2",
-        "nombre":"Lampara de Mesa Habitaci&oacute;n 2",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n Infantil",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -406,7 +406,7 @@ consumos = {
 
     "lamp2_cuarto2":{
         "id":"lamp2_cuarto2",
-        "nombre":"Lampara de Mesa Habitaci&oacute;n 2",
+        "nombre":"Lampara de Mesa Habitaci&oacute;n Infantil",
         "kw":30,
         "consumo":0,
         "apagado":true,
