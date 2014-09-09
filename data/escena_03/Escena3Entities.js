@@ -17,14 +17,19 @@ game.Micro = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("microondas");
 
-        if(this.renderable.isCurrentAnimation("microondas_off")){
-            states.escena3.microondas = "microondas_on";
-            this.renderable.setCurrentAnimation("microondas_on");
-        }else{
-            states.escena3.microondas = "microondas_off";
-            this.renderable.setCurrentAnimation("microondas_off");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
+
+            agregar_tabla("microondas");
+
+            if(this.renderable.isCurrentAnimation("microondas_off")){
+                states.escena3.microondas = "microondas_on";
+                this.renderable.setCurrentAnimation("microondas_on");
+            }else{
+                states.escena3.microondas = "microondas_off";
+                this.renderable.setCurrentAnimation("microondas_off");
+            }
+
         }
 
 
@@ -66,26 +71,31 @@ game.Cocina = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("cocina_off")){
-            states.escena3.cocina = "cocinag";
-            this.renderable.setCurrentAnimation("cocinag");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
 
-        else if(this.renderable.isCurrentAnimation("cocina_on")){
-            states.escena3.cocina = "cocinag2";
-            this.renderable.setCurrentAnimation("cocinag2");
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("cocinag2")){
-            states.escena3.cocina = "cocina_off";
-            this.renderable.setCurrentAnimation("cocina_off");
-        }
+            if(this.renderable.isCurrentAnimation("cocina_off")){
+                states.escena3.cocina = "cocinag";
+                this.renderable.setCurrentAnimation("cocinag");
+            }
 
-        else{
-            states.escena3.cocina = "cocina_on";
-            this.renderable.setCurrentAnimation("cocina_on");
+            else if(this.renderable.isCurrentAnimation("cocina_on")){
+                states.escena3.cocina = "cocinag2";
+                this.renderable.setCurrentAnimation("cocinag2");
+            }
+
+            else if(this.renderable.isCurrentAnimation("cocinag2")){
+                states.escena3.cocina = "cocina_off";
+                this.renderable.setCurrentAnimation("cocina_off");
+            }
+
+            else{
+                states.escena3.cocina = "cocina_on";
+                this.renderable.setCurrentAnimation("cocina_on");
+            }
+
         }
 
 
@@ -93,20 +103,24 @@ game.Cocina = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("cocina_off")){
-            agregar_tabla("cocina");
-            states.escena3.cocina = "cocina_on";
-            this.renderable.setCurrentAnimation("cocina_on");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
 
-        else if(this.renderable.isCurrentAnimation("cocina_on")){
-            agregar_tabla("cocina");
-            states.escena3.cocina = "cocina_off";
-            this.renderable.setCurrentAnimation("cocina_off");
-        }
+            if(this.renderable.isCurrentAnimation("cocina_off")){
+                agregar_tabla("cocina");
+                states.escena3.cocina = "cocina_on";
+                this.renderable.setCurrentAnimation("cocina_on");
+            }
 
-        else{
-            states.escena3.cocina = "cocinag";
+            else if(this.renderable.isCurrentAnimation("cocina_on")){
+                agregar_tabla("cocina");
+                states.escena3.cocina = "cocina_off";
+                this.renderable.setCurrentAnimation("cocina_off");
+            }
+
+            else{
+                states.escena3.cocina = "cocinag";
+            }
+
         }
         
         return false;
@@ -142,15 +156,19 @@ game.Licuadora = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("licuadora");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
+
+            agregar_tabla("licuadora");
 
 
-        if(this.renderable.isCurrentAnimation("licuadora_off")){
-            states.escena3.licuadora = "licuadora_on";
-            this.renderable.setCurrentAnimation("licuadora_on");
-        }else{
-            states.escena3.licuadora = "licuadora_off";
-            this.renderable.setCurrentAnimation("licuadora_off");
+            if(this.renderable.isCurrentAnimation("licuadora_off")){
+                states.escena3.licuadora = "licuadora_on";
+                this.renderable.setCurrentAnimation("licuadora_on");
+            }else{
+                states.escena3.licuadora = "licuadora_off";
+                this.renderable.setCurrentAnimation("licuadora_off");
+            }
+
         }
         
 
@@ -190,26 +208,30 @@ game.BombilloE3 = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
 
-        if(this.renderable.isCurrentAnimation("bom1_cocina_on")){
-            states.escena3.bombillo = "bom2_cocina_on";
-            this.renderable.setCurrentAnimation("bom2_cocina_on");
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("bom1_cocina_off")){
-            states.escena3.bombillo = "bom2_cocina_off";
-            this.renderable.setCurrentAnimation("bom2_cocina_off");
-        }
+            if(this.renderable.isCurrentAnimation("bom1_cocina_on")){
+                states.escena3.bombillo = "bom2_cocina_on";
+                this.renderable.setCurrentAnimation("bom2_cocina_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("bom2_on")){
-            states.escena3.bombillo = "bom1_cocina_on";
-            this.renderable.setCurrentAnimation("bom1_cocina_on");
-        }
+            else if(this.renderable.isCurrentAnimation("bom1_cocina_off")){
+                states.escena3.bombillo = "bom2_cocina_off";
+                this.renderable.setCurrentAnimation("bom2_cocina_off");
+            }
 
-        else{
-            states.escena3.bombillo = "bom1_cocina_off";
-            this.renderable.setCurrentAnimation("bom1_cocina_off");
+            else if(this.renderable.isCurrentAnimation("bom2_on")){
+                states.escena3.bombillo = "bom1_cocina_on";
+                this.renderable.setCurrentAnimation("bom1_cocina_on");
+            }
+
+            else{
+                states.escena3.bombillo = "bom1_cocina_off";
+                this.renderable.setCurrentAnimation("bom1_cocina_off");
+            }
+
         }
 
     },
@@ -218,28 +240,33 @@ game.BombilloE3 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom1_cocina_on")){
-            agregar_tabla("bom1_cocina");
-            states.escena3.bombillo = "bom1_cocina_off";
-            this.renderable.setCurrentAnimation("bom1_cocina_off");
-        }
 
-        else if(this.renderable.isCurrentAnimation("bom2_cocina_on")){
-            agregar_tabla("bom2_cocina");
-            states.escena3.bombillo = "bom2_cocina_off";
-            this.renderable.setCurrentAnimation("bom2_cocina_off");
-        }
-        
-        else if (this.renderable.isCurrentAnimation("bom2_cocina_off")) {
-            agregar_tabla("bom2_cocina");
-            states.escena3.bombillo = "bom2_cocina_on";
-            this.renderable.setCurrentAnimation("bom2_cocina_on");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
 
-        else{
-            agregar_tabla("bom1_cocina");
-            states.escena3.bombillo = "bom1_cocina_on";
-            this.renderable.setCurrentAnimation("bom1_cocina_on");
+            if(this.renderable.isCurrentAnimation("bom1_cocina_on")){
+                agregar_tabla("bom1_cocina");
+                states.escena3.bombillo = "bom1_cocina_off";
+                this.renderable.setCurrentAnimation("bom1_cocina_off");
+            }
+
+            else if(this.renderable.isCurrentAnimation("bom2_cocina_on")){
+                agregar_tabla("bom2_cocina");
+                states.escena3.bombillo = "bom2_cocina_off";
+                this.renderable.setCurrentAnimation("bom2_cocina_off");
+            }
+            
+            else if (this.renderable.isCurrentAnimation("bom2_cocina_off")) {
+                agregar_tabla("bom2_cocina");
+                states.escena3.bombillo = "bom2_cocina_on";
+                this.renderable.setCurrentAnimation("bom2_cocina_on");
+            }
+
+            else{
+                agregar_tabla("bom1_cocina");
+                states.escena3.bombillo = "bom1_cocina_on";
+                this.renderable.setCurrentAnimation("bom1_cocina_on");
+            }
+
         }
 
         return false;
@@ -277,16 +304,20 @@ game.Campana = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("campana");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
 
-        if(this.renderable.isCurrentAnimation("campana_on")){
-            states.escena3.campana = "campana_off";
-            this.renderable.setCurrentAnimation("campana_off");
-        }
+            agregar_tabla("campana");
 
-        else{
-            states.escena3.campana = "campana_on";
-            this.renderable.setCurrentAnimation("campana_on");
+            if(this.renderable.isCurrentAnimation("campana_on")){
+                states.escena3.campana = "campana_off";
+                this.renderable.setCurrentAnimation("campana_off");
+            }
+
+            else{
+                states.escena3.campana = "campana_on";
+                this.renderable.setCurrentAnimation("campana_on");
+            }
+
         }
 
         return false;
@@ -323,16 +354,20 @@ game.Nevera = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("nevera");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_03'){
 
-        if(this.renderable.isCurrentAnimation("nevera_on")){
-            states.escena3.nevera = "nevera_off";
-            this.renderable.setCurrentAnimation("nevera_off");
-        }
+            agregar_tabla("nevera");
 
-        else{
-            states.escena3.nevera = "nevera_on";
-            this.renderable.setCurrentAnimation("nevera_on");
+            if(this.renderable.isCurrentAnimation("nevera_on")){
+                states.escena3.nevera = "nevera_off";
+                this.renderable.setCurrentAnimation("nevera_off");
+            }
+
+            else{
+                states.escena3.nevera = "nevera_on";
+                this.renderable.setCurrentAnimation("nevera_on");
+            }
+
         }
 
         return false;

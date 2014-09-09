@@ -9,7 +9,7 @@ $(document).ready(function() {
 		bPaginate: false,
 		bSearchable: false,
 		bInfo: false,
-        aaSorting: [[ 0, "desc" ]],
+        aaSorting: [[ 1, "asc" ]],
         bJQueryUI: true,
         oLanguage:{
             sEmptyTable: "No ha seleccionado ning&uacute;n electrodom&eacute;stico"
@@ -18,6 +18,9 @@ $(document).ready(function() {
             {
                 "targets": [0],
                 "visible": false
+            },
+            {   "bSortable": false, 
+                "aTargets": [ 2, 3, 4, 5 ] 
             }
         ]
 
@@ -62,6 +65,11 @@ $(document).ready(function() {
     });
 
 });
+
+
+var audio = {
+    audio: ""
+}
 
 
 
@@ -135,19 +143,38 @@ function agregar_tabla(id){
             me.audio.play("prender");
 
             consumo(id);
+
+
             
             if(consumos[cons].apagado){
                 $('#eliminar').attr("disabled", true);
                 consumos[cons].apagado = false;
                 consumo(consumos[cons].id);
-                me.audio.play(id);
+                
+                if(id=="radio_r"){
+
+                    audio.audio = "radio"+Math.floor((Math.random() * 4) + 1);
+					me.audio.play(audio.audio);
+                
+                }
+
+                else{
+                	me.audio.play(id);
+                }
+                
             }
 
             else{
                 $('#eliminar').attr("disabled", false);
                 consumos[cons].apagado = true;
                 consumo(consumos[cons].id);
-                me.audio.stop(id);
+                
+                if(id=="radio_r"){
+                    me.audio.stop(audio.audio);
+                }else{
+                    me.audio.stop(id)
+                }
+                
             }
         }
 

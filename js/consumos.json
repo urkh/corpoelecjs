@@ -23,7 +23,7 @@ consumos = {
 
     "bom1_cocina": {
         "id": "bom1_cocina",
-        "nombre":"Bombillo Ahorrador Cocina",
+        "nombre":"Bombillo Ahorrador - Cocina",
         "kw":30,
         "consumo":0,
         "apagado":true,
@@ -33,7 +33,7 @@ consumos = {
 
     "bom2_cocina": {
         "id": "bom2_cocina",
-        "nombre":"Bombillo Normal Cocina",
+        "nombre":"Bombillo Normal - Cocina",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -64,7 +64,7 @@ consumos = {
 
     "bom1_cuarto1": {
         "id": "bom1_cuarto1",
-        "nombre":"Bombillo Ahorrador Habitacion 1",
+        "nombre":"Bombillo Ahorrador Habitacion Principal",
         "kw":30,
         "consumo":0,
         "apagado":true,
@@ -74,7 +74,7 @@ consumos = {
 
     "bom2_cuarto1": {
         "id": "bom2_cuarto1",
-        "nombre":"Bombillo Normal Habitacion 1",
+        "nombre":"Bombillo Normal Habitacion Principal",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -84,7 +84,7 @@ consumos = {
 
     "bom1_cuarto2": {
         "id": "bom1_cuarto2",
-        "nombre":"Bombillo Ahorrador Habitacion 2",
+        "nombre":"Bombillo Ahorrador Habitacion Infantil",
         "kw":30,
         "consumo":0,
         "apagado":true,
@@ -94,7 +94,7 @@ consumos = {
 
     "bom2_cuarto2": {
         "id": "bom2_cuarto2",
-        "nombre":"Bombillo Normal Habitacion 2",
+        "nombre":"Bombillo Normal Habitacion Infantil",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -184,7 +184,7 @@ consumos = {
 
     "lavadora": {
         "id": "lavadora",
-        "nombre":"Lavadora Servicios",
+        "nombre":"Lavadora",
         "kw": 2000,
         "consumo": 0,
         "apagado":true,
@@ -194,7 +194,7 @@ consumos = {
 
     "secadora": {
         "id": "secadora",
-        "nombre":"Secadora Servicios",
+        "nombre":"Secadora",
         "kw": 2000,
         "consumo": 0,
         "apagado":true,
@@ -203,7 +203,7 @@ consumos = {
 
     "nevera": {
         "id": "nevera",
-        "nombre":"Nevera Cocina",
+        "nombre":"Nevera",
         "kw": 350,
         "consumo": 0,
         "apagado":true,
@@ -212,7 +212,7 @@ consumos = {
 
     "microondas": {
         "id": "microondas",
-        "nombre":"Microondas Cocina",
+        "nombre":"Microondas",
         "kw": 1300,
         "consumo": 0,
         "apagado":true,
@@ -284,7 +284,7 @@ consumos = {
 
     "licuadora": {
         "id": "licuadora",
-        "nombre":"Licuadora Cocina",
+        "nombre":"Licuadora",
         "kw": 350,
         "consumo": 0,
         "apagado":true,

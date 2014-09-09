@@ -19,26 +19,30 @@ game.Computadora= me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
-        if(this.renderable.isCurrentAnimation("pc1_on")){
-            states.escena5.computadora = "pc2_on";
-            this.renderable.setCurrentAnimation("pc2_on");
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("pc1_off")){
-            states.escena5.computadora = "pc2_off";
-            this.renderable.setCurrentAnimation("pc2_off");
-        }
+            if(this.renderable.isCurrentAnimation("pc1_on")){
+                states.escena5.computadora = "pc2_on";
+                this.renderable.setCurrentAnimation("pc2_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("pc2_on")){
-            states.escena5.computadora = "pc1_on";
-            this.renderable.setCurrentAnimation("pc1_on");
-        }
+            else if(this.renderable.isCurrentAnimation("pc1_off")){
+                states.escena5.computadora = "pc2_off";
+                this.renderable.setCurrentAnimation("pc2_off");
+            }
 
-        else{
-            states.escena5.computadora = "pc1_off";
-            this.renderable.setCurrentAnimation("pc1_off");
+            else if(this.renderable.isCurrentAnimation("pc2_on")){
+                states.escena5.computadora = "pc1_on";
+                this.renderable.setCurrentAnimation("pc1_on");
+            }
+
+            else{
+                states.escena5.computadora = "pc1_off";
+                this.renderable.setCurrentAnimation("pc1_off");
+            }
+
         }
 
 
@@ -47,28 +51,32 @@ game.Computadora= me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("pc1_on")){
-            agregar_tabla("pc1");
-            states.escena5.computadora = "pc1_off";
-            this.renderable.setCurrentAnimation("pc1_off");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
-        else if(this.renderable.isCurrentAnimation("pc1_off")){
-            agregar_tabla("pc1");
-            states.escena5.computadora = "pc1_on";
-            this.renderable.setCurrentAnimation("pc1_on");
-        }
+            if(this.renderable.isCurrentAnimation("pc1_on")){
+                agregar_tabla("pc1");
+                states.escena5.computadora = "pc1_off";
+                this.renderable.setCurrentAnimation("pc1_off");
+            }
 
-        else if(this.renderable.isCurrentAnimation("pc2_on")){
-            agregar_tabla("pc2");
-            states.escena5.computadora = "pc2_off";
-            this.renderable.setCurrentAnimation("pc2_off");
-        }
+            else if(this.renderable.isCurrentAnimation("pc1_off")){
+                agregar_tabla("pc1");
+                states.escena5.computadora = "pc1_on";
+                this.renderable.setCurrentAnimation("pc1_on");
+            }
 
-        else{
-            agregar_tabla("pc2");
-            states.escena5.computadora = "pc2_on";
-            this.renderable.setCurrentAnimation("pc2_on");
+            else if(this.renderable.isCurrentAnimation("pc2_on")){
+                agregar_tabla("pc2");
+                states.escena5.computadora = "pc2_off";
+                this.renderable.setCurrentAnimation("pc2_off");
+            }
+
+            else{
+                agregar_tabla("pc2");
+                states.escena5.computadora = "pc2_on";
+                this.renderable.setCurrentAnimation("pc2_on");
+            }
+
         }
 
         return false;
@@ -108,28 +116,32 @@ game.Lampara = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
-        if(this.renderable.isCurrentAnimation("lamp1_cuarto1_off")){
-                   
-            states.escena5.lampara1 = "lamp2_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp2_cuarto1_off");
+            me.audio.play("cambiar");
 
-        }
+            if(this.renderable.isCurrentAnimation("lamp1_cuarto1_off")){
+                       
+                states.escena5.lampara1 = "lamp2_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp2_cuarto1_off");
 
-        else if(this.renderable.isCurrentAnimation("lamp2_cuarto1_off")){
-            states.escena5.lampara1 = "lamp1_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp1_cuarto1_off");
-        }
+            }
 
-        else if(this.renderable.isCurrentAnimation("lamp1_cuarto1_on")){
-            states.escena5.lampara1 = "lamp2_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp2_cuarto1_on");
-        }
+            else if(this.renderable.isCurrentAnimation("lamp2_cuarto1_off")){
+                states.escena5.lampara1 = "lamp1_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp1_cuarto1_off");
+            }
 
-        else{
-            states.escena5.lampara1 = "lamp1_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp1_cuarto1_on");
+            else if(this.renderable.isCurrentAnimation("lamp1_cuarto1_on")){
+                states.escena5.lampara1 = "lamp2_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp2_cuarto1_on");
+            }
+
+            else{
+                states.escena5.lampara1 = "lamp1_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp1_cuarto1_on");
+            }
+
         }
 
 
@@ -138,29 +150,33 @@ game.Lampara = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
     
-        if(this.renderable.isCurrentAnimation("lamp1_cuarto1_off")){
-            agregar_tabla("lamp1_cuarto1");
-            states.escena5.lampara1 = "lamp1_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp1_cuarto1_on");
-        }
+            if(this.renderable.isCurrentAnimation("lamp1_cuarto1_off")){
+                agregar_tabla("lamp1_cuarto1");
+                states.escena5.lampara1 = "lamp1_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp1_cuarto1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("lamp2_cuarto1_off")){
-            agregar_tabla("lamp2_cuarto1");
-            states.escena5.lampara1 = "lamp2_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp2_cuarto1_on");
-        }
+            else if(this.renderable.isCurrentAnimation("lamp2_cuarto1_off")){
+                agregar_tabla("lamp2_cuarto1");
+                states.escena5.lampara1 = "lamp2_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp2_cuarto1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("lamp1_cuarto1_on")){
-            agregar_tabla("lamp1_cuarto1");
-            states.escena5.lampara1 = "lamp1_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp1_cuarto1_off");
-        }
+            else if(this.renderable.isCurrentAnimation("lamp1_cuarto1_on")){
+                agregar_tabla("lamp1_cuarto1");
+                states.escena5.lampara1 = "lamp1_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp1_cuarto1_off");
+            }
 
-        else{
-            agregar_tabla("lamp2_cuarto1");
-            states.escena5.lampara1 = "lamp2_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp2_cuarto1_off");
+            else{
+                agregar_tabla("lamp2_cuarto1");
+                states.escena5.lampara1 = "lamp2_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp2_cuarto1_off");
+            }
+
         }
         
         return false;
@@ -200,28 +216,32 @@ game.Lampara2 = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
-        if(this.renderable.isCurrentAnimation("lamp3_cuarto1_off")){
-                   
-            states.escena5.lampara2 = "lamp4_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp4_cuarto1_off");
+            me.audio.play("cambiar");
 
-        }
+            if(this.renderable.isCurrentAnimation("lamp3_cuarto1_off")){
+                       
+                states.escena5.lampara2 = "lamp4_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp4_cuarto1_off");
 
-        else if(this.renderable.isCurrentAnimation("lamp4_cuarto1_off")){
-            states.escena5.lampara2 = "lamp3_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp3_cuarto1_off");
-        }
+            }
 
-        else if(this.renderable.isCurrentAnimation("lamp3_cuarto1_on")){
-            states.escena5.lampara2 = "lamp4_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp4_cuarto1_on");
-        }
+            else if(this.renderable.isCurrentAnimation("lamp4_cuarto1_off")){
+                states.escena5.lampara2 = "lamp3_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp3_cuarto1_off");
+            }
 
-        else{
-            states.escena5.lampara2 = "lamp3_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp3_cuarto1_on");
+            else if(this.renderable.isCurrentAnimation("lamp3_cuarto1_on")){
+                states.escena5.lampara2 = "lamp4_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp4_cuarto1_on");
+            }
+
+            else{
+                states.escena5.lampara2 = "lamp3_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp3_cuarto1_on");
+            }
+
         }
 
 
@@ -230,31 +250,35 @@ game.Lampara2 = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
     
-        if(this.renderable.isCurrentAnimation("lamp3_cuarto1_off")){
-            agregar_tabla("lamp3_cuarto1");
-            states.escena5.lampara2 = "lamp3_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp3_cuarto1_on");
-        }
+            if(this.renderable.isCurrentAnimation("lamp3_cuarto1_off")){
+                agregar_tabla("lamp3_cuarto1");
+                states.escena5.lampara2 = "lamp3_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp3_cuarto1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("lamp4_cuarto1_off")){
-            agregar_tabla("lamp4_cuarto1");
-            states.escena5.lampara2 = "lamp4_cuarto1_on";
-            this.renderable.setCurrentAnimation("lamp4_cuarto1_on");
-        }
+            else if(this.renderable.isCurrentAnimation("lamp4_cuarto1_off")){
+                agregar_tabla("lamp4_cuarto1");
+                states.escena5.lampara2 = "lamp4_cuarto1_on";
+                this.renderable.setCurrentAnimation("lamp4_cuarto1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("lamp3_cuarto1_on")){
-            agregar_tabla("lamp3_cuarto1");
-            states.escena5.lampara2 = "lamp3_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp3_cuarto1_off");
-        }
+            else if(this.renderable.isCurrentAnimation("lamp3_cuarto1_on")){
+                agregar_tabla("lamp3_cuarto1");
+                states.escena5.lampara2 = "lamp3_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp3_cuarto1_off");
+            }
 
-        else{
-            agregar_tabla("lamp4_cuarto1");
-            states.escena5.lampara2 = "lamp4_cuarto1_off";
-            this.renderable.setCurrentAnimation("lamp4_cuarto1_off");
+            else{
+                agregar_tabla("lamp4_cuarto1");
+                states.escena5.lampara2 = "lamp4_cuarto1_off";
+                this.renderable.setCurrentAnimation("lamp4_cuarto1_off");
+            }
+
         }
-        
+            
         return false;
     
     },
@@ -296,26 +320,30 @@ game.BombilloE5 = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
-        if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
-            states.escena5.bombillo = "bom2_cuarto1_on";
-            this.renderable.setCurrentAnimation("bom2_cuarto1_on");
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("bom1_cuarto1_off")){
-            states.escena5.bombillo = "bom2_cuarto1_off";
-            this.renderable.setCurrentAnimation("bom2_cuarto1_off");
-        }
+            if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
+                states.escena5.bombillo = "bom2_cuarto1_on";
+                this.renderable.setCurrentAnimation("bom2_cuarto1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
-            states.escena5.bombillo = "bom1_cuarto1_on";
-            this.renderable.setCurrentAnimation("bom1_cuarto1_on");
-        }
+            else if(this.renderable.isCurrentAnimation("bom1_cuarto1_off")){
+                states.escena5.bombillo = "bom2_cuarto1_off";
+                this.renderable.setCurrentAnimation("bom2_cuarto1_off");
+            }
 
-        else{
-            states.escena5.bombillo = "bom1_cuarto1_off";
-            this.renderable.setCurrentAnimation("bom1_cuarto1_off");
+            else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
+                states.escena5.bombillo = "bom1_cuarto1_on";
+                this.renderable.setCurrentAnimation("bom1_cuarto1_on");
+            }
+
+            else{
+                states.escena5.bombillo = "bom1_cuarto1_off";
+                this.renderable.setCurrentAnimation("bom1_cuarto1_off");
+            }
+
         }
 
     },
@@ -324,28 +352,32 @@ game.BombilloE5 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
-            agregar_tabla("bom1_cuarto1");
-            states.escena5.bombillo = "bom1_cuarto1_off";
-            this.renderable.setCurrentAnimation("bom1_cuarto1_off");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
-        else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
-            agregar_tabla("bom2_cuarto1");
-            states.escena5.bombillo = "bom2_cuarto1_off";
-            this.renderable.setCurrentAnimation("bom2_cuarto1_off");
-        }
-        
-        else if (this.renderable.isCurrentAnimation("bom2_cuarto1_off")) {
-            agregar_tabla("bom2_cuarto1");
-            states.escena5.bombillo = "bom2_cuarto1_on";
-            this.renderable.setCurrentAnimation("bom2_cuarto1_on");
-        }
+            if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
+                agregar_tabla("bom1_cuarto1");
+                states.escena5.bombillo = "bom1_cuarto1_off";
+                this.renderable.setCurrentAnimation("bom1_cuarto1_off");
+            }
 
-        else{
-            agregar_tabla("bom1_cuarto1");
-            states.escena5.bombillo = "bom1_cuarto1_on";
-            this.renderable.setCurrentAnimation("bom1_cuarto1_on");
+            else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
+                agregar_tabla("bom2_cuarto1");
+                states.escena5.bombillo = "bom2_cuarto1_off";
+                this.renderable.setCurrentAnimation("bom2_cuarto1_off");
+            }
+            
+            else if (this.renderable.isCurrentAnimation("bom2_cuarto1_off")) {
+                agregar_tabla("bom2_cuarto1");
+                states.escena5.bombillo = "bom2_cuarto1_on";
+                this.renderable.setCurrentAnimation("bom2_cuarto1_on");
+            }
+
+            else{
+                agregar_tabla("bom1_cuarto1");
+                states.escena5.bombillo = "bom1_cuarto1_on";
+                this.renderable.setCurrentAnimation("bom1_cuarto1_on");
+            }
+
         }
 
         return false;
@@ -371,9 +403,9 @@ game.Ac = me.ObjectEntity.extend({
     init: function(x, y, settings){
         this.parent(x, y, settings);
         this.renderable.addAnimation("ac1_cuarto1_off", [0]);
-        this.renderable.addAnimation("ac1_cuarto1_loop", [1, 2], 300);
+        this.renderable.addAnimation("ac1_cuarto1_on", [1, 2], 300);
         this.renderable.addAnimation("ac2_cuarto1_off", [3]);
-        this.renderable.addAnimation("ac2_cuarto1_loop", [4, 5], 300);
+        this.renderable.addAnimation("ac2_cuarto1_on", [4, 5], 300);
         this.renderable.setCurrentAnimation(states.escena5.ac);
         this.getShape().resize(164,164);
         this.getShape().pos.x = 240;
@@ -388,34 +420,38 @@ game.Ac = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
-        if(this.renderable.isCurrentAnimation("ac1_cuarto1_off")){
-            states.escena5.ac = "ac2_cuarto1_off";
-            this.renderable.setCurrentAnimation("ac2_cuarto1_off");
-            this.getShape().resize(164,164);
-            this.getShape().pos.x = 230;
-            this.getShape().pos.y = -40;
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("ac2_cuarto1_off")){
-            states.escena5.ac = "ac1_cuarto1_off";
-            this.renderable.setCurrentAnimation("ac1_cuarto1_off");
-            this.getShape().resize(164,164);
-            this.getShape().pos.x = 240;
-            this.getShape().pos.y = -40;
-            
+            if(this.renderable.isCurrentAnimation("ac1_cuarto1_off")){
+                states.escena5.ac = "ac2_cuarto1_off";
+                this.renderable.setCurrentAnimation("ac2_cuarto1_off");
+                this.getShape().resize(164,164);
+                this.getShape().pos.x = 230;
+                this.getShape().pos.y = -40;
+            }
 
-        }
+            else if(this.renderable.isCurrentAnimation("ac2_cuarto1_off")){
+                states.escena5.ac = "ac1_cuarto1_off";
+                this.renderable.setCurrentAnimation("ac1_cuarto1_off");
+                this.getShape().resize(164,164);
+                this.getShape().pos.x = 240;
+                this.getShape().pos.y = -40;
+                
 
-        else if(this.renderable.isCurrentAnimation("ac1_cuarto1_loop")){
-            states.escena5.ac = "ac2_cuarto1_loop";
-            this.renderable.setCurrentAnimation("ac2_cuarto1_loop");
-        }
+            }
 
-        else{
-            states.escena5.ac = "ac1_cuarto1_loop";
-            this.renderable.setCurrentAnimation("ac1_cuarto1_loop");
+            else if(this.renderable.isCurrentAnimation("ac1_cuarto1_on")){
+                states.escena5.ac = "ac2_cuarto1_on";
+                this.renderable.setCurrentAnimation("ac2_cuarto1_on");
+            }
+
+            else{
+                states.escena5.ac = "ac1_cuarto1_on";
+                this.renderable.setCurrentAnimation("ac1_cuarto1_on");
+            }
+
         }
 
 
@@ -424,29 +460,33 @@ game.Ac = me.ObjectEntity.extend({
 
 
     onMouseDown : function() {
+
+        if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
     
-        if(this.renderable.isCurrentAnimation("ac1_cuarto1_off")){
-            agregar_tabla("ac1_cuarto1");
-            states.escena5.ac = "ac1_cuarto1_loop";
-            this.renderable.setCurrentAnimation("ac1_cuarto1_loop");
-        }
+            if(this.renderable.isCurrentAnimation("ac1_cuarto1_off")){
+                agregar_tabla("ac1_cuarto1");
+                states.escena5.ac = "ac1_cuarto1_on";
+                this.renderable.setCurrentAnimation("ac1_cuarto1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("ac2_cuarto1_off")){
-            agregar_tabla("ac2_cuarto1");
-            states.escena5.ac = "ac2_cuarto1_loop";
-            this.renderable.setCurrentAnimation("ac2_cuarto1_loop");
-        }
+            else if(this.renderable.isCurrentAnimation("ac2_cuarto1_off")){
+                agregar_tabla("ac2_cuarto1");
+                states.escena5.ac = "ac2_cuarto1_on";
+                this.renderable.setCurrentAnimation("ac2_cuarto1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("ac1_cuarto1_loop")){
-            agregar_tabla("ac1_cuarto1");
-            states.escena5.ac = "ac1_cuarto1_off";
-            this.renderable.setCurrentAnimation("ac1_cuarto1_off");
-        }
+            else if(this.renderable.isCurrentAnimation("ac1_cuarto1_on")){
+                agregar_tabla("ac1_cuarto1");
+                states.escena5.ac = "ac1_cuarto1_off";
+                this.renderable.setCurrentAnimation("ac1_cuarto1_off");
+            }
 
-        else{
-            agregar_tabla("ac2_cuarto1");
-            states.escena5.ac = "ac2_cuarto1_off";
-            this.renderable.setCurrentAnimation("ac2_cuarto1_off");
+            else{
+                agregar_tabla("ac2_cuarto1");
+                states.escena5.ac = "ac2_cuarto1_off";
+                this.renderable.setCurrentAnimation("ac2_cuarto1_off");
+            }
+
         }
         
         return false;

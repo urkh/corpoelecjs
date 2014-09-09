@@ -20,27 +20,30 @@ game.Ducha = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
+        if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
 
-        me.audio.play("cambiar");
+            me.audio.play("cambiar");
 
-        if(this.renderable.isCurrentAnimation("ducha_corona_off")){
-            states.escena6.ducha = "ducha_normal";
-            this.renderable.setCurrentAnimation("ducha_normal");
-        }
+            if(this.renderable.isCurrentAnimation("ducha_corona_off")){
+                states.escena6.ducha = "ducha_normal";
+                this.renderable.setCurrentAnimation("ducha_normal");
+            }
 
-        else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
-            states.escena6.ducha = "ducha_normal2";
-            this.renderable.setCurrentAnimation("ducha_normal2");
-        }
+            else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
+                states.escena6.ducha = "ducha_normal2";
+                this.renderable.setCurrentAnimation("ducha_normal2");
+            }
 
-        else if(this.renderable.isCurrentAnimation("ducha_normal2")){
-            states.escena6.ducha = "ducha_corona_off";
-            this.renderable.setCurrentAnimation("ducha_corona_off");
-        }
+            else if(this.renderable.isCurrentAnimation("ducha_normal2")){
+                states.escena6.ducha = "ducha_corona_off";
+                this.renderable.setCurrentAnimation("ducha_corona_off");
+            }
 
-        else{
-            states.escena6.ducha = "ducha_corona_on";
-            this.renderable.setCurrentAnimation("ducha_corona_on");
+            else{
+                states.escena6.ducha = "ducha_corona_on";
+                this.renderable.setCurrentAnimation("ducha_corona_on");
+            }
+
         }
 
 
@@ -48,20 +51,24 @@ game.Ducha = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("ducha_corona_off")){
-            agregar_tabla("ducha_corona");
-            states.escena6.ducha = "ducha_corona_on";
-            this.renderable.setCurrentAnimation("ducha_corona_on");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
 
-        else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
-            agregar_tabla("ducha_corona");
-            states.escena6.ducha = "ducha_corona_off";
-            this.renderable.setCurrentAnimation("ducha_corona_off");
-        }
+            if(this.renderable.isCurrentAnimation("ducha_corona_off")){
+                agregar_tabla("ducha_corona");
+                states.escena6.ducha = "ducha_corona_on";
+                this.renderable.setCurrentAnimation("ducha_corona_on");
+            }
 
-        else{
-            states.escena6.ducha = "ducha_normal";
+            else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
+                agregar_tabla("ducha_corona");
+                states.escena6.ducha = "ducha_corona_off";
+                this.renderable.setCurrentAnimation("ducha_corona_off");
+            }
+
+            else{
+                states.escena6.ducha = "ducha_normal";
+            }
+
         }
         
         return false;
@@ -103,26 +110,30 @@ game.BombilloE6 = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
 
-        if(this.renderable.isCurrentAnimation("bom1_bano_on")){
-            states.escena6.bombillo = "bom2_bano_on";
-            this.renderable.setCurrentAnimation("bom2_bano_on");
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("bom1_bano_off")){
-            states.escena6.bombillo = "bom2_bano_off";
-            this.renderable.setCurrentAnimation("bom2_bano_off");
-        }
+            if(this.renderable.isCurrentAnimation("bom1_bano_on")){
+                states.escena6.bombillo = "bom2_bano_on";
+                this.renderable.setCurrentAnimation("bom2_bano_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
-            states.escena6.bombillo = "bom1_bano_on";
-            this.renderable.setCurrentAnimation("bom1_bano_on");
-        }
+            else if(this.renderable.isCurrentAnimation("bom1_bano_off")){
+                states.escena6.bombillo = "bom2_bano_off";
+                this.renderable.setCurrentAnimation("bom2_bano_off");
+            }
 
-        else{
-            states.escena6.bombillo = "bom1_bano_off";
-            this.renderable.setCurrentAnimation("bom1_bano_off");
+            else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
+                states.escena6.bombillo = "bom1_bano_on";
+                this.renderable.setCurrentAnimation("bom1_bano_on");
+            }
+
+            else{
+                states.escena6.bombillo = "bom1_bano_off";
+                this.renderable.setCurrentAnimation("bom1_bano_off");
+            }
+
         }
 
     },
@@ -131,28 +142,32 @@ game.BombilloE6 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom1_bano_on")){
-            agregar_tabla("bom1_bano");
-            states.escena6.bombillo = "bom1_bano_off";
-            this.renderable.setCurrentAnimation("bom1_bano_off");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
 
-        else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
-            agregar_tabla("bom2_bano");
-            states.escena6.bombillo = "bom2_bano_off";
-            this.renderable.setCurrentAnimation("bom2_bano_off");
-        }
-        
-        else if (this.renderable.isCurrentAnimation("bom2_bano_off")) {
-            agregar_tabla("bom2_bano");
-            states.escena6.bombillo = "bom2_bano_on";
-            this.renderable.setCurrentAnimation("bom2_bano_on");
-        }
+            if(this.renderable.isCurrentAnimation("bom1_bano_on")){
+                agregar_tabla("bom1_bano");
+                states.escena6.bombillo = "bom1_bano_off";
+                this.renderable.setCurrentAnimation("bom1_bano_off");
+            }
 
-        else{
-            agregar_tabla("bom1_bano");
-            states.escena6.bombillo = "bom1_bano_on";
-            this.renderable.setCurrentAnimation("bom1_bano_on");
+            else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
+                agregar_tabla("bom2_bano");
+                states.escena6.bombillo = "bom2_bano_off";
+                this.renderable.setCurrentAnimation("bom2_bano_off");
+            }
+            
+            else if (this.renderable.isCurrentAnimation("bom2_bano_off")) {
+                agregar_tabla("bom2_bano");
+                states.escena6.bombillo = "bom2_bano_on";
+                this.renderable.setCurrentAnimation("bom2_bano_on");
+            }
+
+            else{
+                agregar_tabla("bom1_bano");
+                states.escena6.bombillo = "bom1_bano_on";
+                this.renderable.setCurrentAnimation("bom1_bano_on");
+            }
+
         }
 
         return false;
@@ -187,16 +202,20 @@ game.Afeitadora = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("afeitadora");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
 
-        if(this.renderable.isCurrentAnimation("afeitadora_off")) {
-            states.escena6.afeitadora = "afeitadora_on";
-            this.renderable.setCurrentAnimation("afeitadora_on");
-        }
+            agregar_tabla("afeitadora");
 
-        else{
-            states.escena6.afeitadora = "afeitadora_off";
-            this.renderable.setCurrentAnimation("afeitadora_off");
+            if(this.renderable.isCurrentAnimation("afeitadora_off")) {
+                states.escena6.afeitadora = "afeitadora_on";
+                this.renderable.setCurrentAnimation("afeitadora_on");
+            }
+
+            else{
+                states.escena6.afeitadora = "afeitadora_off";
+                this.renderable.setCurrentAnimation("afeitadora_off");
+            }
+
         }
 
         return false;
@@ -230,17 +249,21 @@ game.Secador = me.ObjectEntity.extend({
     },
 
     onMouseDown : function() {
+
+        if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
         
-        agregar_tabla("secador");
+            agregar_tabla("secador");
 
-        if(this.renderable.isCurrentAnimation("secador_off")) {
-            states.escena6.secador = "secador_on";
-            this.renderable.setCurrentAnimation("secador_on");
-        }
+            if(this.renderable.isCurrentAnimation("secador_off")) {
+                states.escena6.secador = "secador_on";
+                this.renderable.setCurrentAnimation("secador_on");
+            }
 
-        else{
-            states.escena6.secador = "secador_off";
-            this.renderable.setCurrentAnimation("secador_off");
+            else{
+                states.escena6.secador = "secador_off";
+                this.renderable.setCurrentAnimation("secador_off");
+            }
+
         }
 
         return false;

@@ -16,16 +16,20 @@ game.Lavadora= me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("lavadora");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
 
-        if(this.renderable.isCurrentAnimation("lavadora_off")){
-            states.escena4.lavadora = "lavadora_on";
-            this.renderable.setCurrentAnimation("lavadora_on");
-        }
+            agregar_tabla("lavadora");
 
-        else{
-            states.escena4.lavadora = "lavadora_off";
-            this.renderable.setCurrentAnimation("lavadora_off");
+            if(this.renderable.isCurrentAnimation("lavadora_off")){
+                states.escena4.lavadora = "lavadora_on";
+                this.renderable.setCurrentAnimation("lavadora_on");
+            }
+
+            else{
+                states.escena4.lavadora = "lavadora_off";
+                this.renderable.setCurrentAnimation("lavadora_off");
+            }
+
         }
 
         return false;
@@ -61,16 +65,20 @@ game.Secadora = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("secadora");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
 
-        if(this.renderable.isCurrentAnimation("secadora_off")){
-            states.escena4.secadora = "secadora_on";
-            this.renderable.setCurrentAnimation("secadora_on");
-        }
+            agregar_tabla("secadora");
 
-        else{
-            states.escena4.secadora = "secadora_off";
-            this.renderable.setCurrentAnimation("secadora_off");
+            if(this.renderable.isCurrentAnimation("secadora_off")){
+                states.escena4.secadora = "secadora_on";
+                this.renderable.setCurrentAnimation("secadora_on");
+            }
+
+            else{
+                states.escena4.secadora = "secadora_off";
+                this.renderable.setCurrentAnimation("secadora_off");
+            }
+
         }
 
         return false;
@@ -106,16 +114,20 @@ game.Plancha = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        agregar_tabla("plancha");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
 
-        if(this.renderable.isCurrentAnimation("plancha_off")){
-            states.escena4.plancha = "plancha_on";
-            this.renderable.setCurrentAnimation("plancha_on");
-        }
+            agregar_tabla("plancha");
 
-        else{
-            states.escena4.plancha = "plancha_off";
-            this.renderable.setCurrentAnimation("plancha_off");
+            if(this.renderable.isCurrentAnimation("plancha_off")){
+                states.escena4.plancha = "plancha_on";
+                this.renderable.setCurrentAnimation("plancha_on");
+            }
+
+            else{
+                states.escena4.plancha = "plancha_off";
+                this.renderable.setCurrentAnimation("plancha_off");
+            }
+
         }
 
         return false;
@@ -157,36 +169,40 @@ game.Calentador = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
 
-        if(this.renderable.isCurrentAnimation("cal1_off")){
-            states.escena4.calentador = "cal2_off";
-            this.renderable.setCurrentAnimation("cal2_off");
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("cal2_off")){
-            states.escena4.calentador = "cal3_off";
-            this.renderable.setCurrentAnimation("cal3_off");
-        }
+            if(this.renderable.isCurrentAnimation("cal1_off")){
+                states.escena4.calentador = "cal2_off";
+                this.renderable.setCurrentAnimation("cal2_off");
+            }
 
-        else if(this.renderable.isCurrentAnimation("cal3_off")){
-            states.escena4.calentador = "cal1_off";
-            this.renderable.setCurrentAnimation("cal1_off");
-        }
+            else if(this.renderable.isCurrentAnimation("cal2_off")){
+                states.escena4.calentador = "cal3_off";
+                this.renderable.setCurrentAnimation("cal3_off");
+            }
 
-        else if(this.renderable.isCurrentAnimation("cal1_on")){
-            states.escena4.calentador = "cal2_on";
-            this.renderable.setCurrentAnimation("cal2_on");
-        }
+            else if(this.renderable.isCurrentAnimation("cal3_off")){
+                states.escena4.calentador = "cal1_off";
+                this.renderable.setCurrentAnimation("cal1_off");
+            }
 
-        else if(this.renderable.isCurrentAnimation("cal2_on")){
-            states.escena4.calentador = "cal3_on";
-            this.renderable.setCurrentAnimation("cal3_on");
-        }
+            else if(this.renderable.isCurrentAnimation("cal1_on")){
+                states.escena4.calentador = "cal2_on";
+                this.renderable.setCurrentAnimation("cal2_on");
+            }
 
-        else{
-            states.escena4.calentador = "cal1_on";
-            this.renderable.setCurrentAnimation("cal1_on");
+            else if(this.renderable.isCurrentAnimation("cal2_on")){
+                states.escena4.calentador = "cal3_on";
+                this.renderable.setCurrentAnimation("cal3_on");
+            }
+
+            else{
+                states.escena4.calentador = "cal1_on";
+                this.renderable.setCurrentAnimation("cal1_on");
+            }
+
         }
 
 
@@ -195,40 +211,44 @@ game.Calentador = me.ObjectEntity.extend({
 
     onMouseDown: function() {
 
-        if(this.renderable.isCurrentAnimation("cal1_off")){
-            agregar_tabla("cal1");
-            states.escena4.calentador = "cal1_on";
-            this.renderable.setCurrentAnimation("cal1_on");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
 
-        else if(this.renderable.isCurrentAnimation("cal2_off")){
-            agregar_tabla("cal2");
-            states.escena4.calentador = "cal2_on";
-            this.renderable.setCurrentAnimation("cal2_on");
-        }
+            if(this.renderable.isCurrentAnimation("cal1_off")){
+                agregar_tabla("cal1");
+                states.escena4.calentador = "cal1_on";
+                this.renderable.setCurrentAnimation("cal1_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("cal3_off")){
-            agregar_tabla("cal3");
-            states.escena4.calentador = "cal3_on";
-            this.renderable.setCurrentAnimation("cal3_on");
-        }
+            else if(this.renderable.isCurrentAnimation("cal2_off")){
+                agregar_tabla("cal2");
+                states.escena4.calentador = "cal2_on";
+                this.renderable.setCurrentAnimation("cal2_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("cal1_on")){
-            agregar_tabla("cal1");
-            states.escena4.calentador = "cal1_off";
-            this.renderable.setCurrentAnimation("cal1_off");
-        }
+            else if(this.renderable.isCurrentAnimation("cal3_off")){
+                agregar_tabla("cal3");
+                states.escena4.calentador = "cal3_on";
+                this.renderable.setCurrentAnimation("cal3_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("cal2_on")){
-            agregar_tabla("cal2");
-            states.escena4.calentador = "cal2_off";
-            this.renderable.setCurrentAnimation("cal2_off");
-        }
+            else if(this.renderable.isCurrentAnimation("cal1_on")){
+                agregar_tabla("cal1");
+                states.escena4.calentador = "cal1_off";
+                this.renderable.setCurrentAnimation("cal1_off");
+            }
 
-        else{
-            agregar_tabla("cal3");
-            states.escena4.calentador = "cal3_off";
-            this.renderable.setCurrentAnimation("cal3_off");
+            else if(this.renderable.isCurrentAnimation("cal2_on")){
+                agregar_tabla("cal2");
+                states.escena4.calentador = "cal2_off";
+                this.renderable.setCurrentAnimation("cal2_off");
+            }
+
+            else{
+                agregar_tabla("cal3");
+                states.escena4.calentador = "cal3_off";
+                this.renderable.setCurrentAnimation("cal3_off");
+            }
+
         }
 
         return false;
@@ -272,26 +292,30 @@ game.BombilloE4 = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
-        me.audio.play("cambiar");
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
 
-        if(this.renderable.isCurrentAnimation("bom1_lavandero_on")){
-            states.escena4.bombillo = "bom2_lavandero_on";
-            this.renderable.setCurrentAnimation("bom2_lavandero_on");
-        }
+            me.audio.play("cambiar");
 
-        else if(this.renderable.isCurrentAnimation("bom1_lavandero_off")){
-            states.escena4.bombillo = "bom2_lavandero_off";
-            this.renderable.setCurrentAnimation("bom2_lavandero_off");
-        }
+            if(this.renderable.isCurrentAnimation("bom1_lavandero_on")){
+                states.escena4.bombillo = "bom2_lavandero_on";
+                this.renderable.setCurrentAnimation("bom2_lavandero_on");
+            }
 
-        else if(this.renderable.isCurrentAnimation("bom2_lavandero_on")){
-            states.escena4.bombillo = "bom1_lavandero_on";
-            this.renderable.setCurrentAnimation("bom1_lavandero_on");
-        }
+            else if(this.renderable.isCurrentAnimation("bom1_lavandero_off")){
+                states.escena4.bombillo = "bom2_lavandero_off";
+                this.renderable.setCurrentAnimation("bom2_lavandero_off");
+            }
 
-        else{
-            states.escena4.bombillo = "bom1_lavandero_off";
-            this.renderable.setCurrentAnimation("bom1_lavandero_off");
+            else if(this.renderable.isCurrentAnimation("bom2_lavandero_on")){
+                states.escena4.bombillo = "bom1_lavandero_on";
+                this.renderable.setCurrentAnimation("bom1_lavandero_on");
+            }
+
+            else{
+                states.escena4.bombillo = "bom1_lavandero_off";
+                this.renderable.setCurrentAnimation("bom1_lavandero_off");
+            }
+
         }
 
     },
@@ -299,28 +323,32 @@ game.BombilloE4 = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(this.renderable.isCurrentAnimation("bom1_lavandero_on")){
-            agregar_tabla("bom1_lavandero");
-            states.escena4.bombillo = "bom1_lavandero_off";
-            this.renderable.setCurrentAnimation("bom1_lavandero_off");
-        }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_04'){
 
-        else if(this.renderable.isCurrentAnimation("bom2_lavandero_on")){
-           agregar_tabla("bom2_lavandero");
-           states.escena4.bombillo = "bom2_lavandero_off";
-            this.renderable.setCurrentAnimation("bom2_lavandero_off");
-        }
-        
-        else if (this.renderable.isCurrentAnimation("bom2_lavandero_off")) {
-            agregar_tabla("bom2_lavandero");
-            states.escena4.bombillo = "bom2_lavandero_on";
-            this.renderable.setCurrentAnimation("bom2_lavandero_on");
-        }
+            if(this.renderable.isCurrentAnimation("bom1_lavandero_on")){
+                agregar_tabla("bom1_lavandero");
+                states.escena4.bombillo = "bom1_lavandero_off";
+                this.renderable.setCurrentAnimation("bom1_lavandero_off");
+            }
 
-        else{
-            agregar_tabla("bom1_lavandero");
-            states.escena4.bombillo = "bom1_lavandero_on";
-            this.renderable.setCurrentAnimation("bom1_lavandero_on");
+            else if(this.renderable.isCurrentAnimation("bom2_lavandero_on")){
+               agregar_tabla("bom2_lavandero");
+               states.escena4.bombillo = "bom2_lavandero_off";
+                this.renderable.setCurrentAnimation("bom2_lavandero_off");
+            }
+            
+            else if (this.renderable.isCurrentAnimation("bom2_lavandero_off")) {
+                agregar_tabla("bom2_lavandero");
+                states.escena4.bombillo = "bom2_lavandero_on";
+                this.renderable.setCurrentAnimation("bom2_lavandero_on");
+            }
+
+            else{
+                agregar_tabla("bom1_lavandero");
+                states.escena4.bombillo = "bom1_lavandero_on";
+                this.renderable.setCurrentAnimation("bom1_lavandero_on");
+            }
+
         }
 
         return false;

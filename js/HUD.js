@@ -27,8 +27,8 @@ game.HUD.Pila = me.Renderable.extend({
 
 		this.parent(new me.Vector2d(x,y), 10, 10);
 		this.pila1 = new me.SpriteObject(1, 10, me.loader.getImage("pila1"), 575, 112);	
-		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 573, 113);	
-		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 573, 112);	
+		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 575, 112);	
+		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 575, 112);	
 		this.pierde = new me.SpriteObject(1, 200, me.loader.getImage("pierde"), 1546, 517);
 		this.gana = new me.SpriteObject(1, 200, me.loader.getImage("gana"), 1536, 720);
 		me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1270,280), 200, 100), this.reset.bind(this), false);

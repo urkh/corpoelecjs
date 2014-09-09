@@ -71,3 +71,19 @@ input[type="number"] {
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
+
+
+@media (min-width: 1440px) and (min-height: 900px) { 
+
+#fixedtop1 { position: absolute; top: 390px; left: -890px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+
+@media (min-width: 1650px) and (min-height: 1050px) { 
+
+#fixedtop1 { position: absolute; top: 445px; left: -1050px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
