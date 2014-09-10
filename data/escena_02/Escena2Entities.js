@@ -78,9 +78,12 @@ game.Televisor = me.ObjectEntity.extend({
         if((me.levelDirector.getCurrentLevelId() == 'escena_02') && (!game.data.game_over)){
 
             if(this.renderable.isCurrentAnimation("tv1_sala_on")){
-                agregar_tabla("tv1_sala");
+                //agregar_tabla("tv1_sala");
+                
                 states.escena2.televisor = "tv1_sala_off";
+
                 this.renderable.setCurrentAnimation("tv1_sala_off");
+                eliminar_tabla("tv1_sala");
             }
 
             else if(this.renderable.isCurrentAnimation("tv1_sala_off")){
@@ -204,9 +207,11 @@ game.AcE2 = me.ObjectEntity.extend({
             }
 
             else if(this.renderable.isCurrentAnimation("ac1_cuarto3_on")){
-                agregar_tabla("ac1_cuarto3");
+                //agregar_tabla("ac1_cuarto3");
+                
                 states.escena2.ac = "ac1_cuarto3_off";
                 this.renderable.setCurrentAnimation("ac1_cuarto3_off");
+                eliminar_tabla("ac1_cuarto3");
             }
 
             else{
@@ -279,6 +284,7 @@ game.BombilloE2 = me.ObjectEntity.extend({
             }
 
             else{
+                
                 states.escena2.bombillo = "bom1_sala_off";
                 this.renderable.setCurrentAnimation("bom1_sala_off");
             }
@@ -295,9 +301,10 @@ game.BombilloE2 = me.ObjectEntity.extend({
         if((me.levelDirector.getCurrentLevelId() == 'escena_02') && (!game.data.game_over)){
 
             if(this.renderable.isCurrentAnimation("bom1_sala_on")){
-                agregar_tabla("bom1_sala");
+                
                 states.escena2.bombillo = "bom1_sala_off";
                 this.renderable.setCurrentAnimation("bom1_sala_off");
+                eliminar_tabla("bom1_sala");
             }
 
             else if(this.renderable.isCurrentAnimation("bom2_sala_on")){
@@ -369,8 +376,10 @@ game.RadioR = me.ObjectEntity.extend({
             }
 
             else{
+                
                 states.escena2.radio_r = "radio_r_off";
                 this.renderable.setCurrentAnimation("radio_r_off");
+                eliminar_tabla("radio_r");
             }
 
         }

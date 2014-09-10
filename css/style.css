@@ -1,12 +1,25 @@
 @font-face {
-    font-family: "Knockout";
-    src: url(./font/knk.otf) format("opentype");
+    font-family: "Helvetica";
+    src: url(./font/Helvetica.otf) format("opentype");
+}
+
+
+
+#gral {
+
+    width: 2000px;
+}
+
+#juego {
+
+    float: left;
 }
 
 #tabla_consumos {
+    float: left;
     color: #000;
-    font-family: "Knockout";
-    font-size:22px;
+    font-family: "Helvetica";
+    font-size:12px;
     text-align: center;
     margin: 0 auto;
 }
@@ -14,13 +27,13 @@
 
 #eliminar {
     color: white;
-    font-family: "Knockout";
-    font-size:22px;
+    /*font-family: "Knockout";
+    font-size:22px;*/
      
 }
 
 input[type="number"] {
-    width: 30%;
+    width: 80%;
 }
 
 
@@ -43,7 +56,7 @@ input[type="number"] {
 
 @media (min-width: 1280px) { 
 
-#fixedtop1 { position: absolute; top: 263px; left: -525px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 270px; /*left: -525px;*/ right: 340px; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
@@ -64,8 +77,15 @@ input[type="number"] {
 
 }
 
+@media (min-width: 1366px) { 
 
-@media (min-width: 1920px) { 
+#fixedtop1 { position: absolute; top: 328px; /*left: -570px;*/ right: 300px; border: none; z-index: 50; visibility: hidden; }
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+
+@media (min-width: 1920px) and (min-height: 900px) { 
 
 #fixedtop1 { position: fixed; top: 385px; left: -880px; right: 0; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
@@ -75,7 +95,7 @@ input[type="number"] {
 
 @media (min-width: 1440px) and (min-height: 900px) { 
 
-#fixedtop1 { position: absolute; top: 390px; left: -890px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 390px; /*left: -890px;*/ right: 328px; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }

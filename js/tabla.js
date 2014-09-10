@@ -28,6 +28,8 @@ $(document).ready(function() {
 	});
 
 
+/*
+
     var id=null;
 
 
@@ -62,7 +64,7 @@ $(document).ready(function() {
     $('#eliminar').click( function () {
         $('#tabla').DataTable().row('.selected').remove().draw(false);
         eliminar_tabla(id[0]);
-    });
+    });*/
 
 });
 
@@ -100,6 +102,38 @@ function eliminar_tabla(id){
         }
     }
 
+    
+    //console.log($('#tabla').dataTable().fnSettings().fnRecordsTotal());
+
+    tot_items = $('#tabla').dataTable().fnSettings().fnRecordsTotal();
+    console.log(tot_items);
+
+    for(i=0; i<tot_items;i++){
+        var idd = $('#tabla').dataTable().fnGetData(i);
+        
+        if(idd[0]==id){
+            console.log(idd[0]);
+            console.log(id);
+
+            $('#tabla').DataTable().row(i).remove().draw(false);
+
+        }
+
+    }
+
+     /*
+
+    
+
+   console.log($('#tabla').dataTable().fnGetData());
+
+
+    for(idd in $('#tabla').dataTable().fnGetData(0)){
+        //idd = [0];
+        console.log(idd);
+
+    }*/
+
 }
 
 
@@ -117,8 +151,8 @@ function agregar_tabla(id){
                         consumos[cons].id,
                         consumos[cons].nombre,
                         "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
-                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> Horas",
-                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> Vatios",
+                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
+                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+">",
                         "<p id='"+id+"_total'></p>"
                     ]).draw();
 
@@ -130,7 +164,7 @@ function agregar_tabla(id){
                         consumos[cons].id,
                         consumos[cons].nombre,
                         "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
-                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'> Horas",
+                        "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
                         "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> BTU",
                         "<p id='"+id+"_total'></p>"
                     ]).draw();
@@ -219,7 +253,7 @@ function consumo(id){
     game.data.score=(consumo_total*30)/1000;
 
 
-    $('#'+id+'_total').text(total+" Vatios/hora");
+    $('#'+id+'_total').text(total+" W/h");
 
     if(game.data.score < game.data.conmax/3){
         sonidos.alerta1 = true;
