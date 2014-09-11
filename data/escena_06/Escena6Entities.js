@@ -12,8 +12,8 @@ game.Ducha = me.ObjectEntity.extend({
         this.getShape().pos.x = 20;
         this.getShape().pos.y = -30;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(330,260), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(470,260), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(370,260), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(510,260), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -24,25 +24,19 @@ game.Ducha = me.ObjectEntity.extend({
 
             me.audio.play("cambiar");
 
-            if(this.renderable.isCurrentAnimation("ducha_corona_off")){
+            if(this.renderable.isCurrentAnimation("ducha_corona_off") || this.renderable.isCurrentAnimation("ducha_corona_on")){
                 states.escena6.ducha = "ducha_normal";
                 this.renderable.setCurrentAnimation("ducha_normal");
+                eliminar_tabla("ducha_corona");
             }
 
-            else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
-                states.escena6.ducha = "ducha_normal2";
-                this.renderable.setCurrentAnimation("ducha_normal2");
-            }
-
-            else if(this.renderable.isCurrentAnimation("ducha_normal2")){
+            else {
                 states.escena6.ducha = "ducha_corona_off";
                 this.renderable.setCurrentAnimation("ducha_corona_off");
+                eliminar_tabla("ducha_corona");
             }
 
-            else{
-                states.escena6.ducha = "ducha_corona_on";
-                this.renderable.setCurrentAnimation("ducha_corona_on");
-            }
+        
 
         }
 
@@ -60,9 +54,9 @@ game.Ducha = me.ObjectEntity.extend({
             }
 
             else if(this.renderable.isCurrentAnimation("ducha_corona_on")){
-                agregar_tabla("ducha_corona");
                 states.escena6.ducha = "ducha_corona_off";
                 this.renderable.setCurrentAnimation("ducha_corona_off");
+                eliminar_tabla("ducha_corona");
             }
 
             else{
@@ -103,7 +97,7 @@ game.BombilloE6 = me.ObjectEntity.extend({
         this.getShape().pos.y = 25;
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
         me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(730,60), 32, 32), this.cambiarS.bind(this), false);
-        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(980,60), 32, 32), this.cambiarS.bind(this), false);
+        me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(990,60), 32, 32), this.cambiarS.bind(this), false);
         
     },
 
@@ -114,24 +108,17 @@ game.BombilloE6 = me.ObjectEntity.extend({
 
             me.audio.play("cambiar");
 
-            if(this.renderable.isCurrentAnimation("bom1_bano_on")){
-                states.escena6.bombillo = "bom2_bano_on";
-                this.renderable.setCurrentAnimation("bom2_bano_on");
-            }
-
-            else if(this.renderable.isCurrentAnimation("bom1_bano_off")){
+            if(this.renderable.isCurrentAnimation("bom1_bano_off") || this.renderable.isCurrentAnimation("bom1_bano_on")){
                 states.escena6.bombillo = "bom2_bano_off";
                 this.renderable.setCurrentAnimation("bom2_bano_off");
+                eliminar_tabla("bom1_bano");
             }
 
-            else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
-                states.escena6.bombillo = "bom1_bano_on";
-                this.renderable.setCurrentAnimation("bom1_bano_on");
-            }
 
             else{
                 states.escena6.bombillo = "bom1_bano_off";
                 this.renderable.setCurrentAnimation("bom1_bano_off");
+                eliminar_tabla("bom2_bano");
             }
 
         }
@@ -145,15 +132,15 @@ game.BombilloE6 = me.ObjectEntity.extend({
         if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
 
             if(this.renderable.isCurrentAnimation("bom1_bano_on")){
-                agregar_tabla("bom1_bano");
                 states.escena6.bombillo = "bom1_bano_off";
                 this.renderable.setCurrentAnimation("bom1_bano_off");
+                eliminar_tabla("bom1_bano");
             }
 
             else if(this.renderable.isCurrentAnimation("bom2_bano_on")){
-                agregar_tabla("bom2_bano");
                 states.escena6.bombillo = "bom2_bano_off";
                 this.renderable.setCurrentAnimation("bom2_bano_off");
+                eliminar_tabla("bom2_bano");
             }
             
             else if (this.renderable.isCurrentAnimation("bom2_bano_off")) {
@@ -204,9 +191,8 @@ game.Afeitadora = me.ObjectEntity.extend({
 
         if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
 
-            agregar_tabla("afeitadora");
-
             if(this.renderable.isCurrentAnimation("afeitadora_off")) {
+                agregar_tabla("afeitadora");
                 states.escena6.afeitadora = "afeitadora_on";
                 this.renderable.setCurrentAnimation("afeitadora_on");
             }
@@ -214,6 +200,7 @@ game.Afeitadora = me.ObjectEntity.extend({
             else{
                 states.escena6.afeitadora = "afeitadora_off";
                 this.renderable.setCurrentAnimation("afeitadora_off");
+                eliminar_tabla("afeitadora");
             }
 
         }
@@ -252,9 +239,10 @@ game.Secador = me.ObjectEntity.extend({
 
         if(me.levelDirector.getCurrentLevelId() == 'escena_06'){
         
-            agregar_tabla("secador");
+            
 
             if(this.renderable.isCurrentAnimation("secador_off")) {
+                agregar_tabla("secador");
                 states.escena6.secador = "secador_on";
                 this.renderable.setCurrentAnimation("secador_on");
             }
@@ -262,6 +250,7 @@ game.Secador = me.ObjectEntity.extend({
             else{
                 states.escena6.secador = "secador_off";
                 this.renderable.setCurrentAnimation("secador_off");
+                eliminar_tabla("secador");
             }
 
         }

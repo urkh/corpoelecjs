@@ -14,7 +14,7 @@
   </data>
  </layer>
  <objectgroup name="entrar_cuarto1" width="50" height="31">
-  <object name="entrar_cuarto1" x="744" y="468" width="66" height="55">
+  <object name="entrar_cuarto1" x="744" y="475" width="71" height="31">
    <properties>
     <property name="image" value="flechas"/>
     <property name="spriteheight" value="160"/>
@@ -23,7 +23,7 @@
   </object>
  </objectgroup>
  <objectgroup name="entrar_cuarto2" width="50" height="31">
-  <object name="entrar_cuarto2" x="777" y="558" width="62" height="57">
+  <object name="entrar_cuarto2" x="761" y="610" width="79" height="30">
    <properties>
     <property name="image" value="flechas"/>
     <property name="spriteheight" value="160"/>
@@ -50,7 +50,7 @@
   </object>
  </objectgroup>
  <objectgroup name="entrar_cocina" width="50" height="31">
-  <object name="entrar_cocina" x="59" y="290" width="108" height="107">
+  <object name="entrar_cocina" x="74" y="304" width="129" height="44">
    <properties>
     <property name="image" value="flechas"/>
     <property name="spriteheight" value="160"/>
@@ -68,7 +68,7 @@
   </object>
  </objectgroup>
  <objectgroup name="entrar_bano" width="50" height="31">
-  <object name="entrar_bano" x="695" y="555" width="69" height="64">
+  <object name="entrar_bano" x="698" y="544" width="82" height="34">
    <properties>
     <property name="image" value="flechas"/>
     <property name="spriteheight" value="160"/>

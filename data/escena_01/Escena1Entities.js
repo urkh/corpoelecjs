@@ -32,7 +32,7 @@ game.Inicio = me.ObjectEntity.extend({
 
           if(me.levelDirector.getCurrentLevelId() == 'escena_01'){
 
-            document.getElementById('tabla_consumos').style.visibility = 'visible';
+           // document.getElementById('tabla_consumos').style.visibility = 'visible';
             me.game.viewport.fadeIn("#000000", 450, 
 
                 (function (){

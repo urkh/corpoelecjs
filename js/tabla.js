@@ -3,14 +3,14 @@ $(document).ready(function() {
     $('#eliminar').tooltip();
 	
 	$('#tabla').DataTable({
-		scrollY: "200px",
-		scrollCollapse: true,
+		//scrollY: "200px",
+		//scrollCollapse: true,
 		bFilter: false,
 		bPaginate: false,
 		bSearchable: false,
 		bInfo: false,
         aaSorting: [[ 1, "asc" ]],
-        bJQueryUI: true,
+       // bJQueryUI: true,
         oLanguage:{
             sEmptyTable: "No ha seleccionado ning&uacute;n electrodom&eacute;stico"
         },
@@ -27,45 +27,6 @@ $(document).ready(function() {
 
 	});
 
-
-/*
-
-    var id=null;
-
-
-    $('#tabla tbody').on( 'click', 'tr', function () {
-        
-        id = $('#tabla').dataTable().fnGetData(this);
-       
-        if ($(this).hasClass('selected')){
-            $(this).removeClass('selected');
-        }
-
-        else {
-            
-            $('#tabla').DataTable().$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-
-            for(var _est in states) {
-                for(var _esc in states[_est]){
-                    if(states[_est][_esc] == id[0]+"_on"){
-                         $('#eliminar').attr("disabled", true);
-                    }
-
-                    if(states[_est][_esc] == id[0]+"_off"){
-                         $('#eliminar').attr("disabled", false);
-                    }
-                }
-            }
-        }
-    });
-
-
-    $('#eliminar').click( function () {
-        $('#tabla').DataTable().row('.selected').remove().draw(false);
-        eliminar_tabla(id[0]);
-    });*/
-
 });
 
 
@@ -75,17 +36,14 @@ var audio = {
 
 
 
-
-
 function hand(){
-        document.body.style.cursor = "pointer";
+    document.body.style.cursor = "pointer";
 
-            setTimeout(function(){
-
-                document.body.style.cursor = "default";
-            },2000);
-            
-    }
+    setTimeout(function(){
+        document.body.style.cursor = "default";
+    },2000);
+        
+}
 
 
 
@@ -112,27 +70,11 @@ function eliminar_tabla(id){
         var idd = $('#tabla').dataTable().fnGetData(i);
         
         if(idd[0]==id){
-            console.log(idd[0]);
-            console.log(id);
-
             $('#tabla').DataTable().row(i).remove().draw(false);
-
         }
 
     }
 
-     /*
-
-    
-
-   console.log($('#tabla').dataTable().fnGetData());
-
-
-    for(idd in $('#tabla').dataTable().fnGetData(0)){
-        //idd = [0];
-        console.log(idd);
-
-    }*/
 
 }
 

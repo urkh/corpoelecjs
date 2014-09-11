@@ -32,9 +32,18 @@ game.HUD.Pila = me.Renderable.extend({
 		this.pierde = new me.SpriteObject(1, 200, me.loader.getImage("pierde"), 1546, 517);
 		this.gana = new me.SpriteObject(1, 200, me.loader.getImage("gana"), 1536, 720);
 		me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1270,280), 200, 100), this.reset.bind(this), false);
+		me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1,10), 600, 100), this.showTable.bind(this), false);
 		
 		//this.score = -1;
 		this.floating = true;
+
+	},
+
+	showTable: function(){
+		$('#tb_consumos').modal({
+			backdrop:false,
+			keyboard:false
+		});
 
 	},
 
@@ -98,7 +107,6 @@ game.HUD.Pila = me.Renderable.extend({
 
             $('#tabla').DataTable().clear().draw()
             document.getElementById('fixedtop1').style.visibility = 'visible';
-            document.getElementById('tabla_consumos').style.visibility = 'hidden';
 			
 			me.game.viewport.fadeIn("#000000", 450, 
 

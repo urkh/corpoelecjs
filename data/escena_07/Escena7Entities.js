@@ -24,25 +24,18 @@ game.TelevisorE7 = me.ObjectEntity.extend({
     	if(me.levelDirector.getCurrentLevelId() == 'escena_07'){
 
 	        me.audio.play("cambiar");
+	        me.audio.stop("tv_cuarto2");
 
-	        if(this.renderable.isCurrentAnimation("tv1_cuarto2_on")){
-	            states.escena7.televisor = "tv2_cuarto2_on";
-	            this.renderable.setCurrentAnimation("tv2_cuarto2_on");
-	        }
-
-	        else if(this.renderable.isCurrentAnimation("tv1_cuarto2_off")){
+	        if(this.renderable.isCurrentAnimation("tv1_cuarto2_off") || this.renderable.isCurrentAnimation("tv1_cuarto2_on")){
 	            states.escena7.televisor = "tv2_cuarto2_off";
 	            this.renderable.setCurrentAnimation("tv2_cuarto2_off");
-	        }
-
-	        else if(this.renderable.isCurrentAnimation("tv2_cuarto2_on")){
-	            states.escena7.televisor = "tv1_cuarto2_on";
-	            this.renderable.setCurrentAnimation("tv1_cuarto2_on");
+	            eliminar_tabla("tv1_cuarto2");
 	        }
 
 	        else{      
 	            states.escena7.televisor = "tv1_cuarto2_off";   
 	            this.renderable.setCurrentAnimation("tv1_cuarto2_off");
+	            eliminar_tabla("tv2_cuarto2");
 	        }
 
 	    }
@@ -56,9 +49,9 @@ game.TelevisorE7 = me.ObjectEntity.extend({
 
 	        if(this.renderable.isCurrentAnimation("tv1_cuarto2_on")){
 	            me.audio.stop("tv_cuarto2");
-	            agregar_tabla("tv1_cuarto2");
 	            states.escena7.televisor = "tv1_cuarto2_off";
 	            this.renderable.setCurrentAnimation("tv1_cuarto2_off");
+	            eliminar_tabla("tv1_cuarto2");
 	        }
 
 	        else if(this.renderable.isCurrentAnimation("tv1_cuarto2_off")){
@@ -70,9 +63,9 @@ game.TelevisorE7 = me.ObjectEntity.extend({
 
 	        else if(this.renderable.isCurrentAnimation("tv2_cuarto2_on")){
 	            me.audio.stop("tv_cuarto2");
-	            agregar_tabla("tv2_cuarto2");
 	            states.escena7.televisor = "tv2_cuarto2_off";
 	            this.renderable.setCurrentAnimation("tv2_cuarto2_off");
+	            eliminar_tabla("tv2_cuarto2");
 	        }
 
 	        else{
@@ -120,70 +113,71 @@ game.AcE7 = me.ObjectEntity.extend({
 
     cambiarS: function(){
 
+        if(me.levelDirector.getCurrentLevelId() == 'escena_07'){
 
-    	if(me.levelDirector.getCurrentLevelId() == 'escena_07'){
+            me.audio.play("cambiar");
 
-	        me.audio.play("cambiar");
+            if(this.renderable.isCurrentAnimation("ac1_cuarto2_off") || this.renderable.isCurrentAnimation("ac1_cuarto2_on")){
+                states.escena7.ac = "ac2_cuarto2_off";
+                this.renderable.setCurrentAnimation("ac2_cuarto2_off");
+                this.getShape().resize(164,164);
+                this.getShape().pos.x = 230;
+                this.getShape().pos.y = -40;
+                eliminar_tabla("ac1_cuarto2");
+            }
 
-	        if(this.renderable.isCurrentAnimation("ac1_cuarto2_off")){
-	            states.escena7.ac = "ac2_cuarto2_off";
-	            this.renderable.setCurrentAnimation("ac2_cuarto2_off");
-	        }
+            else {
+                states.escena7.ac = "ac1_cuarto2_off";
+                this.renderable.setCurrentAnimation("ac1_cuarto2_off");
+                this.getShape().resize(164,164);
+                this.getShape().pos.x = 240;
+                this.getShape().pos.y = -40;
+                eliminar_tabla("ac2_cuarto2");
+                
 
-	        else if(this.renderable.isCurrentAnimation("ac2_cuarto2_off")){
-	            states.escena7.ac = "ac1_cuarto2_off";
-	            this.renderable.setCurrentAnimation("ac1_cuarto2_off");
-	        }
+            }
 
-	        else if(this.renderable.isCurrentAnimation("ac1_cuarto2_on")){
-	            states.escena7.ac = "ac2_cuarto2_on";
-	            this.renderable.setCurrentAnimation("ac2_cuarto2_on");
-	        }
 
-	        else{
-	            states.escena7.ac = "ac1_cuarto2_on";
-	            this.renderable.setCurrentAnimation("ac1_cuarto2_on");
-	        }
+        }
 
-	    }
 
     },
 
-
     onMouseDown : function() {
 
-
-    	if(me.levelDirector.getCurrentLevelId() == 'escena_07'){
+        if(me.levelDirector.getCurrentLevelId() == 'escena_07'){
     
-	        if(this.renderable.isCurrentAnimation("ac1_cuarto2_off")){
-	            agregar_tabla("ac1_cuarto2");
-	            states.escena7.ac = "ac1_cuarto2_on";
-	            this.renderable.setCurrentAnimation("ac1_cuarto2_on");
-	        }
+            if(this.renderable.isCurrentAnimation("ac1_cuarto2_off")){
+                agregar_tabla("ac1_cuarto2");
+                states.escena7.ac = "ac1_cuarto2_on";
+                this.renderable.setCurrentAnimation("ac1_cuarto2_on");
+            }
 
-	        else if(this.renderable.isCurrentAnimation("ac2_cuarto2_off")){
-	            agregar_tabla("ac2_cuarto2");
-	            states.escena7.ac = "ac2_cuarto2_on";
-	            this.renderable.setCurrentAnimation("ac2_cuarto2_on");
-	        }
+            else if(this.renderable.isCurrentAnimation("ac2_cuarto2_off")){
+                agregar_tabla("ac2_cuarto2");
+                states.escena7.ac = "ac2_cuarto2_on";
+                this.renderable.setCurrentAnimation("ac2_cuarto2_on");
+            }
 
-	        else if(this.renderable.isCurrentAnimation("ac1_cuarto2_on")){
-	            agregar_tabla("ac1_cuarto2");
-	            states.escena7.ac = "ac1_cuarto2_off";
-	            this.renderable.setCurrentAnimation("ac1_cuarto2_off");
-	        }
+            else if(this.renderable.isCurrentAnimation("ac1_cuarto2_on")){
+                states.escena7.ac = "ac1_cuarto2_off";
+                this.renderable.setCurrentAnimation("ac1_cuarto2_off");
+                eliminar_tabla("ac1_cuarto2");
+            }
 
-	        else{
-	            agregar_tabla("ac2_cuarto2");
-	            states.escena7.ac = "ac2_cuarto2_off";
-	            this.renderable.setCurrentAnimation("ac2_cuarto2_off");
-	        }
+            else{
+                states.escena7.ac = "ac2_cuarto2_off";
+                this.renderable.setCurrentAnimation("ac2_cuarto2_off");
+                eliminar_tabla("ac2_cuarto2");
+            }
 
-	    }
+        }
         
         return false;
     
     },
+
+
 
     update: function(dt){
 
@@ -224,24 +218,16 @@ game.BombilloE7 = me.ObjectEntity.extend({
 
 	        me.audio.play("cambiar");
 
-	        if(this.renderable.isCurrentAnimation("bom1_cuarto2_on")){
-	            states.escena7.bombillo = "bom2_cuarto2_on";
-	            this.renderable.setCurrentAnimation("bom2_cuarto2_on");
-	        }
-
-	        else if(this.renderable.isCurrentAnimation("bom1_cuarto2_off")){
+	        if(this.renderable.isCurrentAnimation("bom1_cuarto2_off") || this.renderable.isCurrentAnimation("bom1_cuarto2_on")){
 	            states.escena7.bombillo = "bom2_cuarto2_off";
 	            this.renderable.setCurrentAnimation("bom2_cuarto2_off");
-	        }
-
-	        else if(this.renderable.isCurrentAnimation("bom2_cuarto2_on")){
-	            states.escena7.bombillo = "bom1_cuarto2_on";
-	            this.renderable.setCurrentAnimation("bom1_cuarto2_on");
+	            eliminar_tabla("bom1_cuarto2");
 	        }
 
 	        else{
 	            states.escena7.bombillo = "bom1_cuarto2_off";
 	            this.renderable.setCurrentAnimation("bom1_cuarto2_off");
+	            eliminar_tabla("bom2_cuarto2");
 	        }
 
 
@@ -256,15 +242,15 @@ game.BombilloE7 = me.ObjectEntity.extend({
     	if(me.levelDirector.getCurrentLevelId() == 'escena_07'){
 
 	        if(this.renderable.isCurrentAnimation("bom1_cuarto2_on")){
-	            agregar_tabla("bom1_cuarto2");
 	            states.escena7.bombillo = "bom1_cuarto2_off";
 	            this.renderable.setCurrentAnimation("bom1_cuarto2_off");
+	            eliminar_tabla("bom1_cuarto2");
 	        }
 
 	        else if(this.renderable.isCurrentAnimation("bom2_cuarto2_on")){
-	            agregar_tabla("bom2_cuarto2");
 	            states.escena7.bombillo = "bom2_cuarto2_off";
 	            this.renderable.setCurrentAnimation("bom2_cuarto2_off");
+	            eliminar_tabla("bom2_cuarto2");
 	        }
 	        
 	        else if (this.renderable.isCurrentAnimation("bom2_cuarto2_off")) {
@@ -321,27 +307,19 @@ game.Lampara3 = me.ObjectEntity.extend({
 
 	        me.audio.play("cambiar");
 
-	        if(this.renderable.isCurrentAnimation("lamp1_cuarto2_off")){
-	                   
+	        if(this.renderable.isCurrentAnimation("lamp1_cuarto2_off") || this.renderable.isCurrentAnimation("lamp1_cuarto2_on")){
 	            states.escena7.lampara1 = "lamp2_cuarto2_off";
 	            this.renderable.setCurrentAnimation("lamp2_cuarto2_off");
+	            eliminar_tabla("lamp1_cuarto2");
 
 	        }
 
-	        else if(this.renderable.isCurrentAnimation("lamp2_cuarto2_off")){
+	        else {
 	            states.escena7.lampara1 = "lamp1_cuarto2_off";
 	            this.renderable.setCurrentAnimation("lamp1_cuarto2_off");
+	            eliminar_tabla("lamp2_cuarto2");
 	        }
 
-	        else if(this.renderable.isCurrentAnimation("lamp1_cuarto2_on")){
-	            states.escena7.lampara1 = "lamp2_cuarto2_on";
-	            this.renderable.setCurrentAnimation("lamp2_cuarto2_on");
-	        }
-
-	        else{
-	            states.escena7.lampara1 = "lamp1_cuarto2_on";
-	            this.renderable.setCurrentAnimation("lamp1_cuarto2_on");
-	        }
 	    }
 
 
@@ -367,15 +345,15 @@ game.Lampara3 = me.ObjectEntity.extend({
 	        }
 
 	        else if(this.renderable.isCurrentAnimation("lamp1_cuarto2_on")){
-	            agregar_tabla("lamp1_cuarto2");
 	            states.escena7.lampara1 = "lamp1_cuarto2_off";
 	            this.renderable.setCurrentAnimation("lamp1_cuarto2_off");
+	            eliminar_tabla("lamp1_cuarto2");
 	        }
 
 	        else{
-	            agregar_tabla("lamp2_cuarto2");
 	            states.escena7.lampara1 = "lamp2_cuarto2_off";
 	            this.renderable.setCurrentAnimation("lamp2_cuarto2_off");
+	            eliminar_tabla("lamp2_cuarto2");
 	        }
 
 

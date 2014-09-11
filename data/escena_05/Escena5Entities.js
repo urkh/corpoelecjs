@@ -23,24 +23,16 @@ game.Computadora= me.ObjectEntity.extend({
 
             me.audio.play("cambiar");
 
-            if(this.renderable.isCurrentAnimation("pc1_on")){
-                states.escena5.computadora = "pc2_on";
-                this.renderable.setCurrentAnimation("pc2_on");
-            }
-
-            else if(this.renderable.isCurrentAnimation("pc1_off")){
+            if(this.renderable.isCurrentAnimation("pc1_off") || this.renderable.isCurrentAnimation("pc1_on")){
                 states.escena5.computadora = "pc2_off";
                 this.renderable.setCurrentAnimation("pc2_off");
-            }
-
-            else if(this.renderable.isCurrentAnimation("pc2_on")){
-                states.escena5.computadora = "pc1_on";
-                this.renderable.setCurrentAnimation("pc1_on");
+                eliminar_tabla("pc1");
             }
 
             else{
                 states.escena5.computadora = "pc1_off";
                 this.renderable.setCurrentAnimation("pc1_off");
+                eliminar_tabla("pc2");
             }
 
         }
@@ -54,9 +46,9 @@ game.Computadora= me.ObjectEntity.extend({
         if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
             if(this.renderable.isCurrentAnimation("pc1_on")){
-                agregar_tabla("pc1");
                 states.escena5.computadora = "pc1_off";
                 this.renderable.setCurrentAnimation("pc1_off");
+                eliminar_tabla("pc1");
             }
 
             else if(this.renderable.isCurrentAnimation("pc1_off")){
@@ -66,9 +58,9 @@ game.Computadora= me.ObjectEntity.extend({
             }
 
             else if(this.renderable.isCurrentAnimation("pc2_on")){
-                agregar_tabla("pc2");
                 states.escena5.computadora = "pc2_off";
                 this.renderable.setCurrentAnimation("pc2_off");
+                eliminar_tabla("pc2");
             }
 
             else{
@@ -120,26 +112,17 @@ game.Lampara = me.ObjectEntity.extend({
 
             me.audio.play("cambiar");
 
-            if(this.renderable.isCurrentAnimation("lamp1_cuarto1_off")){
-                       
+            if(this.renderable.isCurrentAnimation("lamp1_cuarto1_off") || this.renderable.isCurrentAnimation("lamp1_cuarto1_on")){          
                 states.escena5.lampara1 = "lamp2_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp2_cuarto1_off");
+                eliminar_tabla("lamp1_cuarto1");
 
             }
 
-            else if(this.renderable.isCurrentAnimation("lamp2_cuarto1_off")){
+            else {
                 states.escena5.lampara1 = "lamp1_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp1_cuarto1_off");
-            }
-
-            else if(this.renderable.isCurrentAnimation("lamp1_cuarto1_on")){
-                states.escena5.lampara1 = "lamp2_cuarto1_on";
-                this.renderable.setCurrentAnimation("lamp2_cuarto1_on");
-            }
-
-            else{
-                states.escena5.lampara1 = "lamp1_cuarto1_on";
-                this.renderable.setCurrentAnimation("lamp1_cuarto1_on");
+                eliminar_tabla("lamp2_cuarto1");
             }
 
         }
@@ -166,15 +149,15 @@ game.Lampara = me.ObjectEntity.extend({
             }
 
             else if(this.renderable.isCurrentAnimation("lamp1_cuarto1_on")){
-                agregar_tabla("lamp1_cuarto1");
                 states.escena5.lampara1 = "lamp1_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp1_cuarto1_off");
+                eliminar_tabla("lamp1_cuarto1");
             }
 
             else{
-                agregar_tabla("lamp2_cuarto1");
                 states.escena5.lampara1 = "lamp2_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp2_cuarto1_off");
+                eliminar_tabla("lamp2_cuarto1");
             }
 
         }
@@ -220,26 +203,18 @@ game.Lampara2 = me.ObjectEntity.extend({
 
             me.audio.play("cambiar");
 
-            if(this.renderable.isCurrentAnimation("lamp3_cuarto1_off")){
+            if(this.renderable.isCurrentAnimation("lamp3_cuarto1_off") || this.renderable.isCurrentAnimation("lamp3_cuarto1_on")){
                        
                 states.escena5.lampara2 = "lamp4_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp4_cuarto1_off");
+                eliminar_tabla("lamp3_cuarto1");
 
             }
 
-            else if(this.renderable.isCurrentAnimation("lamp4_cuarto1_off")){
+            else {
                 states.escena5.lampara2 = "lamp3_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp3_cuarto1_off");
-            }
-
-            else if(this.renderable.isCurrentAnimation("lamp3_cuarto1_on")){
-                states.escena5.lampara2 = "lamp4_cuarto1_on";
-                this.renderable.setCurrentAnimation("lamp4_cuarto1_on");
-            }
-
-            else{
-                states.escena5.lampara2 = "lamp3_cuarto1_on";
-                this.renderable.setCurrentAnimation("lamp3_cuarto1_on");
+                eliminar_tabla("lamp4_cuarto1");
             }
 
         }
@@ -266,15 +241,15 @@ game.Lampara2 = me.ObjectEntity.extend({
             }
 
             else if(this.renderable.isCurrentAnimation("lamp3_cuarto1_on")){
-                agregar_tabla("lamp3_cuarto1");
                 states.escena5.lampara2 = "lamp3_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp3_cuarto1_off");
+                eliminar_tabla("lamp3_cuarto1");
             }
 
             else{
-                agregar_tabla("lamp4_cuarto1");
                 states.escena5.lampara2 = "lamp4_cuarto1_off";
                 this.renderable.setCurrentAnimation("lamp4_cuarto1_off");
+                eliminar_tabla("lamp4_cuarto1");
             }
 
         }
@@ -324,24 +299,16 @@ game.BombilloE5 = me.ObjectEntity.extend({
 
             me.audio.play("cambiar");
 
-            if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
-                states.escena5.bombillo = "bom2_cuarto1_on";
-                this.renderable.setCurrentAnimation("bom2_cuarto1_on");
-            }
-
-            else if(this.renderable.isCurrentAnimation("bom1_cuarto1_off")){
+            if(this.renderable.isCurrentAnimation("bom1_cuarto1_off") || this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
                 states.escena5.bombillo = "bom2_cuarto1_off";
                 this.renderable.setCurrentAnimation("bom2_cuarto1_off");
-            }
-
-            else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
-                states.escena5.bombillo = "bom1_cuarto1_on";
-                this.renderable.setCurrentAnimation("bom1_cuarto1_on");
+                eliminar_tabla("bom1_cuarto1");
             }
 
             else{
                 states.escena5.bombillo = "bom1_cuarto1_off";
                 this.renderable.setCurrentAnimation("bom1_cuarto1_off");
+                eliminar_tabla("bom2_cuarto1");
             }
 
         }
@@ -355,15 +322,15 @@ game.BombilloE5 = me.ObjectEntity.extend({
         if(me.levelDirector.getCurrentLevelId() == 'escena_05'){
 
             if(this.renderable.isCurrentAnimation("bom1_cuarto1_on")){
-                agregar_tabla("bom1_cuarto1");
                 states.escena5.bombillo = "bom1_cuarto1_off";
                 this.renderable.setCurrentAnimation("bom1_cuarto1_off");
+                eliminar_tabla("bom1_cuarto1");
             }
 
             else if(this.renderable.isCurrentAnimation("bom2_cuarto1_on")){
-                agregar_tabla("bom2_cuarto1");
                 states.escena5.bombillo = "bom2_cuarto1_off";
                 this.renderable.setCurrentAnimation("bom2_cuarto1_off");
+                eliminar_tabla("bom2_cuarto1");
             }
             
             else if (this.renderable.isCurrentAnimation("bom2_cuarto1_off")) {
@@ -424,33 +391,26 @@ game.Ac = me.ObjectEntity.extend({
 
             me.audio.play("cambiar");
 
-            if(this.renderable.isCurrentAnimation("ac1_cuarto1_off")){
+            if(this.renderable.isCurrentAnimation("ac1_cuarto1_off") || this.renderable.isCurrentAnimation("ac1_cuarto1_on")){
                 states.escena5.ac = "ac2_cuarto1_off";
                 this.renderable.setCurrentAnimation("ac2_cuarto1_off");
                 this.getShape().resize(164,164);
                 this.getShape().pos.x = 230;
                 this.getShape().pos.y = -40;
+                eliminar_tabla("ac1_cuarto1");
             }
 
-            else if(this.renderable.isCurrentAnimation("ac2_cuarto1_off")){
+            else {
                 states.escena5.ac = "ac1_cuarto1_off";
                 this.renderable.setCurrentAnimation("ac1_cuarto1_off");
                 this.getShape().resize(164,164);
                 this.getShape().pos.x = 240;
                 this.getShape().pos.y = -40;
+                eliminar_tabla("ac2_cuarto1");
                 
 
             }
 
-            else if(this.renderable.isCurrentAnimation("ac1_cuarto1_on")){
-                states.escena5.ac = "ac2_cuarto1_on";
-                this.renderable.setCurrentAnimation("ac2_cuarto1_on");
-            }
-
-            else{
-                states.escena5.ac = "ac1_cuarto1_on";
-                this.renderable.setCurrentAnimation("ac1_cuarto1_on");
-            }
 
         }
 
@@ -476,15 +436,15 @@ game.Ac = me.ObjectEntity.extend({
             }
 
             else if(this.renderable.isCurrentAnimation("ac1_cuarto1_on")){
-                agregar_tabla("ac1_cuarto1");
                 states.escena5.ac = "ac1_cuarto1_off";
                 this.renderable.setCurrentAnimation("ac1_cuarto1_off");
+                eliminar_tabla("ac1_cuarto1");
             }
 
             else{
-                agregar_tabla("ac2_cuarto1");
                 states.escena5.ac = "ac2_cuarto1_off";
                 this.renderable.setCurrentAnimation("ac2_cuarto1_off");
+                eliminar_tabla("ac2_cuarto1");
             }
 
         }

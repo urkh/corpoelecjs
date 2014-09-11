@@ -7,10 +7,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		 
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"> 
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="lib/dataTables/css/jquery.dataTables.min.css">
-		<link rel="stylesheet" type="text/css" href="lib/dataTables/css/dataTables.tableTools.css">
+		
 
 		<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
@@ -24,106 +22,111 @@
 	</head>
 	<body background="data/img/bg.min.png">
 
-		<div id="gral">
-			<div id="juego" >
-
-				
-			</div>
-			<div id="tabla_consumos" style="width: 30%; visibility: hidden;" >
+	<div id="juego" align="center"></div>
 			
-				<table id="tabla" class="display" cellspacing="0" >
+	<div class="modal" id="tb_consumos" aria-labelledby="" tabindex="-1" role="dialog" >
+	  <div class="modal-dialog modal-lg">
+
+	    <div class="modal-content">
+
+	    	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+	        	<h4 class="modal-title">Lista de Electrodom&eacute;sticos</h4>
+	     	</div>
+
+	      	<div class="modal-body">
+
+	      		
+	        				
+				<table id="tabla" class="table table-bordered"  >
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th width="15%">Electrodom&eacute;stico</th>
+							<th width="10%" >Electrodom&eacute;stico</th>
 							<th width="15%">Cantidad</th>
 							<th width="15%">Horas</th>
-							<th width="15%">Vatios</th>
-							<th width="15%">Total</th>
+							<th width="25%">Vatios</th>
+							<th width="25%">Total</th>
 						</tr>
 					</thead>
-					<tbody align="center">
-
-					</tbody>
+					<tbody ></tbody>
 
 				</table>
+				
+						
+	      </div>
 
-			</div>
-		</div>
+	    </div>
+	  </div>
+	</div>
 
-		
+	<div id="fixedtop1">
+	<div id="center250a">
+	<select class="form-control" id="select_estados" name="select_estados" style="width:100%;">
+	    	
+	    <option value="0">Seleccionar Ubicaci&oacute;n</option>	
+          <option value="am">Amazonas</option>
+          <option value="an">Anzo&aacute;tegui</option>
+          <option value="ap">Apure</option>
+          <option value="ar">Aragua</option>
+          <option value="ba">Barinas</option>
+          <option value="bo">Bolivar</option>
+          <option value="ca">Carabobo</option>
+          <option value="co">Cojedes</option>
+          <option value="dm">Delta Amacuro</option>
+          <option value="dc">Distrito Capital</option>
+          <option value="fa">Falc&oacute;n</option>
+          <option value="gu">Guarico</option>
+          <option value="la">Lara</option>
+          <option value="me">M&eacute;rida</option>
+          <option value="mi">Miranda</option>
+          <option value="mo">Monagas</option>
+          <option value="ne">Nueva Esparta</option>
+          <option value="po">Portuguesa</option>
+          <option value="su">Sucre</option>
+          <option value="ta">T&aacute;chira</option>
+          <option value="tr">Trujillo</option>
+          <option value="va">Vargas</option>
+          <option value="ya">Yaracuy</option>
+          <option value="zu">Zulia</option>
+     </select>
+	
+	</div>
+	</div> 
+	
 
-
-		
-
-
-		<div id="fixedtop1">
-		<div id="center250a">
-		<select class="form-control" id="select_estados" name="select_estados" style="width:100%;">
-		    	
-		    <option value="0">Seleccionar Ubicaci&oacute;n</option>	
-              <option value="am">Amazonas</option>
-              <option value="an">Anzo&aacute;tegui</option>
-              <option value="ap">Apure</option>
-              <option value="ar">Aragua</option>
-              <option value="ba">Barinas</option>
-              <option value="bo">Bolivar</option>
-              <option value="ca">Carabobo</option>
-              <option value="co">Cojedes</option>
-              <option value="dm">Delta Amacuro</option>
-              <option value="dc">Distrito Capital</option>
-              <option value="fa">Falc&oacute;n</option>
-              <option value="gu">Guarico</option>
-              <option value="la">Lara</option>
-              <option value="me">M&eacute;rida</option>
-              <option value="mi">Miranda</option>
-              <option value="mo">Monagas</option>
-              <option value="ne">Nueva Esparta</option>
-              <option value="po">Portuguesa</option>
-              <option value="su">Sucre</option>
-              <option value="ta">T&aacute;chira</option>
-              <option value="tr">Trujillo</option>
-              <option value="va">Vargas</option>
-              <option value="ya">Yaracuy</option>
-              <option value="zu">Zulia</option>
-         </select>
-		
-		</div>
-		</div> 
-		
-
-		
+	
 
 
-		<script type="text/javascript" src="lib/melonJS-1.0.2-min.js"></script>
-		<script type="text/javascript" src="lib/plugins/debugPanel.js"></script>
+	<script type="text/javascript" src="lib/melonJS-1.0.2-min.js"></script>
+	<script type="text/javascript" src="lib/plugins/debugPanel.js"></script>
 
-		<script type="text/javascript" src="js/game.js"></script>
-		<script type="text/javascript" src="js/HUD.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+	<script type="text/javascript" src="js/HUD.js"></script>
 
-		<script type="text/javascript" src="js/resources.js"></script>
-		<script type="text/javascript" src="js/funciones.js"></script>
-		
+	<script type="text/javascript" src="js/resources.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	
 
-		<script type="text/javascript" src="data/escena_01/Escena1Entities.js"></script> 
-		<script type="text/javascript" src="data/escena_02/Escena2Entities.js"></script>
-		<script type="text/javascript" src="data/escena_03/Escena3Entities.js"></script>
-		<script type="text/javascript" src="data/escena_04/Escena4Entities.js"></script>
-		<script type="text/javascript" src="data/escena_05/Escena5Entities.js"></script>
-		<script type="text/javascript" src="data/escena_06/Escena6Entities.js"></script>
-		<script type="text/javascript" src="data/escena_07/Escena7Entities.js"></script>
-		
-		<script type="text/javascript" src="js/title.js"></script>
-		<script type="text/javascript" src="js/play.js"></script>
-		<script type="text/javascript" src="js/consumos.json"></script>
+	<script type="text/javascript" src="data/escena_01/Escena1Entities.js"></script> 
+	<script type="text/javascript" src="data/escena_02/Escena2Entities.js"></script>
+	<script type="text/javascript" src="data/escena_03/Escena3Entities.js"></script>
+	<script type="text/javascript" src="data/escena_04/Escena4Entities.js"></script>
+	<script type="text/javascript" src="data/escena_05/Escena5Entities.js"></script>
+	<script type="text/javascript" src="data/escena_06/Escena6Entities.js"></script>
+	<script type="text/javascript" src="data/escena_07/Escena7Entities.js"></script>
+	
+	<script type="text/javascript" src="js/title.js"></script>
+	<script type="text/javascript" src="js/play.js"></script>
+	<script type="text/javascript" src="js/consumos.json"></script>
 
 
 
-		<script type="text/javascript">
-			window.onReady(function onReady() {
-				game.onload();
-			});
-		</script>
+	<script type="text/javascript">
+		window.onReady(function onReady() {
+			game.onload();
+		});
+	</script>
 
 
 
