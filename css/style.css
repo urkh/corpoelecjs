@@ -4,6 +4,7 @@
 }
 
 
+
 .modal, .modal.fade.in {
     top: 10%; 
 }
@@ -44,49 +45,40 @@ input[type="number"] {
 }
 
 
-@media (min-width: 800px) { 
+@media (min-width: 700px) { 
 
-#fixedtop1 { position: absolute; top: 270px; /*left: -390px;*/ right: 660px; border: none; z-index: 50; visibility: hidden;}
+#fixedtop1 { position: absolute; top: 41%; /*left: -390px;*/ right: 59%; border: none; z-index: 50; visibility: hidden;}
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
 
 
-@media (min-width: 1024px) { 
+@media (min-width: 1000px) { 
 
-#fixedtop1 { position: absolute; top: 270px; left: -550px; right: 0; border: none; z-index: 50; visibility: hidden;}
+#fixedtop1 { position: absolute; top: 40%; /*left: -550px;*/ right: 63%; border: none; z-index: 50; visibility: hidden;}
+#center250a { width: 250px; margin: auto; background-color: transparent; } 
+
+}
+
+@media (min-width: 1200px) { 
+
+#fixedtop1 { position: absolute; top: 41%; /*left: -525px;*/ right: 63%; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
 
 
 
-@media (min-width: 1280px) { 
+@media only screen and (min-width: 1360px) { 
 
-#fixedtop1 { position: absolute; top: 270px; /*left: -525px;*/ right: 23px; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 43%; /*left: -570px;*/ right: 60%; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
 
+@media only screen and (min-width: 1366px) { 
 
-@media (min-width: 1280px) and (min-height: 800px) { 
-
-#fixedtop1 { position: absolute; top: 342px; left: -760px; right: 0; border: none; z-index: 50; visibility: hidden; }
-#center250a { width: 250px; margin: auto; background-color: transparent; } 
-
-}
-
-
-@media (min-width: 1360px) { 
-
-#fixedtop1 { position: absolute; top: 278px; left: -570px;right: 0; border: none; z-index: 50; visibility: hidden; }
-#center250a { width: 250px; margin: auto; background-color: transparent; } 
-
-}
-
-@media (min-width: 1366px) { 
-
-#fixedtop1 { position: absolute; top: 328px; /*left: -570px;*/ right: 150px; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 43%; /*left: -570px;*/ right: 60%; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
@@ -94,25 +86,21 @@ input[type="number"] {
 
 @media (min-width: 1920px) and (min-height: 900px) { 
 
-#fixedtop1 { position: fixed; top: 385px; left: -880px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 43%; /*left: -880px;*/ right: 60%; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
 
+@media (min-width: 1370px){ 
 
-@media (min-width: 1440px){ 
-
-#fixedtop1 { position: absolute; top: 390px; /*left: -890px;*/ right: 328px; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 42%; /*left: -890px;*/ right: 69%; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
-
-
 }
-
 
 @media (min-width: 1650px) and (min-height: 1050px) { 
 
-#fixedtop1 { position: absolute; top: 445px; left: -1050px; right: 0; border: none; z-index: 50; visibility: hidden; }
+#fixedtop1 { position: absolute; top: 43%; /*left: -1050px;*/ right: 69%; border: none; z-index: 50; visibility: hidden; }
 #center250a { width: 250px; margin: auto; background-color: transparent; } 
 
 }
