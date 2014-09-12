@@ -2,7 +2,7 @@ consumos = {
 
     "bom1_sala": {
         "id": "bom1_sala",
-        "nombre":"Bombillo Ahorrador Sal&oacute;n",
+        "nombre":"Bombillo Ahorrador Sala",
         "kw":30,
         "consumo":0,
         "apagado":true,
@@ -12,7 +12,7 @@ consumos = {
 
     "bom2_sala": {
         "id": "bom2_sala",
-        "nombre":"Bombillo Normal Sal&oacute;n",
+        "nombre":"Bombillo Normal Sala",
         "kw":100,
         "consumo":0,
         "apagado":true,
@@ -124,7 +124,7 @@ consumos = {
 
     "tv1_sala": {
         "id":"tv1_sala",
-        "nombre":"TV LCD Sal&oacute;n",
+        "nombre":"TV LCD Sala",
     	"kw": 205,
     	"consumo": 0,
         "apagado":true,
@@ -134,7 +134,7 @@ consumos = {
 
     "tv2_sala": {
         "id":"tv2_sala",
-        "nombre":"TV Plasma Sal&oacute;n",
+        "nombre":"TV Plasma Sala",
         "kw": 250,
         "consumo": 0,
         "apagado":true,
@@ -144,7 +144,7 @@ consumos = {
 
     "tv3_sala": {
         "id":"tv3_sala",
-        "nombre":"TV CRT Sal&oacute;n",
+        "nombre":"TV CRT Sala",
         "kw": 280,
         "consumo": 0,
         "apagado":true,
@@ -174,7 +174,7 @@ consumos = {
 
     "radio_r": {
         "id": "radio_r",
-        "nombre":"Radio Reproductor Sal&oacute;n",
+        "nombre":"Radio Reproductor Sala",
         "kw": 80,
         "consumo": 0,
         "apagado":true,
@@ -341,7 +341,7 @@ consumos = {
 
     "ac1_cuarto3":{
         "id":"ac1_cuarto3",
-        "nombre":"A/A Split Sal&oacute;n",
+        "nombre":"A/A Split Sala",
         "kw":12000,
         "consumo":0,
         "apagado":true,
@@ -350,7 +350,7 @@ consumos = {
 
     "ac2_cuarto3":{
         "id":"ac2_cuarto3",
-        "nombre":"A/A Ventana Sal&oacute;n",
+        "nombre":"A/A Ventana Sala",
         "kw":5000,
         "consumo":0,
         "apagado":true,

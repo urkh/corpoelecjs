@@ -106,7 +106,6 @@ game.HUD.Pila = me.Renderable.extend({
 		    }
 
             $('#tabla').DataTable().clear().draw()
-            document.getElementById('fixedtop1').style.visibility = 'visible';
 			
 			me.game.viewport.fadeIn("#000000", 450, 
 

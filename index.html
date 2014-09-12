@@ -60,39 +60,64 @@
 	  </div>
 	</div>
 
-	<div id="fixedtop1">
-	<div id="center250a">
-	<select class="form-control" id="select_estados" name="select_estados" style="width:100%;">
+
+
+	<div class="modal" id="modal_estado" aria-labelledby="" tabindex="-1" role="dialog" >
+	  <div class="modal-dialog modal-sm">
+
+	    <div class="modal-content">
+
+	    	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+	        	<h4 class="modal-title">Seleccionar ubicaci&oacute;n</h4>
+	     	</div>
+
+	      	<div class="modal-body">
+
+	      	  <select class="form-control" id="select_estados" name="select_estados" style="width:100%;" data-toggle="tooltip" data-placement="left" title="Debe seleccionar su ubicaci&oacute;n">
 	    	
-	    <option value="0">Seleccionar Ubicaci&oacute;n</option>	
-          <option value="am">Amazonas</option>
-          <option value="an">Anzo&aacute;tegui</option>
-          <option value="ap">Apure</option>
-          <option value="ar">Aragua</option>
-          <option value="ba">Barinas</option>
-          <option value="bo">Bolivar</option>
-          <option value="ca">Carabobo</option>
-          <option value="co">Cojedes</option>
-          <option value="dm">Delta Amacuro</option>
-          <option value="dc">Distrito Capital</option>
-          <option value="fa">Falc&oacute;n</option>
-          <option value="gu">Guarico</option>
-          <option value="la">Lara</option>
-          <option value="me">M&eacute;rida</option>
-          <option value="mi">Miranda</option>
-          <option value="mo">Monagas</option>
-          <option value="ne">Nueva Esparta</option>
-          <option value="po">Portuguesa</option>
-          <option value="su">Sucre</option>
-          <option value="ta">T&aacute;chira</option>
-          <option value="tr">Trujillo</option>
-          <option value="va">Vargas</option>
-          <option value="ya">Yaracuy</option>
-          <option value="zu">Zulia</option>
-     </select>
-	
+			    <option value="0">Seleccionar Ubicaci&oacute;n</option>	
+		          <option value="am">Amazonas</option>
+		          <option value="an">Anzo&aacute;tegui</option>
+		          <option value="ap">Apure</option>
+		          <option value="ar">Aragua</option>
+		          <option value="ba">Barinas</option>
+		          <option value="bo">Bolivar</option>
+		          <option value="ca">Carabobo</option>
+		          <option value="co">Cojedes</option>
+		          <option value="dm">Delta Amacuro</option>
+		          <option value="dc">Distrito Capital</option>
+		          <option value="fa">Falc&oacute;n</option>
+		          <option value="gu">Guarico</option>
+		          <option value="la">Lara</option>
+		          <option value="me">M&eacute;rida</option>
+		          <option value="mi">Miranda</option>
+		          <option value="mo">Monagas</option>
+		          <option value="ne">Nueva Esparta</option>
+		          <option value="po">Portuguesa</option>
+		          <option value="su">Sucre</option>
+		          <option value="ta">T&aacute;chira</option>
+		          <option value="tr">Trujillo</option>
+		          <option value="va">Vargas</option>
+		          <option value="ya">Yaracuy</option>
+		          <option value="zu">Zulia</option>
+		     </select>
+						
+	      </div>
+
+
+	       <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" onclick="set_estado()">Entrar</button>
+		    </div>
+
+	    </div>
+	  </div>
 	</div>
-	</div> 
+
+
+	
+
+
 	
 
 	
