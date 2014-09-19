@@ -5,8 +5,6 @@ function set_estado(){
   var estado = e.options[e.selectedIndex].value;
 
 
-  
-
   if(estado=="0"){
     $('#select_estados').tooltip('show');
 
@@ -14,9 +12,9 @@ function set_estado(){
 
     $('#modal_estado').modal('hide');
 
-    for(var _estado in estados){
-        if(estados[_estado].id == estado){
-            game.data.conmax = estados[_estado].maximo;
+    for(var _estado in game.data.estados){
+        if(game.data.estados[_estado].ids == estado){
+            game.data.conmax = game.data.estados[_estado].maximo;
             break;
         }       
     }
@@ -46,10 +44,10 @@ game.Inicio = me.ObjectEntity.extend({
 
 	onMouseDown : function() {
 
-    if(me.levelDirector.getCurrentLevelId() == 'escena_01'){
-      $('#select_estados').tooltip();
-      $('#modal_estado').modal();
-    }
+        if(me.levelDirector.getCurrentLevelId() == 'escena_01'){
+            $('#select_estados').tooltip();
+            $('#modal_estado').modal();
+        }
 
 		return false;
 	

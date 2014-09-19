@@ -30,12 +30,6 @@ $(document).ready(function() {
 });
 
 
-var audio = {
-    audio: ""
-}
-
-
-
 function hand(){
     document.body.style.cursor = "pointer";
 
@@ -44,7 +38,6 @@ function hand(){
     },2000);
         
 }
-
 
 
 function eliminar_tabla(id){
@@ -60,22 +53,14 @@ function eliminar_tabla(id){
         }
     }
 
-    
-    //console.log($('#tabla').dataTable().fnSettings().fnRecordsTotal());
-
     tot_items = $('#tabla').dataTable().fnSettings().fnRecordsTotal();
-    console.log(tot_items);
 
     for(i=0; i<tot_items;i++){
         var idd = $('#tabla').dataTable().fnGetData(i);
-        
         if(idd[0]==id){
             $('#tabla').DataTable().row(i).remove().draw(false);
         }
-
     }
-
-
 }
 
 
@@ -117,39 +102,18 @@ function agregar_tabla(id){
             }
 
             me.audio.play("prender");
-
             consumo(id);
-
-
             
             if(consumos[cons].apagado){
-                $('#eliminar').attr("disabled", true);
                 consumos[cons].apagado = false;
                 consumo(consumos[cons].id);
-                
-                if(id=="radio_r"){
-
-                    audio.audio = "radio"+Math.floor((Math.random() * 4) + 1);
-					me.audio.play(audio.audio);
-                
-                }
-
-                else{
-                	me.audio.play(id);
-                }
-                
+                me.audio.play(id);
             }
 
             else{
-                $('#eliminar').attr("disabled", false);
                 consumos[cons].apagado = true;
                 consumo(consumos[cons].id);
-                
-                if(id=="radio_r"){
-                    me.audio.stop(audio.audio);
-                }else{
-                    me.audio.stop(id)
-                }
+                me.audio.stop(id)
                 
             }
         }

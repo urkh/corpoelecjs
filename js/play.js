@@ -4,8 +4,10 @@ game.PlayScreen = me.ScreenObject.extend({
     
         me.levelDirector.loadLevel("escena_01");
         //me.audio.playTrack("background");
-        //document.getElementById('fixedtop1').style.visibility = 'visible';
         $('#select_estados').val('0'); 
+        $.getJSON("./admin/backend.php", function(json){
+            game.data.estados = json;
+        });
 
     },
 

@@ -462,7 +462,7 @@ consumos = {
 
 }
 
-
+/*
 estados = {
     "amazonas":{
         "id":"am",
@@ -562,6 +562,9 @@ estados = {
     }
 
 }
+
+
+*/
 
 
 sonidos = {
