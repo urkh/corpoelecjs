@@ -1,19 +1,26 @@
 <?php
 
 
-$ds = DIRECTORY_SEPARATOR;  //1
+$ds = DIRECTORY_SEPARATOR;  
  
-$storeFolder = 'upload';   //2
+$storeFolder = '../data/sound'; 
  
 if (!empty($_FILES)) {
-     
-    $tempFile = $_FILES['file']['tmp_name'];          //3             
-      
-    $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;  //4
-     
-    $targetFile =  $targetPath. $_FILES['file']['name'];  //5
- 
-    move_uploaded_file($tempFile,$targetFile); //6
+    if($_FILES["file"]["type"] == "audio/mpeg"){
+        $tempFile = $_FILES['file']['tmp_name'];    
+        //$targetFile =  $_FILES['file']['name']; 
+        move_uploaded_file($tempFile,"$storeFolder/radio_r.mp3");
+    }
+
+    elseif($_FILES["file"]["type"]=="video/ogg"){
+        $tempFile = $_FILES['file']['tmp_name'];    
+        //$targetFile =  $_FILES['file']['name']; 
+        move_uploaded_file($tempFile,"$storeFolder/radio_r.ogg");
+    } 
+
+    else{
+        echo "upload a valid file";
+    }
      
 }
 

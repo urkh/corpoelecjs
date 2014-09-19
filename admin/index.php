@@ -25,6 +25,18 @@ if($_SESSION['LogedIn']){
     <script src="../lib/dataTables/jquery.dataTables.editable.js" type="text/javascript"></script>
     <script src="../lib/dropzone/dropzone.min.js" type="text/javascript"></script>
 
+
+    <script type="text/javascript">
+        Dropzone.options.dropzone = {
+            accept: function(file, done) {
+                if (file.type != "audio/mpeg" && file.type != "video/ogg") {
+                    done("Error! Debe seleccionar un archivo .mp3 y un .ogg");
+                }
+                else { done(); }
+            }
+        }
+     </script>
+
     <script type="text/javascript" charset="utf-8">
 		$(document).ready( function () {
 			$('#testados').dataTable({
@@ -72,21 +84,10 @@ if($_SESSION['LogedIn']){
 							} 
 						}
 
-
 					},
 				]									
-
 			});
-		
-
-            $("#mydrop").dropzone();
-
-            
-
-	
-		} );
-
-
+		});
 
 	</script>
 
@@ -117,7 +118,7 @@ if($_SESSION['LogedIn']){
 		</nav>
 	</div>
 
-	<div id="content" class="container">
+	<div id="content" class="container" align="center">
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3">
 				<h2>Administraci&oacute;n de Consumos</h2>
@@ -145,7 +146,9 @@ if($_SESSION['LogedIn']){
         </div>
 
         <hr>
-        <form action="upload.php" method="post" class="dropzone" enctype="multipart/form-data">
+        <h2>Actualizar Audio</h2>
+        <hr>
+        <form id="dropzone" action="upload.php" method="post" class="dropzone" enctype="multipart/form-data">
         </form>
 
 
