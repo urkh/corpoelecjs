@@ -45,3 +45,55 @@ input[type="number"] {
 }
 
 
+#summary{
+overflow-y: auto;
+overflow-x: auto;
+}
+table.display {
+font-family:arial;
+background-color: #FFFFFF;
+margin:0px 0pt 0px;
+text-align: left;
+position: relative;
+border: 2px #808080;
+border-style: outset;
+
+}
+table.display thead th {
+background-color: #FFFFFF;
+border: 1px #808080;
+border-style: groove;
+font-size: 14px;
+font-family: Arial;
+font-weight: normal;
+text-align: center;
+background-position: center bottom;
+cursor: hand;
+position: relative;
+
+}
+
+table.display tbody {
+color: #3d3d3d;
+font-size: 12px;
+font-weight: normal;
+vertical-align: center;
+text-align:left;    
+font-family: Arial;
+
+
+
+
+}
+#export{
+cursor: hand;
+}
+.highlight td {background: #FFFFFF;}
+.cbx{
+width: 73px;
+height: 13px;
+}
+#table1{
+height:600px; 
+overflow:auto;
+}

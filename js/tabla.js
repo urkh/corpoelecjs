@@ -1,11 +1,13 @@
 $(document).ready(function() {
 
     $('#eliminar').tooltip();
-	
-	$('#tabla').DataTable({
-		//scrollY: "200px",
-		//scrollCollapse: true,
-		bFilter: false,
+
+
+	$('#tabla').dataTable({
+		"sScrollY": "200px",
+        "bScrollCollapse": true,
+       "sScrollX" : "100%", 
+        bFilter: false,
 		bPaginate: false,
 		bSearchable: false,
 		bInfo: false,
@@ -26,6 +28,11 @@ $(document).ready(function() {
 
 
 	});
+
+
+ $(window).bind('resize', function () {
+    $('#tabla').dataTable.fnAdjustColumnSizing();
+  } );
 
 });
 
@@ -79,7 +86,7 @@ function agregar_tabla(id){
                         consumos[cons].nombre,
                         "<input type='number' id='"+id+"_cantidad' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
                         "<input type='number' id='"+id+"_frecuencia' step='0.2' min='0' onchange='consumo(\x22"+id+"\x22)' value='1'>",
-                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+">",
+                        "<input type='number' id='"+id+"_potencia' min='0' onchange='consumo(\x22"+id+"\x22)' value="+consumos[cons].kw+"> W",
                         "<p id='"+id+"_total'></p>"
                     ]).draw();
 

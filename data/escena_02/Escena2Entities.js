@@ -559,26 +559,31 @@ game.Salida = me.ObjectEntity.extend({
 
     onMouseDown : function() {
 
-        if(game.data.score>0){
+
+        if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
+            
+            if(game.data.score>0){
                 
-            me.audio.stop("radio");
-            game.data.game_over = true;
+                me.audio.stop("radio");
+                game.data.game_over = true;
 
 
-            if(game.data.score >= game.data.conmax){
-                me.audio.play("pierde");
+                if(game.data.score >= game.data.conmax){
+                    me.audio.play("pierde");
+                }
+
+                else{
+                    me.audio.play("gana");
+                }
             }
 
             else{
-                me.audio.play("gana");
+
+                alert("Debe seleccionar al menos un electrodom\u00e9stico");
             }
+
         }
-
-        else{
-
-            alert("Debe seleccionar al menos un electrodom\u00e9stico");
-        }
-
+            
         return false;
     
     },

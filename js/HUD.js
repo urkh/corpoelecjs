@@ -12,9 +12,9 @@ game.HUD.Container = me.ObjectContainer.extend({
 		this.name = "HUD";
 		
 		this.addChild(new game.HUD.ScoreItem(220, 55));
-		this.addChild(new game.HUD.ScoreItem2(145, 145));
+		//this.addChild(new game.HUD.ScoreItem2(145, 145));
 		this.addChild(new game.HUD.Pila(190,55));
-		this.addChild(new game.HUD.PilaE(190,115));
+		//this.addChild(new game.HUD.PilaE(190,115));
 	}
 });
 
@@ -124,6 +124,8 @@ game.HUD.Pila = me.Renderable.extend({
 
 
 
+/*
+
 
 game.HUD.PilaE = me.Renderable.extend({
 
@@ -182,6 +184,8 @@ game.HUD.PilaE = me.Renderable.extend({
 
 });
 
+*/
+
 
 
 game.HUD.ScoreItem = me.Renderable.extend({	
@@ -236,7 +240,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
 
 });
 
-
+/*
 
 game.HUD.ScoreItem2 = me.Renderable.extend({	
 
@@ -284,4 +288,4 @@ game.HUD.ScoreItem2 = me.Renderable.extend({
 	}
 
 });
-
+*/
