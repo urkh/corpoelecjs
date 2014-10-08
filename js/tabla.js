@@ -4,9 +4,9 @@ $(document).ready(function() {
 
 
 	$('#tabla').dataTable({
-		"sScrollY": "200px",
-        "bScrollCollapse": true,
-       "sScrollX" : "100%", 
+//		"scrollY": "200px",
+//        "bScrollCollapse": true,
+//       "sScrollX" : "100%", 
         bFilter: false,
 		bPaginate: false,
 		bSearchable: false,
@@ -30,9 +30,9 @@ $(document).ready(function() {
 	});
 
 
- $(window).bind('resize', function () {
-    $('#tabla').dataTable.fnAdjustColumnSizing();
-  } );
+ //$(window).bind('resize', function () {
+ //   $('#tabla').dataTable.fnAdjustColumnSizing();
+ // } );
 
 });
 
@@ -163,11 +163,12 @@ function consumo(id){
         consumo_total+=consumos[cons].consumo;
     }
 
-    game.data.score=(consumo_total*30)/1000;
+    game.data.score=Math.round((consumo_total*30)/1000);
 
 
     $('#'+id+'_total').text(total+" W/h");
 
+    /*
     if(game.data.score < game.data.conmax/3){
         sonidos.alerta1 = true;
     }
@@ -184,7 +185,7 @@ function consumo(id){
             me.audio.play("alerta");
         }
         sonidos.alerta3 = true;
-    }
+    }*/
 
     return true;
 
