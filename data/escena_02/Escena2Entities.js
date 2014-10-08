@@ -387,7 +387,7 @@ game.EntrarCuarto1 = me.ObjectEntity.extend({
         
         if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
             me.audio.play("dopen");
-            me.audio.stop("radio");
+            me.audio.stop("radio_r");
             me.game.viewport.fadeIn("#000000", 450, 
 
                 (function (){
@@ -429,7 +429,7 @@ game.EntrarCuarto2 = me.ObjectEntity.extend({
 
         if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
             me.audio.play("dopen");
-            me.audio.stop("radio");
+            me.audio.stop("radio_r");
             me.game.viewport.fadeIn("#000000", 450, 
 
                 (function (){
@@ -477,7 +477,7 @@ game.EntrarCocina = me.ObjectEntity.extend({
        
         if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
             me.audio.play("dopen");
-            me.audio.stop("radio");
+            me.audio.stop("radio_r");
             me.game.viewport.fadeIn("#000000", 450, 
 
                 (function (){
@@ -514,16 +514,13 @@ game.EntrarBano = me.ObjectEntity.extend({
         me.input.registerPointerEvent('pointerdown', this, this.onMouseDown.bind(this), false);
     //    me.input.registerPointerEvent('pointermove', new me.Rect(new me.Vector2d(670,550), 90, 90), hand.bind(this), false);
 
-
     },
 
     onMouseDown : function() {
 
-
-
         if(me.levelDirector.getCurrentLevelId() == 'escena_02'){
             me.audio.play("dopen");
-            me.audio.stop("radio");
+            me.audio.stop("radio_r");
             me.game.viewport.fadeIn("#000000", 450, 
 
                 (function (){
@@ -573,7 +570,7 @@ game.Salida = me.ObjectEntity.extend({
                 }
 
                 else{
-                    me.audio.play("gana");
+                    me.audio.play("radio_r");
                 }
             }
 

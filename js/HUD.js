@@ -11,10 +11,10 @@ game.HUD.Container = me.ObjectContainer.extend({
 		this.z = Infinity;
 		this.name = "HUD";
 		
-		this.addChild(new game.HUD.ScoreItem(220, 55));
+		this.addChild(new game.HUD.ScoreItem(50, 60));
 		//this.addChild(new game.HUD.ScoreItem2(145, 145));
 		this.addChild(new game.HUD.Pila(190,55));
-		//this.addChild(new game.HUD.PilaE(190,115));
+		this.addChild(new game.HUD.ME(190,115));
 	}
 });
 
@@ -26,13 +26,15 @@ game.HUD.Pila = me.Renderable.extend({
 	init: function(x, y){
 
 		this.parent(new me.Vector2d(x,y), 10, 10);
-		this.pila1 = new me.SpriteObject(1, 10, me.loader.getImage("pila1"), 575, 112);	
-		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 575, 112);	
-		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 575, 112);	
+		this.pila1 = new me.SpriteObject(1, 10, me.loader.getImage("pila1"), 359, 112);	
+		this.pila2 = new me.SpriteObject(1, 10, me.loader.getImage("pila2"), 359, 112);	
+		this.pila3 = new me.SpriteObject(1, 10, me.loader.getImage("pila3"), 359, 112);	
+		this.pila4 = new me.SpriteObject(1, 10, me.loader.getImage("pila4"), 359, 112);	
+		this.pila5 = new me.SpriteObject(1, 10, me.loader.getImage("pila5"), 359, 112);	
 		this.pierde = new me.SpriteObject(1, 200, me.loader.getImage("pierde"), 1546, 517);
 		this.gana = new me.SpriteObject(1, 200, me.loader.getImage("gana"), 1536, 720);
 		me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1270,280), 200, 100), this.reset.bind(this), false);
-		me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1,10), 600, 100), this.showTable.bind(this), false);
+		me.input.registerPointerEvent('pointerdown', new me.Rect(new me.Vector2d(1,130), 600, 100), this.showTable.bind(this), false);
 		
 		//this.score = -1;
 		this.floating = true;
@@ -53,7 +55,7 @@ game.HUD.Pila = me.Renderable.extend({
 		return false;
 	},
 
-	
+	/*
 	draw : function (context) {
 		
 		if(game.data.score < game.data.conmax/3){
@@ -79,11 +81,56 @@ game.HUD.Pila = me.Renderable.extend({
     			this.gana.draw(context);
     		}
     	}
+	},*/
+
+		draw : function (context) {
+	
+		//if(game.data.game_over){
+		//	me.game.world.removeChild(this);
+
+
+		//}else{
+
+			if(game.data.conmax==500){
+				this.pila1.draw(context);
+			}
+
+			if(game.data.conmax==600){
+				this.pila2.draw(context);
+			}
+
+			if(game.data.conmax==700){
+				this.pila3.draw(context);
+			}
+
+			if(game.data.conmax==900){
+				this.pila4.draw(context);
+			}
+
+			if(game.data.conmax==1300){
+				this.pila5.draw(context);
+			}
+			
+		//}
+
+
+		if(game.data.game_over){
+
+    		if(game.data.score > game.data.conmax){
+    			
+    			this.pierde.draw(context);
+    		}
+
+    		else{
+    			this.gana.draw(context);
+    		}
+    	}
 	},
 
 
 	reset: function(){
 		if(game.data.game_over){
+			me.audio.stop("radio_r");
 
 			$('#select_estados').val('0'); 
 			me.game.world.removeChild(this);
@@ -124,19 +171,16 @@ game.HUD.Pila = me.Renderable.extend({
 
 
 
-/*
 
 
-game.HUD.PilaE = me.Renderable.extend({
+
+game.HUD.ME = me.Renderable.extend({
 
 	init: function(x, y){
 
 		this.parent(new me.Vector2d(x,y), 10, 10);
-		this.pila500 = new me.SpriteObject(10, 115, me.loader.getImage("pila500"), 359, 89);	
-		this.pila600 = new me.SpriteObject(10, 115, me.loader.getImage("pila600"), 359, 89);	
-		this.pila700 = new me.SpriteObject(10, 115, me.loader.getImage("pila700"), 359, 89);	
-		this.pila900 = new me.SpriteObject(10, 115, me.loader.getImage("pila900"), 359, 89);	
-		this.pila1300 = new me.SpriteObject(10, 115, me.loader.getImage("pila1300"), 359, 89);	
+		this.me = new me.SpriteObject(10, 115, me.loader.getImage("me"), 359, 81);	
+
 
 		//this.score = -1;
 		this.floating = false;
@@ -151,40 +195,24 @@ game.HUD.PilaE = me.Renderable.extend({
 
 	
 	draw : function (context) {
-	
+
 		if(game.data.game_over){
 			me.game.world.removeChild(this);
 
 
-		}else{
-
-			if(game.data.conmax==500){
-				this.pila500.draw(context);
-			}
-
-			if(game.data.conmax==600){
-				this.pila600.draw(context);
-			}
-
-			if(game.data.conmax==700){
-				this.pila700.draw(context);
-			}
-
-			if(game.data.conmax==900){
-				this.pila900.draw(context);
-			}
-
-			if(game.data.conmax==1300){
-				this.pila1300.draw(context);
-			}
-			
 		}
+
+		else{
+
+			this.me.draw(context);
+
+		}
+	
 	}
 
 
 });
 
-*/
 
 
 
