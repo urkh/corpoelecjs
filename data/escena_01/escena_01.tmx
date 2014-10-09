@@ -9,7 +9,7 @@
   </data>
  </layer>
  <objectgroup name="sinput" width="50" height="31">
-  <object name="inicio" x="704" y="32" width="158" height="75">
+  <object name="inicio" x="250" y="441" width="158" height="75">
    <properties>
     <property name="image" value="inicio"/>
     <property name="spriteheight" value="84"/>
